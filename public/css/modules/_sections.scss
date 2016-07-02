@@ -1,0 +1,106 @@
+.WD__sections {
+    @include abs();
+    color:#fff;
+    font-weight:400;
+    font-size:15px;
+    line-height:15px;
+    font-family:$default;
+    overflow:hidden;
+    z-index:200000;
+}
+.WD__section,
+.WD__section__wrapper {
+    @include abs();
+}
+.WD__section__wrapper {
+    display:none;
+    // background-color:$black_dark;
+    // background-color:#203248;
+    background:linear-gradient(225deg, #3e4757, #1f242c);
+    // background:linear-gradient(225deg,#d7dbe1 0%,#e5eaf0 100%);
+}
+.WD__section--active {
+    display:block;
+}
+.WD__section__cover {
+    @include flex("column", "center", "flex-start");
+    position:absolute;
+    top:0;
+    left:40px;
+    height:100%;
+    color:#fafafa;
+    font-size:15px;
+    line-height:15px;
+    font-weight:300;
+    font-family:$default;
+    margin-top:19px;
+    padding-right:15px;
+}
+.WD__section__cover__title {
+    font-size:29px;
+    line-height:33px;
+    letter-spacing:-0.02em;
+    text-transform:uppercase;
+}
+.WD__section__cover__container {
+    position:relative;
+    color:rgba(221,223,224,.8);
+    font-size:19px;
+    line-height:28px;
+}
+.WD__section__cover__strong {
+    color:rgba(#fff,.85);
+    font-weight:500;
+    font-size:18px;
+    line-height:29px;
+    text-transform:uppercase;
+}
+.WD__section__arrow {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    color:$yellow;
+    font-weight:400;
+    font-size:20px;
+    line-height:20px;
+    padding:24px 0;
+    text-align:center;
+    letter-spacing:0.016em;
+
+    &:before,
+    &:after {
+        content:"";
+        position:absolute;
+        width:25px;
+        height:25px;
+        margin-top:-18px;
+        border:2px solid #fff;
+        border-left:none;
+        border-bottom:none;
+        @include accelerate();
+        transform:translate3d(0, 0, 0) rotate(135deg);
+        animation:WD__section__arrow 1.5s ease-in-out infinite;
+    }
+    &:before {
+        left:10%;
+        margin-left:-12px;
+    }
+    &:after {
+        right:10%;
+        margin-right:-12px;
+    }
+}
+@keyframes WD__section__arrow {
+    to {
+        transform:translate3d(0, 125%, 0) rotate(135deg);
+        opacity:0;
+    }
+}
+
+
+@media screen and (max-height:480px){
+    .WD__section__cover {
+        top:-10px;
+    }
+}

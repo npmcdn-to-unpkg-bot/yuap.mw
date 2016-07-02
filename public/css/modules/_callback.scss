@@ -1,0 +1,95 @@
+.WD__callback__cover {
+    .WD__section__cover__container {
+        padding:30px 0 0 35px;
+    }
+}
+.WD__callback__button {
+    position:absolute;
+    top:69px;
+    right:25px;
+    width:88px;
+    height:88px;
+    border-radius:50%;
+
+    &:after {
+        content:"";
+        @include abs_50(68, 68, "%");
+        background:url(/public/images/callbutton.svg) no-repeat 0 0 / cover;
+        z-index:1;
+    }
+}
+.WD__callback__button__blobs {
+    @include abs();
+    border-radius:50%;
+    @include accelerate();
+    transform:translateZ(0);
+}
+.WD__callback__button__blobs {
+    outline:90px solid transparent;
+    filter:url("#WD__callbutton__filter");
+}
+.WD__callback__button__blob {
+    @include abs();
+    border-radius:50%;
+    // background:#4D5666;
+    background:$emerald_bright;
+    @include accelerate(true);
+    pointer-events:none;
+
+    &:nth-child(1) {
+        animation:WD__callbutton__blob1 1.5s linear infinite alternate;
+    }
+    &:nth-child(2) {
+        animation:WD__callbutton__blob2 2.2s linear infinite alternate;
+    }
+    &:nth-child(3) {
+        animation:WD__callbutton__blob3 3s linear infinite alternate;
+    }
+    &:nth-child(4) {
+        animation:WD__callbutton__blob4 1.7s linear infinite alternate;
+    }
+}
+@keyframes WD__callbutton__blob1 {
+    0% {
+        transform:translate3d(-3px, -4px, 0px);
+    }
+    100% {
+        transform:translate3d(4px, 3px, 0px);
+    }
+}
+@keyframes WD__callbutton__blob2 {
+    0% {
+        transform:translate3d(3px, 4px, 0px);
+    }
+    100% {
+        transform:translate3d(-4px, -3px, 0px);
+    }
+}
+@keyframes WD__callbutton__blob3 {
+    0% {
+        transform:translate3d(-8px, 0px, 0px);
+    }
+    100% {
+        transform:translate3d(8px, 0px, 0px);
+    }
+}
+@keyframes WD__callbutton__blob4 {
+    0% {
+        transform:translate3d(8px, 0px, 0px);
+    }
+    100% {
+        transform:translate3d(-8px, 0px, 0px);
+    }
+}
+
+@media screen and (max-height:480px){
+    .WD__callback__cover {
+        .WD__section__cover__container {
+            padding:15px 0 0 35px;
+        }
+    }
+    .WD__callback__button {
+        width:77px;
+        height:77px;
+    }
+}

@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="format-detection" content="telephone=no" />
+	<meta name="google" content="notranslate" />
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script src="/public/js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/public/css/client.css">
+	<script>
+	$(document).ready(function(){
+		var sid = 777,
+			ready = false,
+			$id = null,
+			user_id = localStorage.chat_uid || new Date().getTime() + (Math.round(Math.random() * 10000)),
+			reconnectInterval = null,
+			socket = io.connect('http://5.101.124.21:8008', {
+				reconnection: false
+			});
+
+		if (!localStorage.chat_uid) localStorage.chat_uid = user_id;
+
+		var $panel = $(".panel__message"),
+			$content = $(".content-wrapper"),
+			$msgs = $content.find("#msgs");
+
+		$("#login").detach();
+		$("#chat").show();
+		$("#msg").focus();
+		$("form").submit(function(e){
+    		e.preventDefault();
+		});
+
+		socket.on('connecting', function () {
+            //console.dir(data);
+            //msg_system('Соединение...');
+        });
+
+        socket.on('connect', function () {
+            //console.dir(data);
+            console.log('Соединение установленно!');
+            clearInterval(reconnectInterval);
+            reconnectInterval = null;			
+			ready = true;
+			$id = this.id;
+			socket.emit("join", {
+				id: user_id,
+				sid: sid,
+				admin: false,
+				metrika: {
+					device: "pc",
+					city: "Москва",
+					start: "/catalog/svetodiody",
+					adv: true,
+					referer: "yandex",
+					keyword: "купить светодиоды",
+					visit: 2,
+					pages: 4,
+					pagesData: [
+						'/catalog/svetodiody',
+						'/catalog/svetodiodnye-lenty',
+						'/pages/oplata-i-dostavka',
+						'/pages/contacts'
+					]
+				},
+				profile: null
+			});
+        });
+		
+		socket.on("chat_" + user_id + "_" + sid, function(data){
+			if (ready) {
+				if (data.id === user_id){
+					$msgs.append("<li class='answer'><p>" + data.text + "</p></li>");
+				}
+				else {
+					if (data.type === "chat"){
+						$msgs.append("<li class='que'><p>" + data.text + "</p></li>");
+					}
+					else if (data.type === "auth"){
+						$msgs.append("<li class='social__auth__container que'><p>Представьтесь пожалуйста или используйте Social HandShake.</p>"+
+						"<div class='social__auth'><div data-social='vk' class='social__auth__button social__auth__vk'>В</div><div data-social='fb' class='social__auth__button social__auth__fb'>F</div></div></li>");
+						authSocial();
+					}
+					else if (data.type === "phone"){
+						$msgs.append("<li class='offer__phone__container que'><p>Оставьте свой телефон, я могу вам перезвонить, чтобы обсудить более детально.</p>"+
+						"<div class='offer__phone'><input type='text'></div></li>");
+						sendPhone();
+					}
+					else if (data.type === "email"){
+						$msgs.append("<li class='offer__email__container que'><p>Оставьте свой email, я отправлю на него информацию.</p>"+
+						"<div class='offer__email'><input type='text'></div></li>");
+						sendEmail();
+					}
+					$content.removeClass("content--typed");
+					clearTimeout(timeOutTyped);
+				}
+				$content.scrollTop($content[0].scrollHeight);
+			}
+		});
+
+		var timeOutTyped = null;
+
+		socket.on("typed_" + user_id + "_" + sid, function(){
+			if (ready) typedText();
+		});
+
+		function typedText(){
+			clearTimeout(timeOutTyped);
+			$content.addClass("content--typed");
+			timeOutTyped = setTimeout(function(){
+				$content.removeClass("content--typed");
+			}, 5000);
+		};
+		
+		socket.on('disconnect', function() {
+			reconnect();
+			console.log('Соединение потеряно!');
+		});
+		
+		function reconnect(){
+	        reconnectInterval = setInterval(function(){
+	            socket.connect();
+	        }, 500);
+	        console.log('Запуск реконнекта!');
+		};
+
+		function authSocial(){
+			$(".social__auth").find(".social__auth__button").on("click", function(){
+				var social = $(this).data("social");
+				if (social === "vk"){
+					var url = "http://oauth.vk.com/authorize?client_id=5357003&scope=email&redirect_uri=http://uplecms.ru/temp/vk.php&response_type=code";
+					var width = 640;
+					var height = 480;
+					var mTop = ($(window).height()-height)/1.25;
+					var mLeft = ($(window).width()-width)/2;
+					var win = window.open(url, "", "top="+mTop+",left="+mLeft+",width="+width+",height="+height+",resizable=no,scrollbars=no,menubar=no");
+					win.focus();
+				}
+			});
+		};
+
+		function sendPhone(){
+			var $offer = $(".offer__phone__container");
+			$offer.find(".offer__phone > input").on("keypress", function(e){
+				if (e.which == 13){
+					var text = $(this).val();
+					if (text.length){
+						socket.emit("answerOffer", {
+							type: "phone",
+							phone: text
+						});
+						$offer.find(".offer__phone > input").off("keypress");
+						$offer.find(".offer__phone").remove();
+						$offer.removeClass("offer__phone__container");
+					}
+				}
+			});
+		};
+
+		function sendEmail(){
+			var $offer = $(".offer__email__container");
+			$offer.find(".offer__email > input").on("keypress", function(e){
+				if (e.which == 13){
+					var text = $(this).val();
+					if (text.length){
+						socket.emit("answerOffer", {
+							type: "email",
+							email: text
+						});
+						$offer.find(".offer__email > input").off("keypress");
+						$offer.find(".offer__email").remove();
+						$offer.removeClass("offer__email__container");
+					}
+				}
+			});
+		};
+
+		function throttle(fn, delay) {
+			var allowSample = true;
+
+			return function(e) {
+				if (allowSample) {
+					allowSample = false;
+					setTimeout(function() { allowSample = true; }, delay);
+					fn(e);
+				}
+			};
+		};
+
+		function debounce(func, wait, immediate) {
+			var timeout;
+			return function() {
+				var context = this, args = arguments;
+				var later = function() {
+					timeout = null;
+					if (!immediate) func.apply(context, args);
+				};
+				var callNow = immediate && !timeout;
+				clearTimeout(timeout);
+				timeout = setTimeout(later, wait);
+				if (callNow) func.apply(context, args);
+			};
+		};
+
+		$("#send").click(function(){
+			var text = $("#msg").val();
+			if (text.length){
+				socket.emit("send", {
+					message: text
+				});
+				$("#msg").val("");
+			}
+		});
+
+		// $("#send").on("click", function(e){
+		// 	e.preventDefault();
+		// 	var url = "http://oauth.vk.com/authorize?client_id=5357003&scope=schools,email&redirect_uri=http://uplecms.ru/temp/vk.php&response_type=code";
+		// 	var width = 640;
+		// 	var height = 480;
+		// 	var mTop = ($(window).height()-height)/1.25;
+		// 	var mLeft = ($(window).width()-width)/2;
+		// 	var openwindow = window.open(url, "", "top="+mTop+",left="+mLeft+",width="+width+",height="+height+",resizable=no,scrollbars=no,menubar=no");
+		// 	openwindow.focus();
+		// });
+
+		$("#msg").on("keypress.enter", function(e){
+			if (e.which == 13) {
+				var text = $("#msg").val();
+				if (text.length){
+					socket.emit("send", {
+						message: text
+					});
+					$("#msg").val("");
+				}
+			}
+		});
+
+		$("#msg").on("keypress.chat", throttle(function(e) {
+			if (e.which != 13) {
+				socket.emit("typed");
+			}
+		}, 1000));
+
+		var onmessage = function(e) {
+			var data = e.data,
+				origin = e.origin;
+
+			if (data){
+				if (origin === "http://uplecms.ru"){
+					if (data.network === "vk"){
+						socket.emit("answerOffer", {
+							type: "profile",
+							name: data.first_name + " " + data.last_name,
+							avatar: data.photo_max,
+							profile: data
+						});
+					}
+					console.dir(data);
+				}
+			}
+		};
+
+		if (typeof window.addEventListener != "undefined") {
+			window.addEventListener("message", onmessage, false);
+		} else if (typeof window.attachEvent != "undefined") {
+			window.attachEvent("onmessage", onmessage);
+		}
+	});
+
+	function getTime(){
+		var date = new Date(),
+			hours = date.getHours(),
+			min = date.getMinutes();
+
+		if (min < 10) min = "0" + min;
+
+		return hours + ":" + min;
+	};
+
+	function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	}
+
+	function safe(str) {
+		return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	}
+
+</script>
+<body>
+
+	<div class="row">
+		<div class="container">
+			<div class="col-sm-2">
+				<ul id="users"></ul>
+			</div>
+			<div class="col-sm-4">
+				<div class="phone">
+					<div class="screen">
+						<header>
+							<h1>iOS 7 Blurred Header</h1>
+						</header>
+						<div class="content-wrapper">
+							<div class="content">
+								<ol id="msgs" class="messages"></ol>
+								<div class="content__typed">Вам печатают сообщение...</div>
+							</div>
+						</div>
+						<div class="panel__message">
+							<div id="login">
+								<form class="form-inline">
+									<input type="text" class="panel__message__input input-small" placeholder="Your name" id="name">
+									<input type="button" name="join" id="join" value="Join" class="panel__message__button btn btn-primary">
+								</form>
+							</div>
+							<div id="chat">
+								<form id="2" class="form-inline">
+									<input type="text" class="panel__message__input input" placeholder="Your message" id="msg">
+									<input type="button" name="send" id="send" value="Send" class="panel__message__button btn btn-success">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

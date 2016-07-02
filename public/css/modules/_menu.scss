@@ -1,0 +1,57 @@
+.WD__menu {
+    @include flex("row", "space-around", "center");
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:57px;
+    border-bottom:1px solid rgba(#fff,.13);
+    z-index:1;
+}
+.WD__menu__item {
+    width:100%;
+    height:100%;
+    @include flex("row", "center", "center");
+    text-align:center;
+
+    &--active {
+        background:$violet;
+
+        // .WD__menu__item__icon__color {
+        //     fill:$black_gray;
+        // }
+    }
+}
+.WD__menu__item__icon {
+    display:inline-block;
+    vertical-align:top;
+    width:44px;
+    height:44px;
+}
+.WD__menu__item__icon__color {
+    fill:#fff;
+}
+.WD__menu__item__icon__callback {
+    width:48px;
+    height:48px;
+    margin-top:7px;
+}
+.WD__menu__item__icon__messenger {
+    width:35px;
+    height:35px;
+}
+.WD__menu__item__icon__products {
+    width:58px;
+    height:58px;
+    margin-top:10px;
+}
+.WD__menu__item__icon__reviews {
+    width:44px;
+    height:44px;
+    margin-top:10px;
+}
+.WD__menu__item__icon__contacts {
+    width:48px;
+    height:48px;
+    margin-top:11px;
+}

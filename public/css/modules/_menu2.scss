@@ -1,0 +1,134 @@
+.WD__menu {
+    @include abs();
+    color:#fff;
+    font-size:15px;
+    line-height:15px;
+    font-weight:400;
+    font-family:$default;
+    z-index:200000;
+}
+.WD__menu__wrapper {
+    @include abs();
+    // @include flex("column", "space-between", "stretch");
+}
+.WD__menu__section {
+    position:relative;
+    display:block;
+    width:100%;
+    background:$black_gray;
+    overflow:hidden;
+
+    &1 {
+        height:31%;
+        // background-color:#6B37E7;
+        // background-color:#838EFC;
+        // background:linear-gradient(225deg, #3c3c3c, #2b2b2b);
+        background:linear-gradient(225deg, #838EFC, #7984ED);
+        // background:linear-gradient(225deg, #835EFF, #F20898);
+        overflow:hidden;
+
+        // &:before {
+        //     content:"";
+        //     position:absolute;
+        //     bottom:-60px;
+        //     left:50%;
+        //     width:628px;
+        //     height:548px;
+        //     background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-orange.png) no-repeat;
+        // }
+        // &:after {
+        //     content:"";
+        //     position:absolute;
+        //     bottom:-280px;
+        //     left:-50%;
+        //     width:301px;
+        //     height:396px;
+        //     background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-yellow.png) no-repeat;
+        // }
+    }
+    &2 {
+        height:48%;
+        // background:url(/public/images/Attach_digie.png) no-repeat 0 0 / cover;
+        background:url(/public/images/bg.jpg) no-repeat 0 0 / cover;
+        // background-color:#F15D5D;
+
+        // &:before {
+        //     content:"";
+        //     position:absolute;
+        //     bottom:-280px;
+        //     left:-50%;
+        //     width:301px;
+        //     height:396px;
+        //     background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-yellow.png) no-repeat;
+        // }
+        &:after {
+            content:"";
+            position:absolute;
+            bottom:-70px;
+            left:50%;
+            width:628px;
+            height:548px;
+            background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-orange.png) no-repeat;
+        }
+        &:before {
+            content:"";
+            position:absolute;
+            bottom:-40px;
+            left:-50%;
+            width:309px;
+            height:175px;
+            background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-blue.png) no-repeat;
+        }
+    }
+    &3 {
+        background-color:#F7386B;
+        height:25%;
+    }
+}
+.WD__menu__section__callback__icon {
+
+}
+.WD__menu__section__text {
+    position:absolute;
+    width:100%;
+    bottom:0;
+    right:0;
+    text-align:right;
+}
+.WD__menu__section__title {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    font-size:29px;
+    line-height:33px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:-0.02em;
+    text-shadow:-1px -1px 1px rgba(255,255,255,.2),1px 1px 1px rgba(255,255,255,.2),1px 1px 1px rgba(51,51,51,.7);
+    padding:0 15px 45px 0;
+
+    &:before {
+        content:"";
+        position:absolute;
+        top:-30%;
+        left:-20px;
+        width:1px;
+        height:60%;
+        background:#fff;
+    }
+}
+.WD__menu__section__subtitle {
+    display:block;
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:100%;
+    font-size:19px;
+    line-height:20px;
+    font-weight:400;
+    letter-spacing:-0.2px;
+    padding:9px 15px;
+    white-space:nowrap;
+    background:#fff;
+    color:$black_gray;
+}
