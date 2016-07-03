@@ -49,6 +49,8 @@ gulp.task('watch', function() {
 
     gulp.watch([
 		"index.html",
+		"public/js/*.js",
+		"public/js/**/*.js",
 		"sections.html"]).on("change", reload);
 });
 

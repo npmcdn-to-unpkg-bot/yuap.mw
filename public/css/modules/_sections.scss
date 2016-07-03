@@ -1,28 +1,44 @@
-.WD__sections {
+.WD__screens {
     @include abs();
     color:#fff;
     font-weight:400;
     font-size:15px;
     line-height:15px;
     font-family:$default;
+    background:$black_dark;
+    @include accelerate(true);
     overflow:hidden;
     z-index:200000;
 }
-.WD__section,
-.WD__section__wrapper {
+.WD__screen,
+.WD__screen__content {
     @include abs();
 }
-.WD__section__wrapper {
-    display:none;
+.WD__screen {
+    // display:none;
+    opacity:0;
+    @include accelerate(true);
+    overflow:hidden;
     // background-color:$black_dark;
     // background-color:#203248;
     background:linear-gradient(225deg, #3e4757, #1f242c);
     // background:linear-gradient(225deg,#d7dbe1 0%,#e5eaf0 100%);
 }
-.WD__section--active {
-    display:block;
+.WD__vertical__space,
+.WD__horizontal__space {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
 }
-.WD__section__cover {
+.WD__screen--long {
+    height:auto;
+    min-height:100%;
+}
+.WD__screen--active {
+    // display:block;
+}
+.WD__screen__cover {
     @include flex("column", "center", "flex-start");
     position:absolute;
     top:0;
@@ -36,26 +52,26 @@
     margin-top:19px;
     padding-right:15px;
 }
-.WD__section__cover__title {
+.WD__screen__cover__title {
     font-size:29px;
     line-height:33px;
     letter-spacing:-0.02em;
     text-transform:uppercase;
 }
-.WD__section__cover__container {
+.WD__screen__cover__container {
     position:relative;
     color:rgba(221,223,224,.8);
     font-size:19px;
     line-height:28px;
 }
-.WD__section__cover__strong {
+.WD__screen__cover__strong {
     color:rgba(#fff,.85);
     font-weight:500;
     font-size:18px;
     line-height:29px;
     text-transform:uppercase;
 }
-.WD__section__arrow {
+.WD__screen__arrow {
     position:absolute;
     bottom:0;
     left:0;
@@ -80,7 +96,7 @@
         border-bottom:none;
         @include accelerate();
         transform:translate3d(0, 0, 0) rotate(135deg);
-        animation:WD__section__arrow 1.5s ease-in-out infinite;
+        animation:WD__screen__arrow 1.5s ease-in-out infinite;
     }
     &:before {
         left:10%;
@@ -91,16 +107,28 @@
         margin-right:-12px;
     }
 }
-@keyframes WD__section__arrow {
+@keyframes WD__screen__arrow {
     to {
         transform:translate3d(0, 125%, 0) rotate(135deg);
         opacity:0;
     }
 }
 
-
 @media screen and (max-height:480px){
-    .WD__section__cover {
+    .WD__screen__cover {
         top:-10px;
+    }
+}
+@media screen and (max-width:320px){
+    .WD__messenger__cover {
+        left:30px;
+    }
+    .WD__screen__arrow {
+        &:before {
+            margin-left:-17px;
+        }
+        &:after {
+            margin-right:-17px;
+        }
     }
 }

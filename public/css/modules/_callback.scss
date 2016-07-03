@@ -1,5 +1,36 @@
+.WD__callback {
+    .WD__screen__cover__title {
+        transform:translate3d(0, -40px, 0);
+    }
+    .WD__callback__button {
+        transform:translate3d(60px, 0, 0);
+    }
+    .WD__screen__cover__container {
+        transform:translate3d(-80px, 0, 0);
+    }
+    .WD__screen__arrow {
+        transform:translate3d(0, -60px, 0);
+    }
+    .WD__screen__cover__title,
+    .WD__callback__button,
+    .WD__screen__cover__container,
+    .WD__screen__arrow {
+        will-change:opacity, transform;
+        opacity:0;
+    }
+    &.WD__screen--active {
+        .WD__screen__cover__title,
+        .WD__callback__button,
+        .WD__screen__cover__container,
+        .WD__screen__arrow {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:transform 0.55s $cubic42, opacity 0.4s $cubic42;
+        }
+    }
+}
 .WD__callback__cover {
-    .WD__section__cover__container {
+    .WD__screen__cover__container {
         padding:30px 0 0 35px;
     }
 }
@@ -84,7 +115,7 @@
 
 @media screen and (max-height:480px){
     .WD__callback__cover {
-        .WD__section__cover__container {
+        .WD__screen__cover__container {
             padding:15px 0 0 35px;
         }
     }
