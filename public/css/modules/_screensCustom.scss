@@ -1,0 +1,93 @@
+.WD__screens {
+    &[data-theme="white"] {
+        color:#161616;
+        background:#c6daf0;
+
+        .WD__screen__cover {
+            color:$bg_color;
+        }
+        .WD__menu {
+            background:linear-gradient(to bottom, #f1f8ff 50%, rgba(#f1f8ff,0) 100%);
+            border-bottom:1px solid rgba($black_gray,.13);
+        }
+        .WD__menu__item__icon__color {
+            fill:$gray_darken;
+        }
+        .WD__menu__item--active {
+            height:calc(100% + 2px);
+
+            .WD__menu__item__icon__color {
+                fill:#fff;
+            }
+        }
+        .WD__screen__cover__container,
+        .WD__screen__cover__strong {
+            color:$black_gray;
+        }
+        .WD__screen {
+            // background:linear-gradient(225deg,#d7dbe1 0%,#e5eaf0 100%);
+            // background:linear-gradient(rgba(#f9fafd,.7), rgba(#cbd3e4,.7));
+            // background:linear-gradient(to bottom, #82878f 0%,#73787e 100%);
+            // background:#EEF5F9;
+            // background:#F8FAFC;
+            background:#d7dbe1;
+
+            &:before {
+                content:"";
+                @include abs();
+                background:linear-gradient(rgba(#f1f8ff,.85), rgba(#c6daf0,.95));
+                z-index:-1;
+            }
+        }
+        .WD__screen__cover__button {
+            color:#000;
+
+            &__arrow {
+                background:$emerald_bright;
+                border-color:$emerald_bright;
+            }
+            &__arrow__icon__color {
+                fill:$bg_color;
+            }
+        }
+        .WD__screen__cover__link {
+            color:$blue;
+            border-bottom-color:rgba($blue,.3);
+        }
+        .WD__screen__arrow {
+            color:#161616;
+
+            &:before,
+            &:after {
+                border-color:$bg_color;
+            }
+        }
+
+        .WD__messenger__cover__status {
+            color:$bg_color;
+            background:$emerald_bright;
+        }
+        .WD__messenger__cover__name,
+        .WD__messenger__cover__name__post {
+            color:#000;
+        }
+
+        .WD__reviews__cover__raiting__title {
+            color:$bg_color;
+        }
+        .WD__reviews__cover__item {
+            border-color:rgba($black_dark,.2);
+
+            &:after {
+                border-top-color:rgba($black_dark,.16);
+            }
+        }
+
+        .WD__contacts__cover__businessCard__text {
+            color:$bg_color;
+        }
+        .WD__contacts__cover__businessCard__icon__color {
+            fill:$black_light;
+        }
+    }
+}

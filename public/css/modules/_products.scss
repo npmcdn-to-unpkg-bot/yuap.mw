@@ -1,0 +1,66 @@
+.WD__screen__products {
+    .WD__screen__cover__title {
+        transform:translate3d(0, -60px, 0);
+    }
+    .WD__screen__cover__button {
+        transform:translate3d(-60px, 0, 0);
+    }
+    .WD__products__cover__slider {
+        transform:translate3d(0, 75px, 0);
+    }
+    .WD__screen__arrow {
+        transform:translate3d(0, 45px, 0);
+    }
+    .WD__screen__cover__title,
+    .WD__screen__cover__button,
+    .WD__products__cover__slider,
+    .WD__screen__arrow {
+        will-change:opacity, transform;
+        opacity:0;
+    }
+    &.WD__screen--active {
+        .WD__screen__cover__title,
+        .WD__screen__cover__button,
+        .WD__products__cover__slider,
+        .WD__screen__arrow {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:transform 0.55s $cubic42, opacity 0.4s $cubic42;
+        }
+    }
+}
+.WD__products__cover {
+    z-index:1;
+
+    .WD__screen__cover__button {
+        position:relative;
+        margin:15px 0 0 15px;
+        line-height:35px;
+    }
+}
+.WD__products__cover__slider {
+    @include abs();
+    @include accelerate(true);
+    z-index:0;
+}
+.WD__products__cover__slider__overlay {
+    @include abs();
+    @include accelerate(true);
+    overflow:hidden;
+}
+.WD__products__cover__slider__item {
+    @include abs();
+    @include accelerate(true);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:top center;
+    opacity:0.85;
+}
+.WD__products__cover__slider__shape {
+    @include accelerate();
+}
+.WD__products__cover__slider__shape--top {
+}
+#WD__products__cover__slider__mask {
+    fill:$black_dark;
+}

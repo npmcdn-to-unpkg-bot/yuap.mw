@@ -1,4 +1,4 @@
-.WD__callback {
+.WD__screen__callback {
     .WD__screen__cover__title {
         transform:translate3d(0, -40px, 0);
     }
@@ -30,6 +30,8 @@
     }
 }
 .WD__callback__cover {
+    padding-right:20px;
+
     .WD__screen__cover__container {
         padding:30px 0 0 35px;
     }
@@ -65,6 +67,7 @@
     // background:#4D5666;
     background:$emerald_bright;
     @include accelerate(true);
+    will-change:transform;
     pointer-events:none;
 
     &:nth-child(1) {

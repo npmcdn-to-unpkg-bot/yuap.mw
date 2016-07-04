@@ -12,11 +12,18 @@
     width:100%;
     height:100%;
     @include flex("row", "center", "center");
+    will-change:background;
     text-align:center;
 
     &--active {
         background:$violet;
 
+        .WD__menu__item__icon {
+            transform:translate3d(0, 0, 0) scale(1.15);
+        }
+        .WD__menu__item__icon__callback {
+            transform:translate3d(0, 1px, 0) scale(1.15);
+        }
         // .WD__menu__item__icon__color {
         //     fill:$black_gray;
         // }
@@ -27,6 +34,9 @@
     vertical-align:top;
     width:44px;
     height:44px;
+    will-change:transform;
+    transition:transform 0.4s cubic-bezier(.42,0,.05,1.67);
+    transform:translate3d(0, 0, 0) scale(1);
 }
 .WD__menu__item__icon__color {
     fill:#fff;
@@ -34,7 +44,7 @@
 .WD__menu__item__icon__callback {
     width:48px;
     height:48px;
-    margin-top:7px;
+    margin-top:8px;
 }
 .WD__menu__item__icon__messenger {
     width:35px;

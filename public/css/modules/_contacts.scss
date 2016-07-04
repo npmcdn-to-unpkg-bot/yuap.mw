@@ -1,0 +1,90 @@
+.WD__screen__contacts {
+    .WD__screen__cover__title {
+        transform:translate3d(0, -60px, 0);
+    }
+    .WD__screen__cover__container {
+        transform:translate3d(60px, 0, 0);
+    }
+    .WD__contacts__cover__map {
+        transform:translate3d(-40px, 0, 0);
+    }
+    .WD__contacts__cover__businessCard__text {
+        transform:translate3d(-80px, 0, 0);
+    }
+    .WD__contacts__cover__businessCard__icon {
+        transform:translate3d(0, 50px, 0) rotate(-30deg);
+    }
+    .WD__screen__cover__title,
+    .WD__screen__cover__container,
+    .WD__contacts__cover__map,
+    .WD__contacts__cover__businessCard__text,
+    .WD__contacts__cover__businessCard__icon {
+        will-change:opacity, transform;
+        opacity:0;
+    }
+    &.WD__screen--active {
+        .WD__screen__cover__title,
+        .WD__screen__cover__container,
+        .WD__contacts__cover__map,
+        .WD__contacts__cover__businessCard__text,
+        .WD__contacts__cover__businessCard__icon {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:transform 0.55s $cubic42, opacity 0.4s $cubic42;
+        }
+        .WD__contacts__cover__businessCard__icon {
+            transform:translate3d(0, -10px, 0) rotate(-30deg);
+        }
+    }
+}
+.WD__contacts__cover {
+    top:-15px;
+    padding-right:20px;
+
+    .WD__screen__cover__container {
+        padding:15px 0 0 0;
+    }
+}
+.WD__contacts__cover__map {
+    position:absolute;
+    top:20px;
+    left:53%;
+    width:1082px;
+    height:636px;
+    background:url(https://cdn.mxpnl.com/cache/47626f94663e01a028616ae638f7fa5a/images/about/worldmap.png) no-repeat 0 0 / cover;
+    transform:scaleX(-1);
+}
+.WD__contacts__cover__item {
+    font-size:20px;
+    padding-bottom:7px;
+
+    .WD__screen__cover__strong {
+        font-size:22px;
+    }
+}
+.WD__contacts__cover__businessCard {
+    position:absolute;
+    bottom:0;
+    right:-5px;
+    white-space:nowrap;
+    transform:translate3d(0, 10px, 0);
+}
+.WD__contacts__cover__businessCard__text {
+    display:inline-block;
+    vertical-align:middle;
+    font-weight:300;
+    font-size:20px;
+    padding-top:10px;
+    color:rgba(221,223,224,.8);
+}
+.WD__contacts__cover__businessCard__icon {
+    display:inline-block;
+    vertical-align:middle;
+    width:90px;
+    height:90px;
+    margin-left:7px;
+    transform:translate3d(0, -10px, 0) rotate(-30deg);
+}
+.WD__contacts__cover__businessCard__icon__color {
+    fill:lighten(#81B3C5, 15%);
+}

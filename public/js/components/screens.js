@@ -15,6 +15,10 @@
             WD.$elem = $body.find(".WD__screens");
             WD.$menu = WD.$elem.find(".WD__menu");
 
+            $document.on('touchmove MSPointerMove', function(e){
+        		e.preventDefault();
+        	});
+
             WD.$elem.on('dragstart selectstart', function() {
                 return false;
             });
@@ -81,7 +85,7 @@
             .addClass("WD__menu__item--active")
             .siblings().removeClass("WD__menu__item--active");
 
-            WD.$elem.find(".WD__" + screen)
+            WD.$elem.find(".WD__screen__" + screen)
             .addClass("WD__screen--active")
             .siblings().removeClass("WD__screen--active");
         },

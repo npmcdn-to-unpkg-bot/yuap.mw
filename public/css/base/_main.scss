@@ -47,14 +47,15 @@ body {
 	height:100%;
 }
 .m-no-touch {
-	body {
+	body, a {
 		cursor: url('/public/images/cursor.png') 32 32, auto;
 		cursor: -webkit-image-set(
 			url('/public/images/cursor.png') 1x,
 			url('/public/images/cursor@2x.png') 2x
 		) 32 32, auto;
 	}
-	body:active {
+	body:active,
+	a:active {
 		cursor: url('/public/images/cursor-active.png') 32 32, auto;
 		cursor: -webkit-image-set(
 			url('/public/images/cursor-active.png') 1x,
