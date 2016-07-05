@@ -46,6 +46,11 @@ html,
 body {
 	height:100%;
 }
+.WD__wrapper {
+	@include abs();
+	overflow:hidden;
+	z-index:200000;
+}
 .m-no-touch {
 	body, a {
 		cursor: url('/public/images/cursor.png') 32 32, auto;

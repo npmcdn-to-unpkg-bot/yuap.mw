@@ -8,7 +8,7 @@
     background:$black_dark;
     @include accelerate(true);
     overflow:hidden;
-    z-index:200000;
+    z-index:1;
 }
 .WD__screen,
 .WD__screen__content {
@@ -31,6 +31,14 @@
     top:0;
     left:0;
     width:100%;
+}
+.WD__horizontal__space {
+    top:-200%;
+    width:20000%;
+
+    &__screen {
+        float:left;
+    }
 }
 .WD__screen--long {
     height:auto;

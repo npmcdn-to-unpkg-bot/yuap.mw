@@ -1,0 +1,19 @@
+.WD__section {
+    @include abs();
+    color:$black_gray;
+    font-weight:400;
+    font-size:15px;
+    line-height:15px;
+    font-family:$default;
+    background:$black_dark;
+    @include accelerate();
+    will-change:transform;
+    transform:translate3d(101%, 0, 0);
+    transition:transform 0.5s $cubic645;
+    overflow:hidden;
+    z-index:2;
+
+    &--active {
+        transform:translate3d(0, 0, 0);
+    }
+}

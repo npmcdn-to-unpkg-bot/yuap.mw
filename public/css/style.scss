@@ -7,15 +7,23 @@
 
 // elements
 
+
 // modules
-@import 'modules/menu';
-@import 'modules/screens';
-@import 'modules/callback';
-@import 'modules/messenger';
-@import 'modules/products';
-@import 'modules/reviews';
-@import 'modules/contacts';
-@import 'modules/screensCustom';
+
+// screens
+@import 'modules/screens/menu';
+@import 'modules/screens/screens';
+@import 'modules/screens/callback';
+@import 'modules/screens/messenger';
+@import 'modules/screens/products';
+@import 'modules/screens/reviews';
+@import 'modules/screens/contacts';
+@import 'modules/screens/screensCustom';
+
+// sections
+@import 'modules/sections/sections';
+@import 'modules/sections/products';
+
 
 // states
 @import 'states/color';

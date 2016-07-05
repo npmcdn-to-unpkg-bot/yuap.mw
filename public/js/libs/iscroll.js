@@ -287,7 +287,7 @@ function IScroll (el, options) {
 		momentum: true,
 
 		click: false,
-		tap: false,		
+		tap: false,
 
 		bounce: true,
 		bounceTime: 600,
