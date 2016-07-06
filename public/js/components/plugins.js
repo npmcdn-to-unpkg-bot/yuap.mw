@@ -162,7 +162,7 @@ app.plugins.marquee = function($frame, settings){
 			if (i!=marquee.index && i!=marquee.index+1) {
 				if (i>marquee.index+1) effect.show(screens[i].block, 0, marquee.size, screens[i].ratio);
 				if (i<marquee.index) effect.hide(screens[i].block, 1, marquee.size, screens[i].ratio);
-				//screens[i].block[0].style.display = 'none';
+				screens[i].block[0].style.display = 'none';
 			}
 		};
 	};
@@ -241,11 +241,11 @@ app.plugins.marquee = function($frame, settings){
 		for (var i=0; i<screens.length; i++) {
 			if (i==visible[0] || i==visible[1]) {
 				screens[i].api.state.isFullHide = false;
-				//screens[i].block[0].style.display = 'block';
+				screens[i].block[0].style.display = 'block';
 				marquee.section = screens[i].block[0].getAttribute("data-marquee");
 				//if (settings.activeClass) screens[i].block.addClass(settings.activeClass);
 			} else if (!screens[i].api.state.isFullHide) {
-				//screens[i].block[0].style.display = 'none';
+				screens[i].block[0].style.display = 'none';
 				screens[i].block.triggerHandler('fullHide');
 				screens[i].api.state.isFullHide = true;
 				//if (settings.activeClass) screens[i].block.removeClass(settings.activeClass);
@@ -394,7 +394,7 @@ app.plugins.marquee = function($frame, settings){
 	// {fn} scroll to
 	marquee.scrollTo = function(index, duration){
 		duration = duration === undefined && duration !== 0 ? 550 : duration;
-		//screens[index].block[0].style.display = 'block';
+		screens[index].block[0].style.display = 'block';
 		setTimeout(function(){
 			scroll.goToPage(!settings.vertical ? index : 0, settings.vertical ? index : 0, duration, IScroll.utils.ease.cubicOut);
 			if (duration==0) marquee.refresh();

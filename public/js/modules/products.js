@@ -17,9 +17,10 @@
             var index = 100,
                 i = 0;
 
-            WD.$elem.find(".WD__products__image").each(function() {
+            WD.$elem.find(".WD__products__item").each(function() {
                 if (i === 0) {
                     this.style.opacity = "1";
+                    // $(this).addClass("WD__products__item--active");
                 }
                 this.style.zIndex = index;
                 index--;
@@ -28,7 +29,7 @@
 
             WD.marquee = app.plugins.marquee(WD.$elem, {
                 vertical: false,
-                screens: '.WD__products__image',
+                screens: '.WD__products__item',
                 effect: 'space',
                 mousewheel: false,
                 spaceClass: 'WD__horizontal__space',

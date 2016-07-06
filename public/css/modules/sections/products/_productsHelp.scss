@@ -1,0 +1,95 @@
+.WD__products__help {
+    @include abs();
+    opacity:0;
+    transform:translate3d(101%, 0, 0);
+    will-change:opacity, transform;
+    z-index:2;
+
+    &__item {
+        position:absolute;
+        color:#fafafa;
+        line-height:25px;
+        font-weight:300;
+
+        &1 {
+            top:30px;
+            left:120px;
+            font-size:18px;
+
+            &:before {
+                content:"";
+                position:absolute;
+                top:0;
+                right:100%;
+                width:50px;
+                height:1px;
+                background:rgba(#fff,.4);
+                transform:translate3d(-10px, 7px, 0) rotate(6deg);
+            }
+        }
+        &2 {
+            bottom:180px;
+            left:40px;
+            font-size:19px;
+
+            &:before {
+                content:"";
+                position:absolute;
+                top:100%;
+                left:0;
+                width:1px;
+                height:38px;
+                background:rgba(#fff,.4);
+                transform:translate3d(17px, 8px, 0) rotate(10deg);
+            }
+        }
+        &3 {
+            bottom:50px;
+            left:174px;
+            width:45%;
+            font-size:17px;
+        }
+    }
+    &__button {
+        position:absolute;
+        top:50%;
+        left:0;
+        width:100%;
+        text-align:center;
+
+        &__item {
+            display:inline-block;
+            vertical-align:top;
+            padding:0 15px;
+            height:45px;
+            font-size:20px;
+            line-height:46px;
+            text-transform:uppercase;
+            color:#fafafa;
+            border:1px solid rgba(#fff,.4);
+            border-radius:6px;
+            transform:translate3d(0, -60px, 0);
+        }
+    }
+}
+.WD__products__wrapper:after,
+.WD__products__footer:after {
+    content:"";
+    @include abs();
+    opacity:0;
+    transform:translate3d(101%, 0, 0);
+    background:rgba($bg_color,.8);
+    z-index:0;
+}
+.WD__products__wrapper:after {
+    z-index:102;
+}
+
+.WD__products[data-help="true"] {
+    .WD__products__wrapper:after,
+    .WD__products__footer:after,
+    .WD__products__help {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+    }
+}

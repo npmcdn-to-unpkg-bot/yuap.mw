@@ -22,8 +22,13 @@
 
 // sections
 @import 'modules/sections/sections';
-@import 'modules/sections/products';
-
+@import 'modules/sections/products/products';
+@import 'modules/sections/products/productsHelp';
+@import 'modules/sections/products/productsLoading';
+@import 'modules/sections/products/productsFooter';
+@import 'modules/sections/products/productsFeedback';
+@import 'modules/sections/products/productsShare';
+@import 'modules/sections/products/productsCustom';
 
 // states
 @import 'states/color';

@@ -66,6 +66,35 @@
 		}
 	};
 
+	utils.onLoadImage = function(url, callback) {
+	    var loaded = false;
+	    function loadHandler() {
+	        if (loaded) return;
+	        loaded = true;
+			callback();
+	    }
+	    var img = new Image();
+		img.src = url;
+		img.onload = loadHandler;
+	    if (img.complete) loadHandler();
+	};
+
+	utils.getSizeImage = function(url, callback) {
+	    var img = null,
+			loaded = false;
+
+	    function loadHandler() {
+	        if (loaded) return;
+	        loaded = true;
+			callback(img.naturalWidth, img.naturalHeight);
+	    }
+
+	    img = new Image();
+		img.src = url;
+		img.onload = loadHandler;
+	    if (img.complete) loadHandler();
+	};
+
 	utils.getScroll = function(scroll) {
         var x = scroll.x * -1,
             y = scroll.y * -1,

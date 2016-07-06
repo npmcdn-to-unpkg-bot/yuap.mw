@@ -1,59 +1,3 @@
-.WD__products {
-    background:$black_dark;
-}
-.WD__products__wrapper {
-    @include abs();
-    overflow:hidden;
-    z-index:0;
-
-    &:after {
-        content:"";
-        position:absolute;
-        bottom:0;
-        left:0;
-        width:100%;
-        height:170px;
-        background:linear-gradient(to top, rgba($black_gray,.3), rgba(#d7dbe1,0));
-        z-index:101;
-    }
-}
-.WD__products__image {
-    opacity:0;
-    @include abs();
-    overflow:hidden;
-    @include accelerate(true);
-    will-change:transform, opacity;
-    transform-origin:100% 50%;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:top center;
-}
-.WD__products__back {
-    position:absolute;
-    top:20px;
-    left:20px;
-    width:36px;
-    height:36px;
-    opacity:0.6;
-    z-index:1;
-
-    &__color {
-        fill:#fff;
-    }
-}
-.WD__products__callbutton {
-    position:absolute;
-    top:17px;
-    right:13px;
-    width:42px;
-    height:42px;
-    opacity:0.6;
-    z-index:1;
-
-    &__color {
-        fill:#fff;
-    }
-}
 .WD__products__footer {
     position:absolute;
     bottom:0;
@@ -72,6 +16,7 @@
     background:#fff;
     border-radius:50%;
     box-shadow:0 6px 16px -6px rgba($black_light,.4);
+    z-index:1;
 
     &:before {
         content:"";
@@ -136,6 +81,7 @@
         right:100%;
         color:$gray;
         padding-right:10px;
+        margin-right:5px;
 
         &:after {
             content: "";
@@ -149,6 +95,7 @@
         }
     }
 }
+
 @media screen and (max-height:480px){
     .WD__products__footer {
         height:92px;

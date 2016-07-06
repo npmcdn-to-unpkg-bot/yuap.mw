@@ -1,0 +1,166 @@
+.WD__products__feedback {
+    @include abs();
+    transform:translate3d(101%, 0, 0);
+    background:rgba($bg_color,.87);
+    color:#fafafa;
+    font-weight:300;
+    padding:5px 25px 0 21px;
+    z-index:2;
+
+    // &:after {
+    //     content:"";
+    //     position:absolute;
+    //     bottom:-440px;
+    //     left:50%;
+    //     width:628px;
+    //     height:548px;
+    //     background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-orange.png) no-repeat 0 0 / cover;
+    //     opacity:0.7;
+    //     transform:scaleX(-1) translate3d(-5px, 0, 0);
+    //     z-index:-1;
+    // }
+    // &:before {
+    //     content:"";
+    //     position:absolute;
+    //     bottom:-45px;
+    //     left:-50%;
+    //     width:309px;
+    //     height:175px;
+    //     background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-blue.png) no-repeat 0 0 / cover;
+    //     transform:scaleY(-1);
+    //     opacity:0.7;
+    //     z-index:-1;
+    // }
+
+    &__container {
+        position:relative;
+        padding:19px 17px 19px;
+        border:1px solid rgba(#fff,.2);
+        border-radius:6px 0 0 6px;
+        margin:25px 0 0 0;
+        border-right:none;
+        border-top:none;
+
+        &:before {
+            content:"";
+            position:absolute;
+            top:0;
+            left:3px;
+            width:100%;
+            height:1px;
+            background:linear-gradient(to right, rgba(#fff,.2), rgba(#fff,0));
+        }
+    }
+    &__title {
+        font-size:22.5px;
+        line-height:24px;
+        letter-spacing:-0.02em;
+        text-transform:uppercase;
+
+        &--callback {
+            color:$azure_light;
+        }
+        &--messenger {
+            color:$emerald_bright;
+        }
+    }
+    &__text {
+        color:rgba(221,223,224,.8);
+        font-size:20px;
+        line-height:29px;
+        padding-top:6px;
+    }
+    &__button {
+        @include flex("row", "center", "center");
+        position:absolute;
+        top:5px;
+        left:100%;
+        width:62px;
+        height:60px;
+        background:rgba(#fff,.13);
+        border-right:none;
+        border-radius:50% 0 0 50%;
+        margin-left:-36px;
+    }
+    &__close {
+        position:absolute;
+        bottom:13px;
+        right:10px;
+        width:36px;
+        height:36px;
+        background:url(/public/images/ui-close_white.svg) no-repeat 0 0 / cover;
+        opacity:0.25;
+    }
+}
+.WD__products__feedback__image {
+    opacity:0;
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    width:70px;
+    height:70px;
+    margin-left:-30px;
+    border-radius:50%;
+    overflow:hidden;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:top center;
+    @include accelerate();
+    z-index:2;
+}
+
+.WD__products {
+    &__feedback {
+        opacity:0;
+        @include accelerate();
+        will-change:opacity, transform;
+        transition:opacity 0.4s $cubic34 0.2s, transform 0s 0.6s;
+
+        &__container {
+            opacity:0;
+            @include accelerate();
+            will-change:opacity, transform;
+            transform:translate3d(0, -18px, 0);
+
+            &:nth-child(1) {
+                transition:opacity 0.35s $cubic57 0s, transform 0.35s $cubic34 0s;
+            }
+            &:nth-child(2) {
+                transition:opacity 0.35s $cubic57 0s, transform 0.35s $cubic34 0s;
+            }
+        }
+        &__image {
+            will-change:opacity, transform;
+            transform:translate3d(0, 0, 0) scale(0);
+            transition:opacity 0.35s $cubic57, transform 0.35s $cubic57;
+        }
+    }
+    &[data-feedback="true"] {
+        .WD__products__feedback {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:opacity 0.55s $cubic34 0.2s, transform 0s 0.2s;
+
+            &__container {
+                opacity:1;
+                transform:translate3d(0, 0, 0) rotate(0);
+
+                &:nth-child(1) {
+                    transition:opacity 0.5s $cubic34 0.55s, transform 0.5s $cubic25 0.55s;
+                }
+                &:nth-child(2) {
+                    transition:opacity 0.5s $cubic34 0.65s, transform 0.5s $cubic25 0.65s;
+                }
+            }
+            &__image {
+                opacity:1;
+                transition:opacity 0.35s $cubic34, transform 0.55s $cubic645;
+            }
+        }
+    }
+}
+@media screen and (max-height:480px){
+    .WD__products__feedback__container {
+        margin-top:20px;
+    }
+}

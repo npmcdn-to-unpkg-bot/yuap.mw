@@ -1,0 +1,32 @@
+.WD__products {
+    &:after,
+    &:before {
+        content:"";
+        opacity:0;
+        @include abs();
+        will-change:opacity;
+        transform:translate3d(0, 101%, 0);
+        transition:none;
+        z-index:10;
+    }
+    &:after {
+        @include abs_50(58, 58);
+        will-change:opacity, transform;
+        background:url(/public/images/loading.svg) no-repeat 0 0 / cover;
+        z-index:10;
+    }
+    &:before {
+        background-color:rgba($bg_color,.4);
+    }
+    &--loading {
+        &:after,
+        &:before {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:opacity 0.3s $cubic34, transform 0s;
+        }
+        &:after {
+            animation:WD__section__spinner 1s infinite linear;
+        }
+    }
+}
