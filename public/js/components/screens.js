@@ -1,4 +1,6 @@
-(function(){
+(function(app, $, $dom, EV, _){
+
+    app.define("screens");
 
     app.screens = {
 
@@ -12,21 +14,21 @@
 
             if (WD.ready) return;
 
-            WD.$elem = $body.find(".WD__screens");
-            WD.$menu = WD.$elem.find(".WD__menu");
+            WD.elem = $dom.root.find(".WD__screens");
+            WD.menu = WD.elem.find(".WD__menu");
 
-            $document.on('touchmove MSPointerMove', function(e){
+            $dom.document.on('touchmove MSPointerMove', function(e){
         		e.preventDefault();
         	});
 
-            WD.$elem.on('dragstart selectstart', function() {
+            WD.elem.on('dragstart selectstart', function() {
                 return false;
             });
 
             var index = 100,
                 i = 0;
 
-            WD.$elem.find(".WD__screen").each(function() {
+            WD.elem.find(".WD__screen").each(function() {
                 WD.items[this.getAttribute("data-marquee")] = i;
                 if (i === 0) {
                     WD.state = this.getAttribute("data-marquee");
@@ -38,7 +40,7 @@
                 i++;
             });
 
-            WD.marquee = app.plugins.marquee(WD.$elem, {
+            WD.marquee = app.plugins.marquee(WD.elem, {
                 vertical: true,
                 screens: '.WD__screen',
                 effect: 'light',
@@ -68,12 +70,12 @@
 
         render: function(){
 
-            WD.$menu.on(clickEvent, ".WD__menu__item", function(){
+            WD.menu.on(EV.click, ".WD__menu__item", function(){
                 var screen = $(this).data("marquee");
                 WD.nav(screen);
             });
 
-            WD.$elem.find(".WD__screen__arrow").on(clickEvent, function(){
+            WD.elem.find(".WD__screen__arrow").on(EV.click, function(){
                 var screen = $(this).data("marquee");
                 WD.nav(screen);
             });
@@ -81,11 +83,11 @@
 
         change: function(screen){
 
-            WD.$menu.find(".WD__menu__item__" + screen)
+            WD.menu.find(".WD__menu__item__" + screen)
             .addClass("WD__menu__item--active")
             .siblings().removeClass("WD__menu__item--active");
 
-            WD.$elem.find(".WD__screen__" + screen)
+            WD.elem.find(".WD__screen__" + screen)
             .addClass("WD__screen--active")
             .siblings().removeClass("WD__screen--active");
         },
@@ -102,4 +104,4 @@
 
     var WD = app.screens;
 
-})();
+})(yellApp, Zepto, yellApp.$dom, yellApp.events, yellApp.utils);

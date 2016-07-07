@@ -1,0 +1,22 @@
+.WD__products__images {
+    position:absolute;
+    bottom:116px;
+    right:-5px;
+
+    &__item {
+        margin-top:7px;
+        width:64px;
+        height:64px;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:top center;
+        border-radius:16px 0 0 8px;
+        opacity:0.65;
+    }
+}
+
+@media screen and (max-height:480px){
+    .WD__products__images {
+        bottom:107px;
+    }
+}

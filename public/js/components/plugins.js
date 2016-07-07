@@ -1,8 +1,8 @@
-app.plugins.marquee = function($frame, settings){
+yellApp.plugins.marquee = function($frame, settings){
 	var $screens = $frame.find(settings.screens),
 		$fake = $('<div class="'+settings.spaceClass+'" />').prependTo($frame),
 		screens = [],
-		effect = app.effects[settings.effect],
+		effect = yellApp.effects[settings.effect],
 		overlayed = false,
 		name = $frame.data('name');
 	// marquee
@@ -82,7 +82,7 @@ app.plugins.marquee = function($frame, settings){
 	// {fn} resize fake
 	var resize = function(){
 		var offset = 0;
-		marquee.size = settings.vertical ? app.sizes.height : app.sizes.width;
+		marquee.size = settings.vertical ? yellApp.sizes.height : yellApp.sizes.width;
 		$.each(screens, function(i, screen){
 			if (settings.vertical){
 				var height = Math.max(screen.block.height(), screen.block.find(settings.contentClass ? '.' + settings.contentClass : '.screen__frame').height());
@@ -91,14 +91,14 @@ app.plugins.marquee = function($frame, settings){
 					screen.size = height;
 				} else {
 					screen.block.removeClass(settings.longClass ? settings.longClass : 'screen__long');
-					screen.size = app.sizes.height;
+					screen.size = yellApp.sizes.height;
 				}
-				screen.fake.width(app.sizes.width);
+				screen.fake.width(yellApp.sizes.width);
 				screen.fake.height(screen.size);
 			} else {
-				screen.size = app.sizes.width;
+				screen.size = yellApp.sizes.width;
 				screen.fake.width(screen.size);
-				screen.fake.height(app.sizes.height);
+				screen.fake.height(yellApp.sizes.height);
 			}
 			screen.offset = offset;
 			screen.ratio = screen.size/marquee.size;
@@ -120,7 +120,7 @@ app.plugins.marquee = function($frame, settings){
 		snapSpeed: settings.duration,
 		preventDefault: true,
 		scrollbars: settings.vertical ? 'custom' : false,
-		interactiveScrollbars: settings.vertical && !app.device.support.touch,
+		interactiveScrollbars: settings.vertical && !yellApp.device.support.touch,
 		// deceleration: settings.vertical ? false : 0.0034,
 		fake: true
 	});
@@ -242,13 +242,13 @@ app.plugins.marquee = function($frame, settings){
 			if (i==visible[0] || i==visible[1]) {
 				screens[i].api.state.isFullHide = false;
 				screens[i].block[0].style.display = 'block';
-				marquee.section = screens[i].block[0].getAttribute("data-marquee");
-				//if (settings.activeClass) screens[i].block.addClass(settings.activeClass);
+				marquee.section = screens[i].block[0].getAttribute("data-" + (settings.dataAttr ? settings.dataAttr : "marquee"));
+				if (settings.activeClass) screens[i].block.addClass(settings.activeClass);
 			} else if (!screens[i].api.state.isFullHide) {
 				screens[i].block[0].style.display = 'none';
 				screens[i].block.triggerHandler('fullHide');
 				screens[i].api.state.isFullHide = true;
-				//if (settings.activeClass) screens[i].block.removeClass(settings.activeClass);
+				if (settings.activeClass) screens[i].block.removeClass(settings.activeClass);
 			}
 		}
 	};
@@ -388,7 +388,7 @@ app.plugins.marquee = function($frame, settings){
 		marquee.setLimits(index);
 	});
 	// {event} window resize
-	$window.on('resize', marquee.resize);
+	yellApp.$dom.window.on('resize', marquee.resize);
 	// set limits on first screen
 	marquee.setLimits(0);
 	// {fn} scroll to
@@ -442,17 +442,17 @@ app.plugins.marquee = function($frame, settings){
 		$scroll.find('.iScrollIndicator').addClass('ui-scroll__handle').prepend('<div class="ui-scroll__handle__inner" />');
 	};
 	// {event} click on prev
-	if (settings.navPrev) settings.navPrev.on('click', function(){
+	if (settings.navPrev) settings.navPrev.on(yellApp.events.click, function(){
 		marquee.prev();
 	});
 	// {event} click on next
-	if (settings.navNext) settings.navNext.on('click', function(){
+	if (settings.navNext) settings.navNext.on(yellApp.events.click, function(){
 		marquee.next();
 	});
 	// {event} enable keyboard
 	var keyboardEventName = 'keydown.marquee-' + (name ? name : '') + (settings.vertical ? 'v' : 'h');
 	marquee.enableKeyboard = function(){
-		if (!app.device.support.touch) $document.on(keyboardEventName, function(e){
+		if (!yellApp.device.support.touch) $document.on(keyboardEventName, function(e){
 			if (!$(e.target).is('input,textarea,select')) {
 				if (e.which==(settings.vertical ? 38 : 37)) marquee.prev();
 				if (e.which==(settings.vertical ? 40 : 39)) marquee.next();
@@ -461,7 +461,7 @@ app.plugins.marquee = function($frame, settings){
 	};
 	// {event} disable keyboard
 	marquee.disableKeyboard = function(){
-		if (!app.device.support.touch) $document.off(keyboardEventName);
+		if (!yellApp.device.support.touch) $document.off(keyboardEventName);
 	};
 
 	marquee.scroll = scroll;

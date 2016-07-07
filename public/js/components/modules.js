@@ -1,75 +1,75 @@
-(function(sizes){
+(function(sizes, $dom){
 	// {fn} update sizes
 	var updateSizes = function(){
-		sizes.width = $window.width();
+		sizes.width = $dom.window.width();
 		sizes.height = parseInt(window.innerHeight,10);
 	};
 	// {event} window resize
-	$window.on('resize.app', updateSizes);
+	$dom.window.on('resize.yellApp', updateSizes);
 	// init
 	updateSizes();
-})(app.sizes);
+})(yellApp.sizes, yellApp.$dom);
 
-(function(device){
+(function(device, $dom){
 
 	/* --- Mobile --- */
 	device.support = Modernizr;
 
 	/* --- Mobile --- */
 	device.isMobile = device.support.touch;
-	$html.addClass(device.isMobile ? 'd-mobile' : 'd-no-mobile');
+	$dom.html.addClass(device.isMobile ? 'd-mobile' : 'd-no-mobile');
 
 	/* --- Retina --- */
 	device.isRetina = (window.devicePixelRatio && window.devicePixelRatio>1);
-	$html.addClass(device.isRetina ? 'd-retina' : 'd-no-retina');
+	$dom.html.addClass(device.isRetina ? 'd-retina' : 'd-no-retina');
 
 	/* --- Phone --- */
 	var phoneCheck = function(){
-		device.isPhone = (app.sizes.width<768);
-		$html.addClass(device.isPhone ? 'd-phone' : 'd-no-phone');
-		$html.removeClass(device.isPhone ? 'd-no-phone' : 'd-phone');
+		device.isPhone = (yellApp.sizes.width<768);
+		$dom.html.addClass(device.isPhone ? 'd-phone' : 'd-no-phone');
+		$dom.html.removeClass(device.isPhone ? 'd-no-phone' : 'd-phone');
 	};
-	$window.on('resize.phone-check', phoneCheck);
+	$dom.window.on('resize.phone-check', phoneCheck);
 	phoneCheck();
 
 	if (navigator.userAgent.match(/(iPhone)/i)) device.isPhone = true;
 
 	/* --- iOS --- */
 	if (navigator.userAgent.match(/iPad/i)) {
-		$html.addClass('d-ipad');
+		$dom.html.addClass('d-ipad');
 		device.isIPad = true;
 	};
 	if (navigator.userAgent.match(/(iPhone|iPod touch)/i)) {
-		$html.addClass('d-iphone');
+		$dom.html.addClass('d-iphone');
 		device.isIPhone = true;
 	};
 	if (navigator.userAgent.match(/(iPad|iPhone|iPod touch)/i)) {
-		$html.addClass('d-ios');
+		$dom.html.addClass('d-ios');
 		device.isIOS = true;
 	};
 	if (navigator.userAgent.match(/.*CPU.*OS 7_\d/i)) {
-		$html.addClass('d-ios7');
+		$dom.html.addClass('d-ios7');
 		device.isIOS7 = true;
 	};
 
 	/* --- iPad (for fix wrong window height) --- */
-	if ($html.hasClass('d-ipad d-ios7')) {
-		$window.on('resize orientationchange focusout', function(){
+	if ($dom.html.hasClass('d-ipad d-ios7')) {
+		$dom.window.on('resize orientationchange focusout', function(){
 			window.scrollTo(0,0);
 		});
 	};
 
 	/* --- Safari --- */
 	device.isSafari = /constructor/i.test(window.HTMLElement);
-	$html.addClass(device.isSafari ? 'd-safari' : 'd-no-safari');
+	$dom.html.addClass(device.isSafari ? 'd-safari' : 'd-no-safari');
 
 	/* --- Firefox --- */
 	device.isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-	$html.addClass(device.isFirefox ? 'd-firefox' : 'd-no-firefox');
+	$dom.html.addClass(device.isFirefox ? 'd-firefox' : 'd-no-firefox');
 
-})(app.device);
+})(yellApp.device, yellApp.$dom);
 
-(function(effects){
+(function(effects, prefixed){
 	// light effect
 	effects.light = {};
 	effects.light.show = function($block, position, size, ratio){
@@ -94,11 +94,11 @@
 		var transform = '';
 		if (position==0) {
 			transform = 'translate3d(110%, 0, 0)';
-		} else if (app.device.isPhone) {
+		} else if (yellApp.device.isPhone) {
 			transform = 'perspective(500px) translate3d(' + (-8+8*position) + '%, 0, 0) rotateY(' + (-6+position*6) + 'deg) scale(' + (0.8+position*0.2) + ')';
 		} else {
 			transform = 'perspective(500px) translate3d(' + (-4+4*position) + '%, 0, 0) scale(' + (0.9+position*0.1) + ')';
-			if (!app.device.isFirefox) transform = transform + 'rotateY(' + (-4+position*4) + 'deg)';
+			if (!yellApp.device.isFirefox) transform = transform + 'rotateY(' + (-4+position*4) + 'deg)';
 		}
 		$block[0].style[prefixed.transform] = transform;
 	};
@@ -118,4 +118,4 @@
 		$block[0].style[prefixed.transform] = 'perspective(500px) translateY(' + (4*position) + '%) rotateX(' + (-position*3) + 'deg) scale(' + (1-position*0.05) + ')';
 		if (position==1) $block[0].style[prefixed.transform] = 'translateY(-101%)';
 	};
-})(app.effects);
+})(yellApp.effects, yellApp.prefixed);

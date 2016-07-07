@@ -135,6 +135,9 @@
             transition:opacity 0.35s $cubic57, transform 0.35s $cubic57;
         }
     }
+    &__item--active {
+        transition:filter 0.3s $cubic34 0s;
+    }
     &[data-feedback="true"] {
         .WD__products__feedback {
             opacity:1;
@@ -156,6 +159,10 @@
                 opacity:1;
                 transition:opacity 0.35s $cubic34, transform 0.55s $cubic645;
             }
+        }
+        .WD__products__item--active {
+            transition:filter 2s $cubic34 1s;
+            filter:blur(10px);
         }
     }
 }

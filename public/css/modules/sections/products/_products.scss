@@ -1,6 +1,14 @@
 .WD__products {
     background:$black_dark;
 }
+.WD__products__section {
+    will-change:opacity, transform;
+}
+.WD__products__section,
+.WD__products__section__content {
+    @include abs();
+    @include accelerate();
+}
 .WD__products__wrapper {
     @include abs();
     overflow:hidden;
@@ -26,11 +34,9 @@
     will-change:transform, opacity;
     transform-origin:100% 50%;
 
-    &--first {
-        display:block;
-    }
     &--active {
         display:block;
+        will-change:transform, opacity, filter;
     }
 }
 .WD__products__image {
@@ -42,9 +48,26 @@
 .WD__products__back {
     position:absolute;
     top:20px;
-    left:20px;
+    left:15px;
     width:36px;
     height:36px;
+    opacity:0.6;
+    z-index:1;
+
+    &__color {
+        fill:#fff;
+    }
+}
+.WD__products__like {
+    position:absolute;
+    // top:12px;
+    // right:12px;
+    // width:42px;
+    // height:42px;
+    top:16px;
+    right:12px;
+    width:46px;
+    height:46px;
     opacity:0.6;
     z-index:1;
 

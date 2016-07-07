@@ -1,4 +1,5 @@
 .WD__screens {
+    display:none;
     @include abs();
     color:#fff;
     font-weight:400;
@@ -26,7 +27,7 @@
     // background:linear-gradient(225deg,#d7dbe1 0%,#e5eaf0 100%);
 
     &--long {
-        height:auto;
+        height:auto !important;
         min-height:100%;
     }
     &--active {

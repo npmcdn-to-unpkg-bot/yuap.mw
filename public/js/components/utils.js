@@ -1,4 +1,68 @@
-(function(utils){
+(function(app, utils){
+
+	if (magicMK) utils.MK = magicMK;
+
+	utils.init = function(namespace){
+		if (!namespace) return;
+
+		var parts = namespace.split("."),
+	        component = app,
+	        i;
+
+	    for (i = 0; i < parts.length; i++) {
+	        component = component[parts[i]];
+	    }
+
+		if (component && typeof component.init === "function"){
+			component.init();
+			utils.log("Initialize: <" + namespace + "> ready");
+		}
+		else {
+			utils.log("ERROR: <" + namespace + "> initialize");
+		}
+	};
+
+	utils.is = function(namespace, callback){
+		if (!namespace) return;
+
+		var parts = namespace.split("."),
+	        component = app,
+	        i;
+
+	    for (i = 0; i < parts.length; i++) {
+	        component = component[parts[i]];
+	    }
+
+		if (component){
+			if (callback && typeof callback === "function"){
+				callback();
+			}
+			//utils.log("This is: <" + namespace + "> found");
+		}
+		else {
+			utils.log("NOT found: <" + namespace + ">");
+		}
+	};
+
+	utils.log = function(data){
+		if (!data) return;
+
+		if (typeof data === "object"){
+			console.dir(data);
+		}
+		else {
+			console.log(data);
+		}
+	};
+
+	utils.logger = function(event, data){
+		if (!event || !data) return;
+
+		if (event === "init") utils.log("Initialize: <" + data + "> ready");
+		else if (event === "open") utils.log("OPEN: <" + data + ">");
+		else if (event === "close") utils.log("CLOSE: <" + data + ">");
+		else utils.log(event + ": <" + data + ">");
+	};
 
 	utils.random = function(min,max){
 		return Math.floor(Math.random()*(max-min+1)+min);
@@ -67,20 +131,25 @@
 	};
 
 	utils.onLoadImage = function(url, callback) {
-	    var loaded = false;
+		var img = new Image(),
+			loaded = false;
+
 	    function loadHandler() {
 	        if (loaded) return;
 	        loaded = true;
-			callback();
+			callback(true);
 	    }
-	    var img = new Image();
+		function errHandler() {
+	        callback(false);
+	    }
 		img.src = url;
+		img.onerror = errHandler;
 		img.onload = loadHandler;
 	    if (img.complete) loadHandler();
 	};
 
 	utils.getSizeImage = function(url, callback) {
-	    var img = null,
+	    var img = new Image(),
 			loaded = false;
 
 	    function loadHandler() {
@@ -88,9 +157,11 @@
 	        loaded = true;
 			callback(img.naturalWidth, img.naturalHeight);
 	    }
-
-	    img = new Image();
+		function errHandler() {
+	        callback(false);
+	    }
 		img.src = url;
+		img.onerror = errHandler;
 		img.onload = loadHandler;
 	    if (img.complete) loadHandler();
 	};
@@ -140,4 +211,4 @@
 		};
 	};
 
-})(app.utils);
+})(yellApp, yellApp.utils);
