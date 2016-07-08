@@ -2,6 +2,7 @@
     position:absolute;
     bottom:116px;
     right:-5px;
+    z-index:1;
 
     &__item {
         margin-top:7px;
@@ -10,7 +11,7 @@
         background-size:cover;
         background-repeat:no-repeat;
         background-position:top center;
-        border-radius:16px 0 0 8px;
+        border-radius:50px 0 42px 38px;
         opacity:0.65;
     }
 }

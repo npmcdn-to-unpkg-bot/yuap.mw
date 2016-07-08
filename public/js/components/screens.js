@@ -48,6 +48,7 @@
                 spaceClass: 'WD__vertical__space',
                 longClass: 'WD__screen--long',
                 contentClass: 'WD__screen__content',
+                hideSections: true,
                 duration: 350
             });
 

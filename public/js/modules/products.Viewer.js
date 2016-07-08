@@ -110,7 +110,7 @@
                 showAnimationDuration: 30
             };
 
-            var zoom = 1.7,
+            var zoom = data.width > sizes.width ? 1.7 : 1,
                 zoomScale = (sizes.width / data.width) * zoom,
                 zoomX = sizes.width / 2;
 

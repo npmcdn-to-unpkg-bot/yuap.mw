@@ -3,6 +3,10 @@
 }
 .WD__products__section {
     will-change:opacity, transform;
+    transform:translateY(110%) translateZ(0);
+}
+.WD__products__section__top {
+    transform:translateY(0) translateZ(0);
 }
 .WD__products__section,
 .WD__products__section__content {
@@ -13,6 +17,15 @@
     @include abs();
     overflow:hidden;
     z-index:0;
+}
+.WD__products__item {
+    display:none;
+    opacity:0;
+    @include abs();
+    @include accelerate(true);
+    will-change:transform, opacity;
+    transform-origin:100% 50%;
+    overflow:hidden;
 
     &:after {
         content:"";
@@ -21,19 +34,9 @@
         left:0;
         width:100%;
         height:170px;
-        background:linear-gradient(to top, rgba($black_gray,.3), rgba(#d7dbe1,0));
-        z-index:101;
+        background:linear-gradient(to top, rgba($black_gray,.1), rgba(#d7dbe1,0));
+        z-index:0;
     }
-}
-.WD__products__item {
-    display:none;
-    opacity:0;
-    @include abs();
-    overflow:hidden;
-    @include accelerate(true);
-    will-change:transform, opacity;
-    transform-origin:100% 50%;
-
     &--active {
         display:block;
         will-change:transform, opacity, filter;
@@ -45,17 +48,39 @@
     background-repeat:no-repeat;
     background-position:top center;
 }
+.WD__products__item--center {
+    @include flex("row", "center", "center");
+    display:flex !important;
+    background:#fff;
+
+    .WD__products__image {
+        position:static;
+        transform:translate3d(0, -42px, 0);
+    }
+}
+.WD__products__item__sale {
+    position:absolute;
+    bottom:88px;
+    left:70%;
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    font-size:22px;
+    line-height:85px;
+    text-align:center;
+    transform:translate3d(-50%, 0, 0);
+    background-color:rgba($yellow,.8);
+}
 .WD__products__back {
     position:absolute;
     top:20px;
     left:15px;
     width:36px;
     height:36px;
-    opacity:0.6;
     z-index:1;
 
     &__color {
-        fill:#fff;
+        fill:rgba(#fff,.6);
     }
 }
 .WD__products__like {
@@ -68,16 +93,15 @@
     right:12px;
     width:46px;
     height:46px;
-    opacity:0.6;
     z-index:1;
 
     &__color {
-        fill:#fff;
+        fill:rgba(#fff,.6);
     }
 }
-.WD__products__options {
-    position:absolute;
-    top:17px;
-    right:13px;
-    z-index:1;
+
+@media screen and (max-height:480px){
+    .WD__products__item__sale {
+        bottom:79px;
+    }
 }

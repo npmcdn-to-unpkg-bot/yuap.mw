@@ -13,7 +13,7 @@
             if (WD.ready) return;
 
             WD.elem = Products.elem.find(".WD__products__feedback");
-            WD.buttonOpen = Products.footer.find(".WD__products__item__plus");
+            WD.buttonOpen = Products.sections.footer.find(".WD__products__item__plus");
             WD.buttonOpenOffset = WD.buttonOpen.offset();
             WD.image = Products.elem.find(".WD__products__feedback__image");
             WD.imageOffset = WD.image.offset();

@@ -37,7 +37,6 @@
 			if (callback && typeof callback === "function"){
 				callback();
 			}
-			//utils.log("This is: <" + namespace + "> found");
 		}
 		else {
 			utils.log("NOT found: <" + namespace + ">");
@@ -66,6 +65,14 @@
 
 	utils.random = function(min,max){
 		return Math.floor(Math.random()*(max-min+1)+min);
+	};
+
+	utils.template = function(name, data, node){
+
+		var tpl = Mustache.render(app.templates[name](), data ? data : {}),
+			result = $(tpl).appendTo(node ? node : app.$dom.root);
+
+		return result;
 	};
 
 	utils.raf = function(callback){

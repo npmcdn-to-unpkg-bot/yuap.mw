@@ -1,0 +1,179 @@
+.WD__products {
+    &[data-nav-color="#292f33"]{
+        .WD__products__back__color,
+        .WD__products__like__color {
+            fill:rgba(#292f33,.26);
+        }
+    }
+    &[data-nav-color="#007aff"]{
+        .WD__products__back__color,
+        .WD__products__like__color {
+            fill:rgba(#007aff,.6);
+        }
+    }
+    &[data-nav-color="#ff2d55"]{
+        .WD__products__back__color,
+        .WD__products__like__color {
+            fill:rgba(#ff2d55,.6);
+        }
+    }
+    &[data-nav-color="#00ab6b"]{
+        .WD__products__back__color,
+        .WD__products__like__color {
+            fill:rgba(#00ab6b,.6);
+        }
+    }
+
+    &[data-sale-color="#ff665a"]{
+        .WD__products__item__sale {
+            background-color:rgba(#ff665a,.8);
+        }
+    }
+    &[data-sale-color="#56d9a3"]{
+        .WD__products__item__sale {
+            background-color:rgba(#56d9a3,.8);
+        }
+    }
+    &[data-sale-color="#c8affa"]{
+        .WD__products__item__sale {
+            background-color:rgba(#c8affa,.8);
+        }
+    }
+    &[data-sale-color="#ff8942"]{
+        .WD__products__item__sale {
+            background-color:rgba(#ff8942,.8);
+        }
+    }
+    &[data-sale-color="#5ac8fa"]{
+        .WD__products__item__sale {
+            background-color:rgba(#5ac8fa,.8);
+        }
+    }
+    &[data-sale-color="#3e4757"]{
+        .WD__products__item__sale {
+            color:#fafafa;
+            background-color:rgba(#3e4757,.77);
+        }
+    }
+    &[data-sale-color="#28282a"]{
+        .WD__products__item__sale {
+            color:#fafafa;
+            background-color:rgba(#28282a,.77);
+        }
+    }
+
+    &[data-sale-strong="true"]{
+        .WD__products__item__price--sale {
+            color:$red_bright;
+        }
+    }
+    &[data-price-font-weight="bold"]{
+        .WD__products__item__price {
+            font-weight:bold;
+        }
+    }
+    &[data-price-font-weight="thin"]{
+        .WD__products__item__price {
+            font-weight:400;
+            font-family:$default;
+            letter-spacing:0px;
+        }
+    }
+    &[data-price-font-size="small"]{
+        .WD__products__item__price {
+            font-size:20px;
+            line-height:18px;
+        }
+    }
+    &[data-title-font-weight="bold"]{
+        .WD__products__item__title {
+            font-weight:bold;
+        }
+    }
+    &[data-title-font-weight="thin"]{
+        .WD__products__item__title {
+            font-weight:300;
+        }
+    }
+}
+
+.WD__products__desc {
+    &[data-table-font-size="small"]{
+        .WD__products__desc__cell__title,
+        .WD__products__desc__cell__text {
+            font-size:17px;
+            line-height:22px;
+        }
+    }
+    &[data-table-font-size="big"]{
+        .WD__products__desc__cell__title,
+        .WD__products__desc__cell__text {
+            font-size:21px;
+            line-height:26px;
+        }
+    }
+
+    &[data-offer-font-size="small"]{
+        .WD__products__desc__offer {
+            font-size:17px;
+            line-height:24px;
+        }
+    }
+    &[data-offer-font-size="big"]{
+        .WD__products__desc__offer {
+            font-size:21px;
+            line-height:28px;
+        }
+    }
+    &[data-offer-color="#007aff"]{
+        .WD__products__desc__offer {
+            color:#007aff;
+            border-color:rgba(#007aff,.7);
+        }
+    }
+    &[data-offer-color="#ff2d55"]{
+        .WD__products__desc__offer {
+            color:$red_bright;
+            border-color:rgba(#ff2d55,.7);
+        }
+    }
+    &[data-offer-color="#18ad8f"]{
+        .WD__products__desc__offer {
+            color:#18ad8f;
+            border-color:rgba(#18ad8f,.7);
+        }
+    }
+    &[data-offer-bgcolor="#28282a"]{
+        .WD__products__desc__offer {
+            color:#fff;
+            border:none;
+            background:rgba(#28282a,.77);
+        }
+    }
+    &[data-offer-bgcolor="#5975ff"]{
+        .WD__products__desc__offer {
+            color:#fff;
+            border:none;
+            background:rgba(#5975ff,.85);
+        }
+    }
+    &[data-offer-bgcolor="#ee5050"]{
+        .WD__products__desc__offer {
+            color:#fff;
+            border:none;
+            background:rgba(#ee5050,.85);
+        }
+    }
+    &[data-offer-bgcolor="#2ac2a0"]{
+        .WD__products__desc__offer {
+            color:#fff;
+            border:none;
+            background:rgba(#2ac2a0,.85);
+        }
+    }
+    &[data-offer-center="true"]{
+        .WD__products__desc__offer {
+            text-align:center;
+        }
+    }
+}

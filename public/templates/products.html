@@ -1,0 +1,77 @@
+<div class="WD__products WD__section" data-help="false" data-feedback="false"  data-nav-color="{{navColor}}" data-sale-color="{{saleColor}}" data-sale-strong="{{saleStrong}}"  data-price-font-weight="{{priceFontWeight}}" data-price-font-size="{{priceFontSize}}" data-title-font-weight="{{titleFontWeight}}">
+    <div class="WD__products__errZoom">
+        <div class="WD__products__errZoom__container">Большое фото этого товара временно не доступно</div>
+    </div>
+    <div class="WD__products__section WD__products__section__top">
+        <div class="WD__products__section__image WD__products__section__content">
+            <div class="WD__products__help">
+                <div class="WD__products__help__item WD__products__help__item1">
+                    Выйти из раздела
+                </div>
+                <div class="WD__products__help__item WD__products__help__item2">
+                    Увеличить фотографию
+                </div>
+                <div class="WD__products__help__item WD__products__help__item3">
+                    Закажите звонок, мы вам перезвоним и с удовольствием поможем.
+                </div>
+                <div class="WD__products__help__button">
+                    <div class="WD__products__help__button__item">Начать просмотр</div>
+                </div>
+            </div>
+            <svg class="WD__products__back" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g display="none" enable-background="new    "><g display="inline"><g><polygon fill-rule="evenodd" clip-rule="evenodd" points="77.899,14.645 68,4.745 32.645,40.101 22.745,50 32.645,59.899      68,95.255 77.899,85.355 42.544,50    "/></g></g></g><g enable-background="new    "><g><g><path class="WD__products__back__color" fill-rule="evenodd" clip-rule="evenodd" d="M42.544,50l30.405-30.405c2.734-2.734,2.734-7.166,0-9.899     c-2.732-2.734-7.166-2.734-9.898,0L27.695,45.05c-2.733,2.734-2.733,7.166,0,9.9l35.356,35.354c2.732,2.734,7.166,2.734,9.898,0     c2.734-2.733,2.734-7.165,0-9.899L42.544,50z"/></g></g></g><g display="none" enable-background="new    "><g display="inline"><g><polygon fill-rule="evenodd" clip-rule="evenodd" points="74.535,8.28 71,4.745 25.745,50 71,95.255 74.535,91.72 32.816,50         "/></g></g></g><g display="none" enable-background="new    "><g display="inline"><g><path class="WD__products__back__color" fill-rule="evenodd" clip-rule="evenodd" d="M32.816,50l39.952-39.951c0.977-0.977,0.977-2.56,0-3.536     c-0.977-0.976-2.559-0.976-3.535,0l-41.72,41.72c-0.976,0.977-0.976,2.559,0,3.535l41.72,41.72c0.977,0.976,2.559,0.976,3.535,0     c0.977-0.977,0.977-2.56,0-3.536L32.816,50z"/></g></g></g></svg>
+            <svg class="WD__products__like" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path class="WD__products__like__color" d="M70.459,13.858c11.515,0,20.846,9.334,20.846,20.846c0,23.3-34.423,44.555-41.306,51.438  C43.152,79.294,8.695,58.004,8.695,34.704c0-11.512,9.333-20.846,20.847-20.846c10.153,0,18.602,7.261,20.457,16.874  C51.856,21.119,60.305,13.858,70.459,13.858 M70.459,7.738c-8.079,0-15.467,3.606-20.459,9.412  c-4.991-5.806-12.378-9.412-20.458-9.412c-14.87,0-26.967,12.097-26.967,26.966c0,21.608,22.979,39.693,36.708,50.5  c2.831,2.228,5.275,4.151,6.389,5.265l4.328,4.329l4.329-4.328c1.123-1.123,3.576-3.055,6.418-5.292  c13.719-10.799,36.68-28.873,36.68-50.474C97.425,19.835,85.328,7.738,70.459,7.738L70.459,7.738z"/></svg>
+            <div class="WD__products__wrapper">
+                {{#items}}
+                    <div class="WD__products__item" data-image="{{#image.normal}}{{image.normal}}{{/image.normal}}">
+                        <div class="WD__products__image" data-zoom="{{#image.zoom}}{{image.zoom}}{{/image.zoom}}"></div>
+                        <div class="WD__products__images">
+                            {{#images}}
+                            <div class="WD__products__images__item" style="background-image:url({{normal}})" data-image="{{normal}}" data-zoom="{{#zoom}}{{zoom}}{{/zoom}}"></div>
+                            {{/images}}
+                        </div>
+                        {{#price_sale}}{{price}}|{{priceOld}}{{/price_sale}}
+                    </div>
+                {{/items}}
+            </div>
+            <div class="WD__products__footer">
+                <div class="WD__products__item__button WD__products__item__plus"></div>
+                <!-- <div class="WD__products__item__button WD__products__item__callbutton"></div> -->
+                <div class="WD__products__footer__content"></div>
+            </div>
+            <div class="WD__products__feedback">
+                <div class="WD__products__feedback__container">
+                    <div class="WD__products__feedback__button"></div>
+                    <div class="WD__products__feedback__title WD__products__feedback__title--callback">Консультация по телефону</div>
+                    <div class="WD__products__feedback__text">
+                        Мы перезвоним и с удовольствием проконсультируем Вас.
+                    </div>
+                </div>
+                <div class="WD__products__feedback__container">
+                    <div class="WD__products__feedback__button"></div>
+                    <div class="WD__products__feedback__title WD__products__feedback__title--messenger">Пообщаться в чате</div>
+                    <div class="WD__products__feedback__text">
+                        Продолжить общение в удобном чате. Товар будет прикреплен к диалогу.
+                    </div>
+                </div>
+                <div class="WD__products__feedback__close"></div>
+            </div>
+            <div class="WD__products__feedback__image"></div>
+        </div>
+    </div>
+    <div class="WD__products__section WD__products__section__desc">
+        <div class="WD__products__desc WD__products__section__content"  data-table-font-size="{{tableFontSize}}" data-offer-font-size="{{offerFontSize}}" data-offer-color="{{offerColor}}" data-offer-bgcolor="{{offerBgColor}}"  data-offer-center="{{offerCenter}}">
+        </div>
+    </div>
+    <!-- <div class="WD__products__section">
+        <div class="WD__products__advantage WD__products__section__content">
+            <div class="WD__products__advantage__title">Наши преимущества</div>
+            <div class="WD__products__advantage__item">
+                <div class="WD__products__advantage__item__icon">
+
+                </div>
+                <div class="WD__products__advantage__item__title">Только подлинные товары</div>
+                <div class="WD__products__advantage__item__text">Мы гарантируем качество и подлинность каждой вещи, которую вы у нас купите</div>
+            </div>
+        </div>
+    </div> -->
+</div>

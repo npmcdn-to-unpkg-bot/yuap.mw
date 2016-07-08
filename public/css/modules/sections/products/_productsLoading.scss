@@ -5,7 +5,7 @@
         opacity:0;
         @include abs();
         will-change:opacity;
-        transform:translate3d(0, 101%, 0);
+        transform:translate3d(999em, 0, 0);
         transition:none;
         z-index:10;
     }
@@ -42,7 +42,7 @@
     }
     &__image--error {
         @include flex("row", "center", "center");
-        background-color:$red;
+        background-color:#EE445E;
 
         &:after {
             content:"";

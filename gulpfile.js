@@ -6,7 +6,8 @@ var csso = require('gulp-csso');
 var rename = require('gulp-rename');
 var base64 = require('gulp-base64');
 var px2vw = require('gulp-px2vw');
-// var concat = require('gulp-concat');
+var template = require('gulp-template-compile');
+var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
@@ -43,15 +44,29 @@ gulp.task('css', function() {
 		.pipe(browserSync.stream());
 });
 
+gulp.task('templates', function() {
+	gulp.src('public/templates/*.html')
+		.pipe(template({
+			namespace: "yellApp.templates",
+			name: function (file) {
+				return file.relative.replace(/\.html/, "");
+			}
+		}))
+		.pipe(concat('templates.js'))
+		.pipe(gulp.dest('public/js'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch(['public/css/style.scss',
 				'public/css/**/*.scss'], ['css']);
 
+	gulp.watch('public/templates/*.html', ['templates']);
+
     gulp.watch([
-		"index.html",
-		"public/js/*.js",
+		// "index.html",
+		// "public/js/*.js",
 		"public/js/**/*.js",
 		"sections.html"]).on("change", reload);
 });
 
-gulp.task('default', ['css', 'watch']);
+gulp.task('default', ['css', 'templates', 'watch']);

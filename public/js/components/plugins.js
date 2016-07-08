@@ -71,7 +71,8 @@ yellApp.plugins.marquee = function($frame, settings){
 			block: $block,
 			fake: $('<div class="'+settings.spaceClass+'__screen" />'),
 			api: api,
-			ratio: 1
+			ratio: 1,
+			enable: true
 		};
 		// save screen
 		screens.push(screen);
@@ -162,7 +163,7 @@ yellApp.plugins.marquee = function($frame, settings){
 			if (i!=marquee.index && i!=marquee.index+1) {
 				if (i>marquee.index+1) effect.show(screens[i].block, 0, marquee.size, screens[i].ratio);
 				if (i<marquee.index) effect.hide(screens[i].block, 1, marquee.size, screens[i].ratio);
-				screens[i].block[0].style.display = 'none';
+				if (settings.hideSections) screens[i].block[0].style.display = 'none';
 			}
 		};
 	};
@@ -241,11 +242,11 @@ yellApp.plugins.marquee = function($frame, settings){
 		for (var i=0; i<screens.length; i++) {
 			if (i==visible[0] || i==visible[1]) {
 				screens[i].api.state.isFullHide = false;
-				screens[i].block[0].style.display = 'block';
+				if (settings.hideSections) screens[i].block[0].style.display = 'block';
 				marquee.section = screens[i].block[0].getAttribute("data-" + (settings.dataAttr ? settings.dataAttr : "marquee"));
 				if (settings.activeClass) screens[i].block.addClass(settings.activeClass);
 			} else if (!screens[i].api.state.isFullHide) {
-				screens[i].block[0].style.display = 'none';
+				if (settings.hideSections) screens[i].block[0].style.display = 'none';
 				screens[i].block.triggerHandler('fullHide');
 				screens[i].api.state.isFullHide = true;
 				if (settings.activeClass) screens[i].block.removeClass(settings.activeClass);
@@ -394,7 +395,7 @@ yellApp.plugins.marquee = function($frame, settings){
 	// {fn} scroll to
 	marquee.scrollTo = function(index, duration){
 		duration = duration === undefined && duration !== 0 ? 550 : duration;
-		screens[index].block[0].style.display = 'block';
+		if (settings.hideSections) screens[index].block[0].style.display = 'block';
 		setTimeout(function(){
 			scroll.goToPage(!settings.vertical ? index : 0, settings.vertical ? index : 0, duration, IScroll.utils.ease.cubicOut);
 			if (duration==0) marquee.refresh();
@@ -427,6 +428,27 @@ yellApp.plugins.marquee = function($frame, settings){
 	// {fn} get marquee param
 	marquee.get = function(parameter){
 		return marquee[parameter];
+	};
+	marquee.hideScreen = function(index, resize){
+		if (screensVisible[index].enable){
+			screensVisible[index].enable = false;
+			marquee.callScreensVisible();
+			if (resize) marquee.resize();
+		}
+	};
+	marquee.showScreen = function(index, resize){
+		if (!screensVisible[index].enable){
+			screensVisible[index].enable = true;
+			marquee.callScreensVisible();
+			if (resize) marquee.resize();
+		}
+	};
+	marquee.callScreensVisible = function(){
+		var _screens = [];
+		for (var i=0; i<screensVisible.length; i++) {
+			if (screensVisible[i].enable) _screens.push(screensVisible[i]);
+		}
+		if (_screens.length !== screens.length) screens = _screens;
 	};
 	marquee.destroy = function(){
 		$frame.find('.'+settings.spaceClass).remove();
@@ -465,6 +487,13 @@ yellApp.plugins.marquee = function($frame, settings){
 	};
 
 	marquee.scroll = scroll;
+
+	if (settings.controlInvisible){
+		var screensVisible = [];
+		for (var i=0; i<screens.length; i++) {
+			screensVisible.push(screens[i]);
+		}
+	}
 
 	// api
 	$frame.data('marquee', {
