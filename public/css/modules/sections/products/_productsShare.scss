@@ -5,6 +5,7 @@
     left:0;
     width:100%;
     height:100%;
+    transform:translate3d(101%, 0, 0);
     background:rgba($bg_color,.87);
     z-index:2;
 
@@ -12,11 +13,12 @@
         position:relative;
         width:100%;
         text-align:center;
-        color:rgba(221,223,224,.4);
+        color:rgba(221,223,224,.6);
         font-size:18px;
         line-height:18px;
         font-weight:300;
-        padding-bottom:8px;
+        padding-top:3px;
+        margin-top:25px;
 
         &:before,
         &:after {
@@ -26,21 +28,30 @@
             left:0;
             width:30%;
             height:1px;
-            background:rgba(#fff,.25);
+        }
+        &:before {
+            background:linear-gradient(to left, rgba(#fff,.3) 25%, rgba(#fff,0));
         }
         &:after {
             left:auto;
             right:0;
+            background:linear-gradient(to right, rgba(#fff,.3) 25%, rgba(#fff,0));
         }
+    }
+    &__close {
+        width:44px;
+        height:44px;
+        background:url(/public/images/ui-close_white.svg) no-repeat 0 0 / cover;
+        opacity:0.25;
     }
     &__items {
         width:100%;
+        padding:15px 0 40px;
         @include flex("row", "space-between", "stretch");
     }
     &__item {
         @include flex("row", "center", "center");
         width:100%;
-        padding-bottom:22px;
     }
     &__tw {
         width:64px;
@@ -68,6 +79,64 @@
         &__color {
             // fill:lighten(#597DA3,8%);
             fill:rgba(221,223,224,.8);
+        }
+    }
+}
+
+.WD__products {
+    &__share {
+        opacity:0;
+        @include accelerate();
+        will-change:opacity, transform;
+        transition:opacity 0.35s $cubic34 0.1s, transform 0s 0.45s;
+
+        &__item,
+        &__title,
+        &__close {
+            opacity:0;
+            @include accelerate();
+            will-change:opacity, transform;
+            transform:translate3d(0, -18px, 0);
+            transition:opacity 0.3s $cubic57 0s, transform 0.3s $cubic34 0s;
+        }
+    }
+    &__item--active {
+        transition:filter 0.3s $cubic34 0s;
+    }
+    &[data-share="true"] {
+        .WD__products__share {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:opacity 0.4s $cubic34, transform 0s;
+
+            &__item,
+            &__title,
+            &__close {
+                opacity:1;
+                transform:translate3d(0, 0, 0);
+            }
+            &__title {
+                transition:opacity 0.4s $cubic34 0s, transform 0.4s $cubic25 0s;
+            }
+            &__item {
+                &:nth-child(1) {
+                    transition:opacity 0.4s $cubic34 0.1s, transform 0.4s $cubic25 0.1s;
+                }
+                &:nth-child(2) {
+                    transition:opacity 0.4s $cubic34 0.15s, transform 0.4s $cubic25 0.15s;
+                }
+                &:nth-child(3) {
+                    transition:opacity 0.4s $cubic34 0.2s, transform 0.4s $cubic25 0.2s;
+                }
+            }
+            &__close {
+                opacity:0.25;
+                transition:opacity 0.4s $cubic34 0.3s, transform 0.4s $cubic25 0.3s;
+            }
+        }
+        .WD__products__item--active {
+            transition:filter 2s $cubic34 0.65s;
+            filter:blur(10px);
         }
     }
 }

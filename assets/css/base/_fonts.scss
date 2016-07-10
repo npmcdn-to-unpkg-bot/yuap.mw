@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,100&subset=cyrillic-ext,latin');
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/assets/css/fonts/ProximaNova-Bold-webfont.eot");
+    src: url("/assets/css/fonts/ProximaNova-Bold-webfont.eot?#iefix") format("embedded-opentype"),
+         url("/assets/css/fonts/ProximaNova-Bold-webfont.woff") format("woff"),
+         url("/assets/css/fonts/ProximaNova-Bold-webfont.ttf") format("truetype"),
+         url("/assets/css/fonts/ProximaNova-Bold-webfont.svg#proxima_nova_rgbold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/assets/css/fonts/ProximaNova-Light-webfont.eot");
+    src: url("/assets/css/fonts/ProximaNova-Light-webfont.eot?#iefix") format("embedded-opentype"),
+         url("/assets/css/fonts/ProximaNova-Light-webfont.woff") format("woff"),
+         url("/assets/css/fonts/ProximaNova-Light-webfont.ttf") format("truetype"),
+         url("/assets/css/fonts/ProximaNova-Light-webfont.svg#proxima_nova_ltlight") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/assets/css/fonts/ProximaNova-Reg-webfont.eot");
+    src: url("/assets/css/fonts/ProximaNova-Reg-webfont.eot?#iefix") format("embedded-opentype"),
+         url("/assets/css/fonts/ProximaNova-Reg-webfont.woff") format("woff"),
+         url("/assets/css/fonts/ProximaNova-Reg-webfont.ttf") format("truetype"),
+         url("/assets/css/fonts/ProximaNova-Reg-webfont.svg#proxima_nova_rgregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:100;
+	src:url("/assets/css/fonts/myriad-set-pro_ultralight.woff") format("woff");
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:italic;
+	font-weight:100;
+	src:url("/assets/css/fonts/myriad-set-pro_ultralight-italic.woff") format("woff");
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:200;
+	src:url("/assets/css/fonts/myriad-set-pro_thin.woff") format("woff");
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:300;
+	src:url("/assets/css/fonts/myriad-set-pro_thin.woff") format("woff");
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:400;
+	src:url("/assets/css/fonts/myriad-set-pro_text.woff") format("woff");
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:500;
+	src:url("/assets/css/fonts/myriad-set-pro_medium.woff") format("woff");
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:600;
+	src:url("/assets/css/fonts/myriad-set-pro_semibold.woff") format("woff");
+}
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:700;
+	src:url("/assets/css/fonts/myriad-set-pro_bold.woff") format("woff");
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/assets/css/fonts/pragmatica-extralight-v4.woff2') format('woff2'),
+		 url('/assets/css/fonts/pragmatica-extralight-v4.eot') format('eot'),
+		 url('/assets/css/fonts/pragmatica-extralight-v4.woff') format('woff'),
+         url('/assets/css/fonts/pragmatica-extralight-v4.ttf') format('ttf');
+    font-weight:200;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/assets/css/fonts/pragmatica-light-v4.woff2') format('woff2'),
+	     url('/assets/css/fonts/pragmatica-light-v4.eot') format('eot'),
+		 url('/assets/css/fonts/pragmatica-light-v4.woff') format('woff'),
+         url('/assets/css/fonts/pragmatica-light-v4.ttf') format('ttf');
+    font-weight:300;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/assets/css/fonts/pragmatica-regular-v4.woff2') format('woff2'),
+         url('/assets/css/fonts/pragmatica-regular-v4.woff') format('woff'),
+		 url('/assets/css/fonts/pragmatica-regular-v4.eot') format('eot'),
+         url('/assets/css/fonts/pragmatica-regular-v4.ttf') format('ttf');
+    font-weight:400;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/assets/css/fonts/pragmatica-medium-v4.woff2') format('woff2'),
+		 url('/assets/css/fonts/pragmatica-medium-v4.eot') format('eot'),
+		 url('/assets/css/fonts/pragmatica-medium-v4.woff') format('woff'),
+		 url('/assets/css/fonts/pragmatica-medium-v4.ttf') format('ttf');
+    font-weight:600;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/assets/css/fonts/pragmatica-bold-v4.woff2') format('woff2'),
+		 url('/assets/css/fonts/pragmatica-bold-v4.eot') format('eot'),
+		 url('/assets/css/fonts/pragmatica-bold-v4.woff') format('woff'),
+         url('/assets/css/fonts/pragmatica-bold-v4.ttf') format('ttf');
+    font-weight:700;
+    font-style:normal;
+}
+// @font-face {
+// 	font-family: 'pfhighway';
+// 	src: url('/assets/css/fonts/pfhighwaysanspro-extrathin.woff2') format('woff2'),
+// 		 url('/assets/css/fonts/pfhighwaysanspro-extrathin.woff') format('woff'),
+// 		 url('/assets/css/fonts/pfhighwaysanspro-extrathin.ttf')  format('ttf'),
+// 		 url('/assets/css/fonts/pfhighwaysanspro-extrathin.eot') format('eot');
+// 	font-weight: 100;
+// 	font-style: normal;
+// }
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/assets/css/fonts/pfhighwaysanspro-thin.woff2') format('woff2'),
+		 url('/assets/css/fonts/pfhighwaysanspro-thin.woff') format('woff'),
+		 url('/assets/css/fonts/pfhighwaysanspro-thin.ttf')  format('ttf'),
+		 url('/assets/css/fonts/pfhighwaysanspro-thin.eot') format('eot');
+	font-weight: 200;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/assets/css/fonts/pfhighwaysanspro-light.woff2') format('woff2'),
+		 url('/assets/css/fonts/pfhighwaysanspro-light.woff') format('woff'),
+		 url('/assets/css/fonts/pfhighwaysanspro-light.ttf')  format('ttf'),
+		 url('/assets/css/fonts/pfhighwaysanspro-light.eot') format('eot');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/assets/css/fonts/pfhighwaysanspro-regular.woff2') format('woff2'),
+		 url('/assets/css/fonts/pfhighwaysanspro-regular.woff') format('woff'),
+		 url('/assets/css/fonts/pfhighwaysanspro-regular.ttf')  format('ttf'),
+		 url('/assets/css/fonts/pfhighwaysanspro-regular.eot') format('eot');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/assets/css/fonts/pfhighwaysanspro-medium.woff2') format('woff2'),
+		 url('/assets/css/fonts/pfhighwaysanspro-medium.woff') format('woff'),
+		 url('/assets/css/fonts/pfhighwaysanspro-medium.ttf')  format('ttf'),
+		 url('/assets/css/fonts/pfhighwaysanspro-medium.eot') format('eot');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/assets/css/fonts/pfhighwaysanspro-bold.woff2') format('woff2'),
+		 url('/assets/css/fonts/pfhighwaysanspro-bold.woff') format('woff'),
+		 url('/assets/css/fonts/pfhighwaysanspro-bold.ttf')  format('ttf'),
+		 url('/assets/css/fonts/pfhighwaysanspro-bold.eot') format('eot');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+    font-family: "Museo";
+    src: url(/assets/css/fonts/MuseoSansCyrl-300.eot) format('embedded-opentype'),
+    url(/assets/css/fonts/MuseoSansCyrl-300.woff) format('woff'),
+    url(/assets/css/fonts/MuseoSansCyrl-300.ttf) format('truetype'),
+    url(/assets/css/fonts/MuseoSansCyrl-300.svg) format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Museo";
+    src: url(/assets/css/fonts/MuseoSansCyrl-500.eot) format('embedded-opentype'),
+    url(/assets/css/fonts/MuseoSansCyrl-500.woff) format('woff'),
+    url(/assets/css/fonts/MuseoSansCyrl-500.ttf) format('truetype'),
+    url(/assets/css/fonts/MuseoSansCyrl-500.svg) format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Museo";
+    src: url(/assets/css/fonts/MuseoSansCyrl-700.eot) format('embedded-opentype'),
+    url(/assets/css/fonts/MuseoSansCyrl-700.woff) format('woff'),
+    url(/assets/css/fonts/MuseoSansCyrl-700.ttf) format('truetype'),
+    url(/assets/css/fonts/MuseoSansCyrl-700.svg) format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Museo";
+    src: url(/assets/css/fonts/MuseoSansCyrl-900.eot) format('embedded-opentype'),
+    url(/assets/css/fonts/MuseoSansCyrl-900.woff) format('woff'),
+    url(/assets/css/fonts/MuseoSansCyrl-900.ttf) format('truetype'),
+    url(/assets/css/fonts/MuseoSansCyrl-900.svg) format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+// @font-face {
+//     font-family: 'Helvetica Neue';
+//     src: url('/assets/css/fonts/HelveticaNeueCyrLight.eot');
+//     src: url('/assets/css/fonts/HelveticaNeueCyrLight.eot') format('embedded-opentype'),
+//     url('/assets/css/fonts/HelveticaNeueCyrLight.woff') format('woff'),
+//     url('/assets/css/fonts/HelveticaNeueCyrLight.ttf') format('truetype'),
+//     url('/assets/css/fonts/HelveticaNeueCyrLight.svg') format('svg');
+//     font-weight: 200;
+//     font-style: normal;
+// }
+// @font-face {
+//     font-family: 'Helvetica Neue';
+//     src: url('/assets/css/fonts/HelveticaNeueCyrRoman.eot');
+//     src: url('/assets/css/fonts/HelveticaNeueCyrRoman.eot') format('embedded-opentype'),
+//          url('/assets/css/fonts/HelveticaNeueCyrRoman.woff') format('woff'),
+//          url('/assets/css/fonts/HelveticaNeueCyrRoman.ttf') format('truetype'),
+//          url('/assets/css/fonts/HelveticaNeueCyrRoman.svg') format('svg');
+//     font-weight: 400;
+//     font-style: normal;
+// }
+// @font-face {
+//     font-family: 'Helvetica Neue';
+//     src: url('/assets/css/fonts/HelveticaNeueCyrMedium.eot');
+//     src: url('/assets/css/fonts/HelveticaNeueCyrMedium.eot') format('embedded-opentype'),
+//     url('/assets/css/fonts/HelveticaNeueCyrMedium.woff') format('woff'),
+//     url('/assets/css/fonts/HelveticaNeueCyrMedium.ttf') format('truetype'),
+//     url('/assets/css/fonts/HelveticaNeueCyrMedium.svg') format('svg');
+//     font-weight: 500;
+//     font-style: normal;
+// }
+// @font-face {
+//     font-family: 'Helvetica Neue';
+//     src: url('/assets/css/fonts/HelveticaNeueCyrUltraLight.eot');
+//     src: url('/assets/css/fonts/HelveticaNeueCyrUltraLight.eot') format('embedded-opentype'),
+//     url('/assets/css/fonts/HelveticaNeueCyrUltraLight.woff') format('woff'),
+//     url('/assets/css/fonts/HelveticaNeueCyrUltraLight.ttf') format('truetype'),
+//     url('/assets/css/fonts/HelveticaNeueCyrUltraLight.svg') format('svg');
+//     font-weight: 100;
+//     font-style: normal;
+// }

@@ -48,6 +48,10 @@ body {
 }
 .WD__wrapper {
 	@include abs();
+	font-weight:400;
+    font-size:15px;
+    line-height:15px;
+    font-family:$default;	
 	overflow:hidden;
 	z-index:200000;
 }

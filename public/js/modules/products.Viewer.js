@@ -20,7 +20,7 @@
 
             WD.photoSwipeContainer = document.querySelectorAll('.pswp')[0];
 
-            Products.wrapper.on(EV.click, ".WD__products__image", function(){
+            Products.sections.imageWrapper.on(EV.click, ".WD__products__image", function(){
                 if (!this.getAttribute("class").match(/error/)){
                     var img = this.getAttribute("data-zoom");
                     if (WD.allowClick && img) WD.open(img);
@@ -28,7 +28,7 @@
             });
 
             if (!device.isMobile){
-                Products.wrapper.on("mousedown mouseup mousemove", function(e){
+                Products.sections.imageWrapper.on("mousedown mouseup mousemove", function(e){
                     if (e.type === "mousemove" && WD.sliderEvent === "mousedown"){
                         WD.allowClick = false;
                     }

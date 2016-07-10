@@ -44,8 +44,9 @@
 
             WD.elem = _.template("products", WD.data);
 
-            WD.wrapper = WD.elem.find(".WD__products__wrapper");
-            WD.sections.footer = WD.elem.find(".WD__products__footer");
+            WD.sections.image = WD.elem.find(".WD__products__section__image");
+            WD.sections.imageWrapper = WD.sections.image.find(".WD__products__wrapper");
+            WD.sections.footer = WD.sections.image.find(".WD__products__footer");
             WD.sections.footerContent = WD.sections.footer.find(".WD__products__footer__content");
             WD.sections.desc = WD.elem.find(".WD__products__section__desc");
             WD.sections.descContent = WD.sections.desc.find(".WD__products__desc");
@@ -65,7 +66,8 @@
 
         render: function(){
 
-            WD.wrapper.on(EV.click, ".WD__products__images__item", function() {
+            // open additional images
+            WD.sections.imageWrapper.on(EV.click, ".WD__products__images__item", function() {
                 var $item = $(this);
 
                 if ($item.data("zoom")) WD.viewer.open($item.data("zoom"));
@@ -124,14 +126,14 @@
 
         slider: function(){
 
-            WD.wrapper.on('dragstart selectstart', function() {
+            WD.sections.imageWrapper.on('dragstart selectstart', function() {
                 return false;
             });
 
             var index = 100,
                 i = 0;
 
-            WD.wrapper.find(".WD__products__item").each(function() {
+            WD.sections.imageWrapper.find(".WD__products__item").each(function() {
                 var $item = $(this),
                     $img = $item.children(".WD__products__image"),
                     image = $item.data("image");
@@ -185,7 +187,7 @@
                 duration: 425
             });
 
-            WD.marqueeHorizontal = app.plugins.marquee(WD.wrapper, {
+            WD.marqueeHorizontal = app.plugins.marquee(WD.sections.imageWrapper, {
                 vertical: false,
                 screens: '.WD__products__item',
                 effect: 'space',

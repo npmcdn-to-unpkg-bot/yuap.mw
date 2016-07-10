@@ -7,31 +7,6 @@
     padding:5px 25px 0 21px;
     z-index:2;
 
-    // &:after {
-    //     content:"";
-    //     position:absolute;
-    //     bottom:-440px;
-    //     left:50%;
-    //     width:628px;
-    //     height:548px;
-    //     background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-orange.png) no-repeat 0 0 / cover;
-    //     opacity:0.7;
-    //     transform:scaleX(-1) translate3d(-5px, 0, 0);
-    //     z-index:-1;
-    // }
-    // &:before {
-    //     content:"";
-    //     position:absolute;
-    //     bottom:-45px;
-    //     left:-50%;
-    //     width:309px;
-    //     height:175px;
-    //     background:url(http://wp.dedalx.com/magnium/magnium-1/wp-content/uploads/revslider/magnium/bubble-blue.png) no-repeat 0 0 / cover;
-    //     transform:scaleY(-1);
-    //     opacity:0.7;
-    //     z-index:-1;
-    // }
-
     &__container {
         position:relative;
         padding:19px 17px 19px;
@@ -121,13 +96,7 @@
             @include accelerate();
             will-change:opacity, transform;
             transform:translate3d(0, -18px, 0);
-
-            &:nth-child(1) {
-                transition:opacity 0.35s $cubic57 0s, transform 0.35s $cubic34 0s;
-            }
-            &:nth-child(2) {
-                transition:opacity 0.35s $cubic57 0s, transform 0.35s $cubic34 0s;
-            }
+            transition:opacity 0.35s $cubic57 0s, transform 0.35s $cubic34 0s;
         }
         &__image {
             will-change:opacity, transform;
@@ -146,7 +115,7 @@
 
             &__container {
                 opacity:1;
-                transform:translate3d(0, 0, 0) rotate(0);
+                transform:translate3d(0, 0, 0);
 
                 &:nth-child(1) {
                     transition:opacity 0.5s $cubic34 0.55s, transform 0.5s $cubic25 0.55s;

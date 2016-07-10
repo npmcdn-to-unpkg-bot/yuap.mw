@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap-grid-only",
+  "homepage": "https://github.com/zirafa/bootstrap-grid-only",
+  "_release": "59ea965bee",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "59ea965beee633a0197210a4451da5e1f6a7765f"
+  },
+  "_source": "https://github.com/zirafa/bootstrap-grid-only.git",
+  "_target": "*",
+  "_originalSource": "bootstrap-grid-only",
+  "_direct": true
+}
