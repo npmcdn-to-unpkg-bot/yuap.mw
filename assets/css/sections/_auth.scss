@@ -1,0 +1,160 @@
+.auth {
+    @include abs(fixed);
+    // background:rgba(darken(#4d84f1,29.67%), 0.8);
+    color:#fff;
+    font-size:0;
+    user-select:none;
+    text-align:center;
+    z-index:5;
+
+    a {
+        display:inline-block;
+        vertical-align:top;
+        color:#0fa;
+        border-bottom:1px solid rgba(#0fa,.3);
+        transition:color 0.2s $cubic645, border-color 0.2s $cubic645, transform 0.12s $cubic215;
+
+        &:hover {
+            color:$yellow_dark;
+            border-color:rgba($yellow_dark,.3);
+        }
+        &:active {
+            transform:translate3d(0, 1px, 0) scale(0.9);
+        }
+    }
+
+    &:before {
+        // content:"";
+        // @include abs();
+        // // background-image:linear-gradient(310deg,rgba(109,119,103,.9),rgba(126,107,131,.8));
+        // background:linear-gradient(225deg, rgba($black_dark,.3), rgba($bg_color,.3));
+        // z-index:-1;
+    }
+    &__wrapper {
+        @include abs();
+        @include flex("row", "center", "center");
+        z-index:1;
+    }
+    &__form {
+        position:relative;
+        margin-top:15vh;
+
+        &__title,
+        &__input {
+            width:100%;
+        }
+        &__title {
+            font-family:$myriad;
+            font-size:30.5px;
+            line-height:32px;
+            margin-bottom:35px;
+            font-weight:600;
+            color:rgba(#fff,.6);
+        }
+        &__input {
+            background:none;
+            border:none;
+            height:48px;
+            padding:0 30px 12px 60px;
+            color:#fafafa;
+            font-family:$pragmatica;
+            font-size:22px;
+            line-height:30px;
+            font-weight:300;
+            border-bottom:1px solid rgba(#fafafa,.22);
+            transform:translate3d(0, 0, 0);
+            transition:transform 0.3s cubic-bezier(.42,0,.05,2.5);
+
+            &::-webkit-input-placeholder {
+                color:#fafafa;
+                opacity:0.8;
+                font-size:16.5px;
+                font-weight:200;
+                text-transform:uppercase;
+            }
+            &:-moz-placeholder {
+                color:#fafafa;
+                opacity:0.8;
+                font-size:16.5px;
+                font-weight:200;
+                text-transform:uppercase;
+            }
+            &--pass {
+                font-weight:bold;
+            }
+            &__block {
+                position:relative;
+                overflow:hidden;
+                margin-bottom:20px;
+
+                &__line {
+                    display:block;
+                    content:"";
+                    position:absolute;
+                    top:100%;
+                    left:0;
+                    width:100%;
+                    height:1px;
+                    margin-top:-3px;
+                    border-bottom:2px solid #0fa;
+                    transform:translate3d(-101%, 0, 0);
+                    transition:transform 0.5s $cubic215;
+                }
+            }
+            &:focus {
+                transform:translate3d(0, -2px, 0);
+            }
+            &:focus + .auth__form__input__block__line {
+                transform:translate3d(0, 0, 0);
+            }
+        }
+    }
+    &__footer {
+        padding-top:25px;
+    }
+    &__button {
+        display:inline-block;
+        vertical-align:top;
+        color:#fff;
+        font-size:18px;
+        padding:12px 50px;
+        border-radius:4px;
+        border:2px solid rgba(#fff,.22);
+        cursor:pointer;
+        transition:color 0.2s $cubic645, border-color 0.2s $cubic645, transform 0.15s $cubic215;
+
+        &:hover {
+            color:#0fa;
+            border-color:#0fa;
+        }
+        &:active {
+            transform:translate3d(0, 2px, 0) scale(0.85);
+        }
+    }
+    &__devider {
+        height:1px;
+        background-color:rgba(#fff,.22);
+        margin:45px 0 20px 0;
+    }
+    &__text {
+        font-size:18px;
+        margin-bottom:10px;
+    }
+    &__close {
+        position:absolute;
+        top:-85px;
+        left:100%;
+        margin-left:-40px;
+        @include ui-close(white, 30px, 30px, true);
+        cursor:pointer;
+        opacity:0.5;
+        transition:opacity 0.2s $cubic645, transform 0.15s $cubic215;
+
+        &:hover {
+            opacity:0.8;
+        }
+        &:active {
+            transform:translate3d(0, 1px, 0) scale(0.85);
+        }
+    }
+}

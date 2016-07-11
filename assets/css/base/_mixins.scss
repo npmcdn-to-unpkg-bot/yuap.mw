@@ -27,3 +27,30 @@
         transform:translate3d(0, 0, 0);
     }
 }
+@mixin ui-close($color: black, $width: false, $height: false, $thin: false) {
+    @if $width {
+        width:#{$width};
+    }
+    @if $height {
+        height:#{$height};
+    }
+    @if $color == white {
+        @if $thin {
+            background-image:url(/assets/images/ui-close_thin_white.svg);
+        }
+        @else {
+            background-image:url(/assets/images/ui-close_white.svg);
+        }
+    }
+    @else {
+        @if $thin {
+            background-image:url(/assets/images/ui-close_thin.svg);
+        }
+        @else {
+            background-image:url(/assets/images/ui-close.svg);
+        }
+    }
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center;
+}

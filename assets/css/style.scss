@@ -5,15 +5,19 @@
 @import 'base/mixins';
 @import 'base/responsive';
 @import 'base/main';
+@import 'base/page';
 
 // elements
 @import 'elements/subcaption';
 
-// promo
+// sections
+@import 'sections/nav';
+@import 'sections/auth';
 @import 'sections/home/header';
 @import 'sections/home/content';
 
 // states
+@import 'states/states';
 @import 'states/color';
 @import 'states/sizes';
 @import 'states/text';

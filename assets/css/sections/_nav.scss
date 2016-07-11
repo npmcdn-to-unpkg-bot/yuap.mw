@@ -1,0 +1,77 @@
+.nav {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:44px;
+    background:rgba(#0084FF,.82);
+    // background:rgba(#2998FF,.87);
+    // background:rgba(240, 240, 240, 0.9);
+    z-index:2;
+
+    &:after {
+        content:"";
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        height:1px;
+        background:rgba($blue,.87);
+    }
+    &__menu {
+        position:relative;
+        text-align:center;
+        width:100%;
+        height:44px;
+        font-size:0;
+        overflow:hidden;
+
+        &:before {
+            content:"Il";
+            position:absolute;
+            top:-26px;
+            left:0;
+            color:#fff;
+            font-family:$museo;
+            font-size:82px;
+            line-height:60px;
+            font-weight:200;
+            letter-spacing:-0.047em;
+        }
+        &:after {
+            content:".store";
+            position:absolute;
+            top:-14px;
+            left:44px;
+            color:#fff;
+            font-family:$pfhighway;
+            font-size:28px;
+            line-height:60px;
+            font-weight:200;
+        }
+        &__item {
+            display:inline-block;
+            vertical-align:top;
+            color:#fff;
+            font-family:$pfhighway;
+            font-size:16.5px;
+            line-height:44px;
+            font-weight:300;
+            margin:0 28px;
+            opacity:0.82;
+            transition:opacity 0.2s $cubic645;
+
+            &:hover {
+                opacity:1;
+                text-shadow:0 0 2px rgba(#fff,.2);
+            }
+            &--active,
+            &--active:hover {
+                opacity:1;
+                font-family:$roboto;
+                font-weight:400;
+                letter-spacing:-0.016em;
+            }
+        }
+    }
+}
