@@ -3,7 +3,7 @@
     var $header = $(".home__header__wrapper"),
         $logo = $header.find(".home__logo"),
         $buttons = $header.find(".home__buttons"),
-        $layers = $header.find(".home__header__layer"),
+        $layers = $(".home__header__layer"),
         layers = [];
 
     $layers.each(function(){
@@ -38,14 +38,41 @@
         });
     });
 
-    $header.addClass("home__header__wrapper--overlay home__header__wrapper--auth");
+    var $auth = $(".auth"),
+        $authWrapper = $auth.find(".auth__wrapper"),
+        $authForm = $authWrapper.find(".auth__form"),
+        $authButtonClose = $authWrapper.find(".auth__close");
 
-    // $buttons.on("mouseenter", function(){
-    //      $header.addClass("home__header__wrapper--overlay");
-    // });
-    //
-    // $buttons.on("mouseleave", function(){
-    //      $header.removeClass("home__header__wrapper--overlay");
-    // });
+    // $header.addClass("home__header__wrapper--overlay");
+
+    $buttons.on("mouseenter", function(){
+         $header.addClass("home__header__wrapper--overlay");
+    });
+
+    $buttons.on("mouseleave", function(){
+         $header.removeClass("home__header__wrapper--overlay");
+    });
+
+    $buttons.on("click", ".home__button", function(e){
+        e.preventDefault();
+        $header.addClass("home__header__wrapper--auth");
+        $auth.addClass("auth--open");
+        $("body").addClass("no-scroll");
+        _.onEndTransition($authWrapper[0], function(){
+            $authForm.find(".auth__form__input__block--login > .auth__form__input").focus();
+        });
+    });
+
+    $authForm.find(".auth__form__input").on("focus blur", function(e){
+        var $block = $(this).closest(".auth__form__input__block");
+        if (e.type === "focus") $block.addClass("auth__form__input__block--focus");
+        else $block.removeClass("auth__form__input__block--focus");
+    });
+
+    $authButtonClose.on("click", function(e){
+        $header.removeClass("home__header__wrapper--auth");
+        $auth.removeClass("auth--open");
+        $("body").removeClass("no-scroll");
+    });
 
 })(app.utils);

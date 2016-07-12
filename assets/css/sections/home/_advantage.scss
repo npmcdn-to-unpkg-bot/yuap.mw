@@ -1,0 +1,45 @@
+.home__header__advantage {
+    display:none;
+    @include abs();
+    @include flex("row", "center", "center");
+    color:#fff;
+    z-index:2;
+
+    &__wrapper {
+        @include flex("row", "center", "center");
+        width:980px;
+        height:400px;
+        margin:0 auto;
+    }
+    &__item {
+        width:100%;
+        text-align:center;
+        padding:0 30px;
+        margin-top:-210px;
+    }
+    &__icon {
+        position:relative;
+        display:inline-block;
+        vertical-align:top;
+        width:178px;
+        height:178px;
+        border:1px solid rgba(#0fa,.45);
+        border-radius:46%;
+        margin-bottom:32px;
+
+        &:after {
+            content:"";
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+        &--calendar:after {
+            @include abs_50(88, 88);
+            transform:translate3d(3px, 0, 0);
+            background-image:url(/assets/images/home_advantage_calendar.svg);
+        }
+    }
+    &__title {
+        font-size:18px;
+        line-height:25px;
+    }
+}

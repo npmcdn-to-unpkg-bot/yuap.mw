@@ -74,4 +74,30 @@
             }
         }
     }
+    &--static {
+        position:relative;
+        background:rgba($black_gray,.9);
+        z-index:1;
+
+        &:after {
+            background:rgba(214,214,214,0.4);
+        }
+        .nav__menu {
+            &:before {
+                opacity:1;
+                color:#fafafa;
+            }
+            &:after {
+                opacity:0.8;
+                color:#fafafa;
+            }
+            // &__item {
+            //     color:$gray_dark;
+            //
+            //     &:hover {
+            //         color:$black_gray;
+            //     }
+            // }
+        }
+    }
 }
