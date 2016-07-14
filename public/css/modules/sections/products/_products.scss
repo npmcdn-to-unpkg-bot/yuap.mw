@@ -48,15 +48,18 @@
         will-change:transform, opacity, filter;
     }
 }
+.WD__products__image__container {
+    @include abs();
+    z-index:0;
+}
 .WD__products__image {
     @include abs();
     background-size:cover;
     background-repeat:no-repeat;
     background-position:top center;
 }
-.WD__products__item--center {
+.WD__products__image--center {
     @include flex("row", "center", "center");
-    display:flex !important;
     background:#fff;
 
     .WD__products__image {

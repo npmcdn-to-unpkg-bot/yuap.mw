@@ -1,6 +1,6 @@
 (function(app, $, $dom, EV, _){
 
-    var Products = app.products,
+    var PARENT = app.products,
         device = app.device,
         sizes = app.sizes;
 
@@ -20,7 +20,7 @@
 
             WD.photoSwipeContainer = document.querySelectorAll('.pswp')[0];
 
-            Products.sections.imageWrapper.on(EV.click, ".WD__products__image", function(){
+            PARENT.sections.imageWrapper.on(EV.click, ".WD__products__image__container", function(){
                 if (!this.getAttribute("class").match(/error/)){
                     var img = this.getAttribute("data-zoom");
                     if (WD.allowClick && img) WD.open(img);
@@ -28,7 +28,7 @@
             });
 
             if (!device.isMobile){
-                Products.sections.imageWrapper.on("mousedown mouseup mousemove", function(e){
+                PARENT.sections.imageWrapper.on("mousedown mouseup mousemove", function(e){
                     if (e.type === "mousemove" && WD.sliderEvent === "mousedown"){
                         WD.allowClick = false;
                     }
@@ -48,7 +48,7 @@
 
         open: function(img){
 
-            Products.elem.attr("data-loading", "true");
+            PARENT.elem.attr("data-loading", "true");
 
             if (!WD.error.list.indexOf(img)) {
                 WD.error.show(img);
@@ -73,13 +73,13 @@
 
             show: function(img){
 
-                Products.elem.attr("data-image-error", "true");
+                PARENT.elem.attr("data-image-error", "true");
 
                 if (WD.error.list.indexOf(img) === -1) WD.error.list.push(img);
 
                 setTimeout(function(){
-                    Products.elem.attr("data-image-error", "false");
-                    Products.elem.attr("data-loading", "false");
+                    PARENT.elem.attr("data-image-error", "false");
+                    PARENT.elem.attr("data-loading", "false");
                 }, 1500);
 
                 _.logger("Error load image", img);
@@ -110,7 +110,8 @@
                 showAnimationDuration: 30
             };
 
-            var zoom = data.width > sizes.width ? 1.7 : 1,
+            var delta = data.width / sizes.width,
+                zoom = delta > 1.7 ? 1.7 : (delta < 1 ? 1 : delta),
                 zoomScale = (sizes.width / data.width) * zoom,
                 zoomX = sizes.width / 2;
 
@@ -134,7 +135,7 @@
 
         close: function(){
 
-            Products.elem.attr("data-loading", "false");
+            PARENT.elem.attr("data-loading", "false");
 
             WD.active = false;
 

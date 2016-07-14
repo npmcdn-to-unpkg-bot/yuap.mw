@@ -39,6 +39,8 @@
 		'transform-origin': Modernizr.prefixed('transformOrigin')
 	};
 
+	Zepto = $;
+
 	/*** --- Dataset helper --- ***/
 	$.fn.api = function(key){
 		return this.data(key) ? this.data(key) : this.data(key, {}).data(key);

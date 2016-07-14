@@ -40,7 +40,7 @@
             border-radius:18px;
         }
     }
-    &__item {
+    &__image {
         &--error {
             .WD__products__image {
                 @include flex("row", "center", "center");

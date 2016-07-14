@@ -4,6 +4,10 @@
 
     app.screens = {
 
+        active: false,
+
+        hidden: false,
+
         ready: false,
 
         items: {},
@@ -64,6 +68,9 @@
                 WD.change(screen);
             }
 
+            _.init("screens.callback");
+            _.init("screens.products");
+
             WD.render();
 
             WD.ready = true;
@@ -99,6 +106,30 @@
             if (i !== undefined && WD.state != screen) {
                 WD.state = screen;
                 WD.marquee.scrollTo(i, duration !== undefined ? duration : undefined);
+            }
+        },
+
+        loading: {
+
+            on: function(){
+                WD.elem.attr("data-loading", "true");
+            },
+
+            off: function(){
+                WD.elem.attr("data-loading", "false");
+            }
+        },
+
+        hide: {
+
+            on: function(){
+                WD.elem.attr("data-hidden", "true");
+                WD.hidden = true;
+            },
+
+            off: function(){
+                WD.elem.attr("data-hidden", "false");
+                WD.hidden = false;
             }
         }
     };

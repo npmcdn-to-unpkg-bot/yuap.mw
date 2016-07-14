@@ -1,0 +1,168 @@
+$WD__callback: #B7D517;
+
+.WD__callback {
+    background:linear-gradient(225deg, #3e4757, #1f242c);
+}
+.WD__callback__close {
+    position:absolute;
+    top:20px;
+    left:13px;
+    opacity:0.5;
+    @include ui-back(white, 34px, 40px);
+    z-index:1;
+}
+.WD__callback__wrapper {
+    @include abs_50(320, 420);
+    @include accelerate();
+    text-align:center;
+    will-change:opacity, transform;
+    transform:translate3d(0, 0, 0);
+    margin-top:-232px;
+    // opacity:0;
+}
+.WD__callback__title {
+    color:rgba(221,223,224,.9);
+    font-size:25.5px;
+    line-height:72px;
+    font-weight:300;
+    height:50px;
+}
+.WD__callback__title--number {
+    color:#fff;
+    font-size:36px;
+    line-height:48px;
+    letter-spacing:2.1px;
+}
+.WD__callback__subtitle {
+    color:rgba(221,223,224,.9);
+    font-size:17px;
+    line-height:20px;
+    font-weight:300;
+    margin-top:4px;
+
+    span {
+        color:#fff;
+        font-weight:400;
+    }
+}
+.WD__callback__keyboard {
+    display:inline-block;
+    vertical-align:top;
+    width:321px;
+    line-height:1;
+    margin-top:30px;
+    font-size:0;
+}
+.WD__callback__keyboard__item,
+.WD__callback__keyboard__button {
+    display:inline-block;
+    vertical-align:top;
+    width: 72px;
+    height: 72px;
+    border: 2px solid $WD__callback;
+    margin: 0 17.5px 17px;
+    position: relative;
+    border-radius: 50%;
+    background:rgba(#fff,.02);
+    background-clip: padding-box;
+    box-shadow:0 0 1px rgba(#fff,.15) inset;
+    @include accelerate(true);
+    will-change:background, border-color, transform;
+    transition:background 0.12s $cubic215, border-color 0.12s $cubic215, transform 0.12s $cubic215;
+
+    .d-ios & {
+        transition:background 0.2s $cubic215, border-color 0.2s $cubic215, transform 0.2s $cubic215;
+    }
+}
+.WD__callback__keyboard__number,
+.WD__callback__keyboard__char {
+    transition:color 0.12s $cubic215;
+
+    .d-ios & {
+        transition:color 0.2s $cubic215;
+    }
+}
+.d-retina {
+    .WD__callback__keyboard__item,
+    .WD__callback__keyboard__button {
+        border-width:1px;
+    }
+}
+.WD__callback__keyboard__number {
+    color:#fff;
+    font-style: normal;
+    font-size: 38px;
+    font-weight: 200;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow:0 1px 1px -1px rgba(#000,1);
+    will-change:color;
+}
+.WD__callback__keyboard__char {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    color:rgba(#fff,.8);
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight:300;
+    will-change:color;
+}
+.WD__callback__keyboard__item--active {
+    background:rgba(#fff,.9);
+    border-color:#fff;
+
+    .WD__callback__keyboard__number {
+        color:rgba(#000,.8);
+    }
+    .WD__callback__keyboard__char {
+        color:#000;
+    }
+    .WD__callback__keyboard__button__path {
+        fill:rgba(#000,.8);
+    }
+}
+.WD__callback__keyboard__item--active {
+    transform:scale(0.9);
+}
+.WD__callback__keyboard__button__icon {
+    display:block;
+    @include abs_50(35, 35);
+}
+.WD__callback__keyboard__button__path {
+    fill:#fff;
+    transition:fill 0.12s $cubic215;
+
+    .d-ios & {
+        transition:fill 0.2s $cubic215;
+    }
+}
+.WD__callback__keyboard__button__call {
+    background:$WD__callback;
+    border-color:$WD__callback;
+
+    .WD__callback__keyboard__button__path {
+        fill:rgba(#000,.7);
+    }
+}
+
+@media screen and (max-height:480px){
+    .WD__callback__wrapper {
+        margin-top:-227px;
+    }
+    .WD__callback__title {
+        font-size:25.5px;
+
+        &.WD__callback__title--number {
+            font-size:32px;
+            line-height:64px;
+        }
+    }
+    .WD__callback__keyboard {
+        margin-top:20px;
+    }
+}

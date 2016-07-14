@@ -1,6 +1,7 @@
 (function(app, $, $dom, EV, _){
 
-    var sizes = app.sizes;
+    var SCREENS = app.screens,
+        sizes = app.sizes;
 
     app.products = {
 
@@ -12,9 +13,12 @@
 
         images: [],
 
-        init: function(){
+        init: function(open, callback){
 
-            if (WD.ready) return;
+            if (WD.ready){
+                if (open && !WD.active) WD.open(callback);
+                return;
+            }
 
             WD.data = {
                 items: this.items,
@@ -60,7 +64,7 @@
             _.init("products.viewer");
             _.init("products.feedback");
             _.init("products.share");
-            _.init("products.grid");
+            //_.init("products.grid");
 
             var index = 100,
                 i = 0;
@@ -86,8 +90,14 @@
             });
 
             WD.slider();
-            WD.utils.showItems(3);
+            WD.utils.showItems(2);
             WD.render();
+
+            if (open) {
+                setTimeout(function(){
+                    WD.open(callback);
+                }, 300);
+            }
 
             WD.ready = true;
 
@@ -105,7 +115,8 @@
             });
 
             WD.buttonBack.on(EV.click, function() {
-                WD.grid.open();
+                //WD.grid.open();
+                WD.close();
             });
         },
 
@@ -140,9 +151,11 @@
             }
         },
 
-        open: function(){
+        open: function(callback){
 
             WD.elem.addClass("WD__section--active");
+
+            if (callback && typeof callback === "function") callback();
 
             WD.active = true;
 
@@ -225,6 +238,8 @@
         close: function(){
 
             WD.elem.removeClass("WD__section--active");
+
+            if (SCREENS.hidden) SCREENS.hide.off();
 
             WD.active = false;
 

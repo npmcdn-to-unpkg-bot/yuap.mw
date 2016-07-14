@@ -26,7 +26,6 @@
 
             WD.elem = _.template("products.grid", {
                 items: PARENT.items,
-                masonry: false,
                 zoom: false
             });
 
@@ -35,27 +34,22 @@
             WD.buttonClose = WD.elem.find(".WD__products__grid__close");
             WD.buttonCloseActive = true;
             WD.items = WD.wrapper.find(".WD__products__grid__item");
-            WD.itemsCount = WD.items.length;
+            WD.itemsCount = PARENT.items.length;
 
-            var i = 0;
             WD.items.each(function(){
-                i++;
-                var $item = $(this);
-                $item.addClass("WD__products__grid__item" + i);
-                if (i > 3) i = 0;
                 WD.images.push({
-                    elem: $item,
+                    elem: $(this),
                     top: this.offsetTop,
                     show: false
                 });
             });
 
-            new Masonry(WD.wrapper[0], {
-                itemSelector: '.WD__products__grid__item',
-                resize: false
-            });
+            // new Masonry(WD.wrapper[0], {
+            //     itemSelector: '.WD__products__grid__item',
+            //     resize: false
+            // });
 
-            var _onScroll = _.throttle(WD.onScroll, 300),
+            var _onScroll = _.throttle(WD.onScroll, 100),
                 _showButtonClose = _.debounce(WD.showButtonClose, 10, true);
 
             if (device.isMobile){
@@ -115,7 +109,7 @@
                         WD.images[index].show = true;
 
                         var $item = WD.images[index].elem,
-                            $img = $item.children(".WD__products__grid__item__image"),
+                            $img = $item.find(".WD__products__grid__item__image"),
                             image = $item.data("image");
 
                         PARENT.utils.adaptiveImage({

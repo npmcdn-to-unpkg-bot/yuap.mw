@@ -1,5 +1,4 @@
 .WD__screens {
-    display:none;
     @include abs();
     color:#fff;
     font-weight:400;
@@ -8,8 +7,48 @@
     font-family:$default;
     background:$black_dark;
     @include accelerate(true);
+    transform-origin:0% 50%;
+    perspective:500px;
     overflow:hidden;
+    will-change:transform, opacity;
+    transition:transform 0.5s $cubic40, opacity 0.5s $cubic40;
     z-index:1;
+
+    &:after,
+    &:before {
+        content:"";
+        opacity:0;
+        @include abs();
+        will-change:opacity;
+        transform:translate3d(999em, 0, 0);
+        transition:none;
+        z-index:10;
+    }
+    &:after {
+        @include abs_50(58, 58);
+        @include ui-loading(white);
+        will-change:opacity, transform;
+        z-index:10;
+    }
+    &:before {
+        background-color:rgba($bg_color,.4);
+    }
+    &[data-loading="true"] {
+        &:after,
+        &:before {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:opacity 0.3s $cubic34, transform 0s;
+        }
+        &:after {
+            animation:WD__section__spinner 1s infinite linear;
+        }
+    }
+    &[data-hidden="true"] {
+        opacity:0.4;
+        transform:translate3d(10%, 0, 0) scale(.83);
+        transition:transform 0.6s $cubic645, opacity 0.6s $cubic645;
+    }
 }
 .WD__screen,
 .WD__screen__content {

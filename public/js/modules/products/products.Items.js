@@ -246,17 +246,6 @@ yellApp.products.items = [{
         normal: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455368.jpeg/resize/700x525/",
         zoom: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455368.jpeg/resize/700x525/"
     },
-    desc: null
-},
-{
-    id: 5,
-    title: "Ночная сорочка силуэта3",
-    price: "3260",
-    priceOld: "6140",
-    image: {
-        normal: "http://static.eldorado.ru/photos/71/new_71177993_l_1464683190.jpeg/resize/700x525/",
-        zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/k/a/karuzela__0018_obsessive_lustella_chemise_1.jpg"
-    },
     images: [
         {
             normal: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455381.jpeg/resize/700x525/",
@@ -269,6 +258,31 @@ yellApp.products.items = [{
         {
             normal: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455410.jpeg/resize/700x525/",
             zoom: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455410.jpeg/resize/700x525/"
+        }
+    ],
+    desc: null
+},
+{
+    id: 5,
+    title: "Ночная сорочка силуэта3",
+    price: "3260",
+    priceOld: "6140",
+    image: {
+        normal: "http://static.eldorado.ru/photos/71/new_71080855_l_804.jpeg/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71080855_l_804.jpeg/resize/700x525/"
+    },
+    images: [
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71080855_l_905.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71080855_l_905.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71080855_l_136.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71080855_l_136.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71080855_l_136.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71080855_l_136.jpeg/resize/700x525/"
         }
     ],
     desc: null
@@ -304,9 +318,23 @@ yellApp.products.items = [{
     price: "3260",
     priceOld: "6140",
     image: {
-        normal: "http://static.eldorado.ru/photos/71/new_71116982_l_255.jpeg/resize/700x525/",
-        zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/k/a/karuzela__0018_obsessive_lustella_chemise_1.jpg"
+        normal: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455539.jpeg/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455539.jpeg/resize/700x525/"
     },
+    images: [
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455553.jpeg/resize/500x375/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455553.jpeg/resize/500x375/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455569.jpeg/resize/500x375/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455569.jpeg/resize/500x375/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455584.jpeg/resize/500x375/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180733_l_1466455584.jpeg/resize/500x375/"
+        }
+    ],
     desc: null
 },
 {
@@ -315,9 +343,19 @@ yellApp.products.items = [{
     price: "7560",
     priceOld: "10140",
     image: {
-        normal: "http://static.eldorado.ru/photos/71/new_71169008_l_1459253420.jpeg/resize/700x525/",
-        zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/_/0/_0005_obsessive_blackbella_chemise_1.jpg"
+        normal: "http://static.eldorado.ru/photos/71/new_71157761_l_1451397016.jpeg/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71157761_l_1451397016.jpeg/resize/700x525/"
     },
+    images: [
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71157761_l_1451397041.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71157761_l_1451397041.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71157761_l_1451397067.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71157761_l_1451397067.jpeg/resize/700x525/"
+        }
+    ],
     desc: null
 }
 ];

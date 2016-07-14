@@ -23,7 +23,9 @@
             <div class="WD__products__wrapper">
                 {{#items}}
                     <div class="WD__products__item" data-image="{{#image.normal}}{{image.normal}}{{/image.normal}}">
-                        <div class="WD__products__image" data-zoom="{{#image.zoom}}{{image.zoom}}{{/image.zoom}}"></div>
+                        <div class="WD__products__image__container" data-zoom="{{#image.zoom}}{{image.zoom}}{{/image.zoom}}">
+                            <div class="WD__products__image"></div>
+                        </div>
                         <div class="WD__products__images">
                             {{#images}}
                             <div class="WD__products__images__item" data-image="{{normal}}" data-zoom="{{#zoom}}{{zoom}}{{/zoom}}">
@@ -77,5 +79,5 @@
     </div>
     <div class="WD__products__feedback__image">
         <div class="WD__products__feedback__image__item"></div>
-    </div>    
+    </div>
 </div>

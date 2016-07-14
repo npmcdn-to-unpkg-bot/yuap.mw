@@ -9,11 +9,13 @@
     @include accelerate();
     will-change:transform;
     transform:translate3d(101%, 0, 0);
-    transition:transform 0.5s $cubic645;
+    transform-origin:0% 50%;
+    transition:transform 0.45s $cubic40;
     overflow:hidden;
     z-index:2;
 
     &--active {
+        transition:transform 0.5s $cubic645;
         transform:translate3d(0, 0, 0);
     }
 }

@@ -17,8 +17,8 @@
                     width: 70,
                     height: 70,
                     autoResize: false,
-                    scaleX: 0.75,
-                    scaleY: 0.75
+                    scaleX: 0.67,
+                    scaleY: 0.67
                 });
             });
         },
@@ -40,11 +40,11 @@
             PARENT.images[i].show = true;
 
             var $item = PARENT.images[i].elem,
-                $img = $item.children(".WD__products__image"),
+                $img = $item.find(".WD__products__image"),
                 image = $item.data("image");
 
             WD.adaptiveImage({
-                $item: $item,
+                $item: $item.find(".WD__products__image__container"),
                 $img: $img,
                 image: image,
                 width: sizes.width,
@@ -52,10 +52,9 @@
                 autoResize: false,
                 scaleX: 0.7,
                 scaleY: 0.6,
-                // imgLoading: "WD__products__item--loading",
-                imgCenter: "WD__products__item--center",
-                imgError: "WD__products__item--error",
-                imgLoaded: "WD__products__item--loaded"
+                imgCenter: "WD__products__image--center",
+                imgError: "WD__products__image--error",
+                imgLoaded: "WD__products__image--loaded"
             });
             if (PARENT.items[i].images && PARENT.items[i].images.length){
                 $item.find(".WD__products__images__item").each(function(){
@@ -67,8 +66,8 @@
                         width: 64,
                         height: 64,
                         autoResize: false,
-                        scaleX: 0.9,
-                        scaleY: 0.9,
+                        scaleX: 0.75,
+                        scaleY: 0.75,
                         imgLoaded: "WD__products__images__item--loaded"
                     });
                 });

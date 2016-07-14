@@ -1,9 +1,10 @@
 
 yellApp.screens.init("products");
+yellApp.alert.init();
 
-yellApp.products.init();
-
-yellApp.products.open();
+// yellApp.products.init();
+//
+// yellApp.products.open();
 
 (function(){
 
