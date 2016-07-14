@@ -1,0 +1,25 @@
+.WD__products__grid {
+    &[data-zoom="1"]{
+        .WD__products__grid__item__image {
+            transform:translate3d(0, 5%, 0) scale(1.1);
+        }
+    }
+    &[data-zoom="2"]{
+        .WD__products__grid__item__image {
+            transform:translate3d(0, 7.5%, 0) scale(1.15);
+        }
+    }
+    &[data-zoom="3"]{
+        .WD__products__grid__item__image {
+            transform:translate3d(0, 10%, 0) scale(1.2);
+        }
+    }
+    &[data-massonry="true"]{
+        .WD__products__grid__item {
+            &2, &3 {
+                height:56vh;
+            }
+        }
+    }
+
+}

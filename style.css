@@ -38,12 +38,12 @@ body {
         position:absolute;
         top:50%;
         left:50%;
-		width:348px;
+		width:368px;
         height:620px;
-		margin:-310px 0 0 -174px;
-        /*width:434px;
+		margin:-310px 0 0 -184px;
+        /*width:348px;
         height:620px;
-		margin:-310px 0 0 -217px;*/
+		margin:-310px 0 0 -174px;*/
 		overflow:hidden;
 		box-shadow:0 3px 54px -18px rgba(#3e4757,.7);
         z-index:1;

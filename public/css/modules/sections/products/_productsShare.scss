@@ -13,7 +13,7 @@
         position:relative;
         width:100%;
         text-align:center;
-        color:rgba(221,223,224,.6);
+        color:rgba(221,223,224,.7);
         font-size:18px;
         line-height:18px;
         font-weight:300;
@@ -30,12 +30,12 @@
             height:1px;
         }
         &:before {
-            background:linear-gradient(to left, rgba(#fff,.3) 25%, rgba(#fff,0));
+            background:linear-gradient(to left, rgba(#fafafa,.3) 25%, rgba(#fafafa,0));
         }
         &:after {
             left:auto;
             right:0;
-            background:linear-gradient(to right, rgba(#fff,.3) 25%, rgba(#fff,0));
+            background:linear-gradient(to right, rgba(#fafafa,.3) 25%, rgba(#fafafa,0));
         }
     }
     &__close {
@@ -60,7 +60,7 @@
 
         &__color {
             // fill:#55acee;
-            fill:rgba(221,223,224,.8);
+            fill:rgba(221,223,224,1);
         }
     }
     &__fb {
@@ -78,7 +78,7 @@
 
         &__color {
             // fill:lighten(#597DA3,8%);
-            fill:rgba(221,223,224,.8);
+            fill:rgba(221,223,224,1);
         }
     }
 }

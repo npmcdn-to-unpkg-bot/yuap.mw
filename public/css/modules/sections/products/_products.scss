@@ -15,9 +15,15 @@
 }
 .WD__products__wrapper {
     @include abs();
+    @include accelerate(true);
     overflow:hidden;
     z-index:0;
 }
+// .WD__products__section__top {
+//     height:calc(100% - 44px);
+//     top:auto;
+//     bottom:0;
+// }
 .WD__products__item {
     display:none;
     opacity:0;
@@ -77,6 +83,7 @@
     left:15px;
     width:36px;
     height:36px;
+    @include accelerate(true);
     z-index:1;
 
     &__color {
@@ -93,6 +100,7 @@
     right:12px;
     width:46px;
     height:46px;
+    @include accelerate(true);
     z-index:1;
 
     &__color {

@@ -1,6 +1,6 @@
 (function(app, $, $dom, EV, _){
 
-    var Products = app.products;
+    var PARENT = app.products;
 
     app.products.share = {
 
@@ -12,7 +12,7 @@
 
             if (WD.ready) return;
 
-            WD.elem = _.template("products.share", false, Products.elem);
+            WD.elem = _.template("products.share", false, PARENT.elem);
             WD.buttonClose = WD.elem.find(".WD__products__share__close");
 
             WD.render();
@@ -22,7 +22,7 @@
 
         render: function(){
 
-            Products.sections.image.find(".WD__products__like").on(EV.click, function() {
+            PARENT.sections.image.find(".WD__products__like").on(EV.click, function() {
                 WD.open();
             });
 
@@ -34,7 +34,7 @@
         open: function(){
             if (WD.active) return;
 
-            Products.elem.attr("data-share", "true");
+            PARENT.elem.attr("data-share", "true");
 
             WD.active = true;
 
@@ -44,7 +44,7 @@
         close: function(){
             if (!WD.active) return;
 
-            Products.elem.attr("data-share", "false");
+            PARENT.elem.attr("data-share", "false");
 
             WD.active = false;
 

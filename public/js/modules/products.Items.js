@@ -4,21 +4,21 @@ yellApp.products.items = [{
     price: "8560",
     priceOld: "12140",
     image: {
-        normal: "http://pi1.lmcdn.ru/product/V/E/VE003GUIAE85_9_v1.jpg",
-        zoom: "http://pi1.lmcdn.ru/product/V/E/VE003GUIAE85_9_v1.jpg"
+        normal: "http://static.eldorado.ru/photos/71/new_71130962_l_796.png/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71130962_l_796.png/resize/700x525/"
     },
     images: [
         {
-            normal: "http://pi1.lmcdn.ru/product/S/E/SE023EMISR59_6_v1.jpg",
-            zoom: "http://pi1.lmcdn.ru/product/S/E/SE023EMISR59_6_v1.jpg"
+            normal: "http://static.eldorado.ru/photos/71/new_71130962_l_481.png/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71130962_l_481.png/resize/700x525/"
         },
         {
-            normal: "http://pi1.lmcdn.ru/product/S/E/SE023EMISR59_8_v1.jpg",
-            zoom: "http://pi1.lmcdn.ru/product/S/E/SE023EMISR59_8_v1.jpg"
+            normal: "http://static.eldorado.ru/photos/71/new_71130962_l_338.png/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71130962_l_338.png/resize/700x525/"
         },
         {
-            normal: "http://pi2.lmcdn.ru/product/S/E/SE023EMISR59_1_v2.jpg",
-            zoom: "http://pi2.lmcdn.ru/product/S/E/SE023EMISR59_1_v2.jpg"
+            normal: "http://static.eldorado.ru/photos/71/new_71130962_l_263.png/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71130962_l_263.png/resize/700x525/"
         }
     ],
     desc: {
@@ -83,9 +83,23 @@ yellApp.products.items = [{
     price: "4560",
     priceOld: "8140",
     image: {
-        normal: "https://obsessive.com/media/catalog/product/cache/1/small_image/465x617/0dc2d03fe217f8c83829496872af24a0/m/i/miniatura_0009__0073_obsessive_bisquella_chemise_1.jpg",
-        zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/k/a/karuzela_0073_obsessive_bisquella_chemise_1.jpg"
+        normal: "http://static.eldorado.ru/photos/71/new_71130964_l_734.png/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71130964_l_734.png/resize/700x525/"
     },
+    images: [
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71130964_l_920.png/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71130964_l_920.png/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71130964_l_54.png/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71130964_l_54.png/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71130964_l_1453213441.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71130964_l_1453213441.jpeg/resize/700x525/"
+        }
+    ],
     desc: {
         text: "Комбинация от oodji выполнена из полупрозрачной черной ткани с отделкой из кружева.",
         params: [{
@@ -204,9 +218,23 @@ yellApp.products.items = [{
     price: "3260",
     priceOld: "6140",
     image: {
-        normal: "https://obsessive.com/media/catalog/product/cache/1/small_image/465x617/0dc2d03fe217f8c83829496872af24a0/m/i/miniatura__0020_obsessive_lustella_chemise_1.jpg",
-        zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/k/a/karuzela__0018_obsessive_lustella_chemise_1.jpg"
+        normal: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455457.jpeg/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455457.jpeg/resize/700x525/"
     },
+    images: [
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455469.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455469.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455481.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455481.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455493.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180734_l_1466455493.jpeg/resize/700x525/"
+        }
+    ],
     desc: null
 },
 {
@@ -215,7 +243,79 @@ yellApp.products.items = [{
     price: "7560",
     priceOld: "10140",
     image: {
-        normal: "https://obsessive.com/media/catalog/product/cache/1/small_image/465x617/0dc2d03fe217f8c83829496872af24a0/_/0/_0004__0005_obsessive_blackbella_chemise_1.jpg",
+        normal: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455368.jpeg/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455368.jpeg/resize/700x525/"
+    },
+    desc: null
+},
+{
+    id: 5,
+    title: "Ночная сорочка силуэта3",
+    price: "3260",
+    priceOld: "6140",
+    image: {
+        normal: "http://static.eldorado.ru/photos/71/new_71177993_l_1464683190.jpeg/resize/700x525/",
+        zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/k/a/karuzela__0018_obsessive_lustella_chemise_1.jpg"
+    },
+    images: [
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455381.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455381.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455396.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455396.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455410.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71180735_l_1466455410.jpeg/resize/700x525/"
+        }
+    ],
+    desc: null
+},
+{
+    id: 6,
+    title: "Ночная сорочка силуэта4",
+    price: "7560",
+    priceOld: "10140",
+    image: {
+        normal: "http://static.eldorado.ru/photos/71/new_71172713_l_1460727657.jpeg/resize/700x525/",
+        zoom: "http://static.eldorado.ru/photos/71/new_71172713_l_1460727657.jpeg/resize/700x525/"
+    },
+    images: [
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71172713_l_1465459947.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71172713_l_1465459947.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71172713_l_1465459957.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71172713_l_1465459957.jpeg/resize/700x525/"
+        },
+        {
+            normal: "http://static.eldorado.ru/photos/71/new_71172713_l_1465460002.jpeg/resize/700x525/",
+            zoom: "http://static.eldorado.ru/photos/71/new_71172713_l_1465460002.jpeg/resize/700x525/"
+        }
+    ],
+    desc: null
+},
+{
+    id: 7,
+    title: "Ночная сорочка силуэта3",
+    price: "3260",
+    priceOld: "6140",
+    image: {
+        normal: "http://static.eldorado.ru/photos/71/new_71116982_l_255.jpeg/resize/700x525/",
+        zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/k/a/karuzela__0018_obsessive_lustella_chemise_1.jpg"
+    },
+    desc: null
+},
+{
+    id: 8,
+    title: "Ночная сорочка силуэта4",
+    price: "7560",
+    priceOld: "10140",
+    image: {
+        normal: "http://static.eldorado.ru/photos/71/new_71169008_l_1459253420.jpeg/resize/700x525/",
         zoom: "https://obsessive.com/media/catalog/product/cache/1/image_slider/7b8fef0172c2eb72dd8fd366c999954c/_/0/_0005_obsessive_blackbella_chemise_1.jpg"
     },
     desc: null

@@ -1,6 +1,6 @@
 (function(app, $, $dom, EV, _){
 
-    var Products = app.products;
+    var PARENT = app.products;
 
     app.products.feedback = {
 
@@ -12,10 +12,11 @@
 
             if (WD.ready) return;
 
-            WD.elem = Products.elem.find(".WD__products__feedback");
-            WD.buttonOpen = Products.sections.footer.find(".WD__products__item__plus");
+            WD.elem = PARENT.elem.find(".WD__products__feedback");
+            WD.buttonOpen = PARENT.sections.footer.find(".WD__products__item__plus");
             WD.buttonOpenOffset = WD.buttonOpen.offset();
-            WD.image = Products.elem.find(".WD__products__feedback__image");
+            WD.image = PARENT.elem.find(".WD__products__feedback__image");
+            WD.imageItem = WD.image.children();
             WD.imageOffset = WD.image.offset();
             WD.buttonClose = WD.elem.find(".WD__products__feedback__close");
 
@@ -52,7 +53,7 @@
             WD.image.css({
                 "transform": "translate3d(0, 0, 0) scale(1)"
             });
-            Products.elem.attr("data-feedback", "true");
+            PARENT.elem.attr("data-feedback", "true");
 
             WD.active = true;
 
@@ -63,7 +64,7 @@
             if (!WD.active) return;
 
             WD.setCords();
-            Products.elem.attr("data-feedback", "false");
+            PARENT.elem.attr("data-feedback", "false");
 
             WD.active = false;
 

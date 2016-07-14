@@ -15,7 +15,6 @@
         color:#0fa;
         font-size:18px;
         border-bottom:1px solid rgba(#0fa,.3);
-        pointer-events:none;
         transition:color 0.2s $cubic645, border-color 0.2s $cubic645, transform 0.12s $cubic215;
 
         &:hover {
@@ -76,7 +75,6 @@
                 width:36px;
                 height:36px;
                 cursor:pointer;
-                pointer-events:none;
                 transition:transform 0.15s $cubic215;
 
                 &__color {
@@ -203,7 +201,6 @@
             z-index:1;
             color:#fafafa;
             font-size:15px;
-            pointer-events:none;
 
             &:hover {
                 color:#0fa;
@@ -223,7 +220,6 @@
         border-radius:4px;
         border:2px solid rgba(#fff,.22);
         cursor:pointer;
-        pointer-events:none;
         transition:color 0.2s $cubic645, border-color 0.2s $cubic645, transform 0.15s $cubic215;
 
         &:hover {
@@ -291,7 +287,6 @@
         @include ui-close(white, 30px, 30px, true);
         cursor:pointer;
         opacity:0.5;
-        pointer-events:none;
         transition:opacity 0.2s $cubic645, transform 0.15s $cubic215;
 
         &:hover {
@@ -308,12 +303,6 @@
         .auth__wrapper {
             opacity:1;
             transform:translate3d(0, 0, 0);
-        }
-        a,
-        a.auth__form__remember__link,
-        .auth__form__social__button,
-        .auth__close {
-            pointer-events::auto;
         }
     }
 }

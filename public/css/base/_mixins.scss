@@ -31,3 +31,47 @@
 	0% {transform:rotate(0)}
 	100% {transform:rotate(360deg)}
 }
+@mixin ui-loading($color: black, $width: false, $height: false) {
+    @if $width {
+        width:#{$width};
+    }
+    @if $height {
+        height:#{$height};
+    }
+    @if $color == white {
+        background-image:url(/public/images/ui-loading_white.svg);
+    }
+    @else {
+        background-image:url(/public/images/ui-loading.svg);
+    }
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center;
+}
+@mixin ui-close($color: black, $width: false, $height: false, $thin: false) {
+    @if $width {
+        width:#{$width};
+    }
+    @if $height {
+        height:#{$height};
+    }
+    @if $color == white {
+        @if $thin {
+            background-image:url(/public/images/ui-close_thin_white.svg);
+        }
+        @else {
+            background-image:url(/public/images/ui-close_white.svg);
+        }
+    }
+    @else {
+        @if $thin {
+            background-image:url(/public/images/ui-close_thin.svg);
+        }
+        @else {
+            background-image:url(/public/images/ui-close.svg);
+        }
+    }
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center;
+}

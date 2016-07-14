@@ -5,7 +5,8 @@
     width:100%;
     height:101px;
     background:#fff;
-    z-index:1;
+    @include accelerate(true);
+    z-index:2;
 }
 .WD__products__item__button {
     position:absolute;

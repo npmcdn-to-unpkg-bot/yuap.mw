@@ -69,6 +69,7 @@
 }
 .WD__products__feedback__image {
     opacity:0;
+    @include flex("row", "center", "center");
     position:absolute;
     bottom:15px;
     left:50%;
@@ -76,12 +77,16 @@
     height:70px;
     margin-left:-30px;
     border-radius:50%;
+    background:#fff;
     overflow:hidden;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:top center;
     @include accelerate();
     z-index:2;
+
+    &__item {
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:top center;
+    }
 }
 
 .WD__products {

@@ -17,7 +17,7 @@
             WD.elem = $dom.root.find(".WD__screens");
             WD.menu = WD.elem.find(".WD__menu");
 
-            $dom.document.on('touchmove MSPointerMove', function(e){
+            WD.elem.on('touchmove MSPointerMove', function(e){
         		e.preventDefault();
         	});
 

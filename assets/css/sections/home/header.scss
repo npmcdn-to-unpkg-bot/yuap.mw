@@ -39,7 +39,6 @@
             .home__button {
                 color:rgba(#fff,.4);
                 border-color:rgba(#fff,.4);
-                pointer-events:auto;
             }
         }
         &--auth {
@@ -150,7 +149,6 @@
     opacity:0.001;
     transform:translate3d(0px, 18px, 0px);
     @include accelerate();
-    pointer-events:none;
     will-change:opacity, transform;
     transition:opacity 1s $cubic2501 0.7s, transform 1s $cubic2501 0.7s, color 0.2s $cubic645, border-color 0.2s $cubic645;
 

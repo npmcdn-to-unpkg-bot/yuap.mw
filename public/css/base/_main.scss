@@ -15,6 +15,7 @@
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing: grayscale;
     -moz-font-feature-settings:'liga', 'kern';
+	-webkit-tap-highlight-color:transparent;
     position: static;
     left: auto;
     right: auto;
@@ -51,24 +52,24 @@ body {
 	font-weight:400;
     font-size:15px;
     line-height:15px;
-    font-family:$default;	
+    font-family:$default;
 	overflow:hidden;
 	z-index:200000;
 }
 .m-no-touch {
 	body, a {
 		cursor: url('/public/images/cursor.png') 32 32, auto;
-		cursor: -webkit-image-set(
-			url('/public/images/cursor.png') 1x,
-			url('/public/images/cursor@2x.png') 2x
-		) 32 32, auto;
+		// cursor: -webkit-image-set(
+		// 	url('/public/images/cursor.png') 1x,
+		// 	url('/public/images/cursor@2x.png') 2x
+		// ) 32 32, auto;
 	}
 	body:active,
 	a:active {
 		cursor: url('/public/images/cursor-active.png') 32 32, auto;
-		cursor: -webkit-image-set(
-			url('/public/images/cursor-active.png') 1x,
-			url('/public/images/cursor-active@2x.png') 2x
-		) 32 32, auto;
+		// cursor: -webkit-image-set(
+		// 	url('/public/images/cursor-active.png') 1x,
+		// 	url('/public/images/cursor-active@2x.png') 2x
+		// ) 32 32, auto;
 	}
 }

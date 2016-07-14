@@ -11,8 +11,8 @@
     }
     &:after {
         @include abs_50(58, 58);
+        @include ui-loading(white);
         will-change:opacity, transform;
-        background:url(/public/images/loading.svg) no-repeat 0 0 / cover;
         z-index:10;
     }
     &:before {
@@ -40,29 +40,46 @@
             border-radius:18px;
         }
     }
-    &__image--error {
-        @include flex("row", "center", "center");
-        background-color:#EE445E;
+    &__item {
+        &--error {
+            .WD__products__image {
+                @include flex("row", "center", "center");
+                background-color:#EE445E;
 
-        &:after {
-            content:"";
-            display:block;
-            width:128px;
-            height:128px;
-            background:url(/public/images/no_photo.svg) no-repeat 0 0 / cover;
-            opacity:0.5;
-            transform:translate3d(0, -48px, 0);
+                &:after {
+                    content:"";
+                    display:block;
+                    width:128px;
+                    height:128px;
+                    background:url(/public/images/no_photo.svg) no-repeat 0 0 / cover;
+                    opacity:0.5;
+                    transform:translate3d(0, -48px, 0);
+                }
+            }
         }
-    }
-    &__image--loading {
-        background-color:#5D8DE1;
+        //&--loading {
+            .WD__products__image {
+                // background-color:#5D8DE1;
+                background-color:#fff;
 
-        &:after {
-            content:"";
-            @include abs_50(58, 58);
-            margin-top:-58px;
-            background:url(/public/images/loading.svg) no-repeat 0 0 / cover;
-            animation:WD__section__spinner 1s infinite linear;
+                &:after {
+                    content:"";
+                    @include abs_50(58, 58);
+                    margin-top:-58px;
+                    @include ui-loading();
+                    animation:WD__section__spinner 1s infinite linear;
+                }
+            }
+        //}
+        &--loaded {
+            .WD__products__image {
+                background-color:transparent;
+
+                &:after {
+                    display:none;
+                    animation:none;
+                }
+            }
         }
     }
     &[data-loading="true"] {

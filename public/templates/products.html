@@ -26,7 +26,9 @@
                         <div class="WD__products__image" data-zoom="{{#image.zoom}}{{image.zoom}}{{/image.zoom}}"></div>
                         <div class="WD__products__images">
                             {{#images}}
-                            <div class="WD__products__images__item" style="background-image:url({{normal}})" data-image="{{normal}}" data-zoom="{{#zoom}}{{zoom}}{{/zoom}}"></div>
+                            <div class="WD__products__images__item" data-image="{{normal}}" data-zoom="{{#zoom}}{{zoom}}{{/zoom}}">
+                                <div class="WD__products__images__item__img"></div>
+                            </div>
                             {{/images}}
                         </div>
                         {{#price_sale}}{{price}}|{{priceOld}}{{/price_sale}}
@@ -38,24 +40,6 @@
                 <!-- <div class="WD__products__item__button WD__products__item__callbutton"></div> -->
                 <div class="WD__products__footer__content"></div>
             </div>
-            <div class="WD__products__feedback">
-                <div class="WD__products__feedback__container">
-                    <div class="WD__products__feedback__button"></div>
-                    <div class="WD__products__feedback__title WD__products__feedback__title--callback">Консультация по телефону</div>
-                    <div class="WD__products__feedback__text">
-                        Мы перезвоним и с удовольствием проконсультируем Вас.
-                    </div>
-                </div>
-                <div class="WD__products__feedback__container">
-                    <div class="WD__products__feedback__button"></div>
-                    <div class="WD__products__feedback__title WD__products__feedback__title--messenger">Пообщаться в чате</div>
-                    <div class="WD__products__feedback__text">
-                        Продолжить общение в удобном чате. Товар будет прикреплен к диалогу.
-                    </div>
-                </div>
-                <div class="WD__products__feedback__close"></div>
-            </div>
-            <div class="WD__products__feedback__image"></div>
         </div>
     </div>
     <div class="WD__products__section WD__products__section__desc">
@@ -74,4 +58,24 @@
             </div>
         </div>
     </div> -->
+    <div class="WD__products__feedback">
+        <div class="WD__products__feedback__container">
+            <div class="WD__products__feedback__button"></div>
+            <div class="WD__products__feedback__title WD__products__feedback__title--callback">Консультация по телефону</div>
+            <div class="WD__products__feedback__text">
+                Мы перезвоним и с удовольствием проконсультируем Вас.
+            </div>
+        </div>
+        <div class="WD__products__feedback__container">
+            <div class="WD__products__feedback__button"></div>
+            <div class="WD__products__feedback__title WD__products__feedback__title--messenger">Пообщаться в чате</div>
+            <div class="WD__products__feedback__text">
+                Продолжить общение в удобном чате. Товар будет прикреплен к диалогу.
+            </div>
+        </div>
+        <div class="WD__products__feedback__close"></div>
+    </div>
+    <div class="WD__products__feedback__image">
+        <div class="WD__products__feedback__image__item"></div>
+    </div>    
 </div>

@@ -75,4 +75,19 @@
         $("body").removeClass("no-scroll");
     });
 
+    var body = document.body,
+        timer;
+
+    window.addEventListener('scroll', function(){
+        clearTimeout(timer);
+        if (!body.classList.contains('disable__hover')){
+            body.classList.add('disable__hover');
+        }
+
+        timer = setTimeout(function(){
+            body.classList.remove('disable__hover')
+        }, 500);
+
+    }, false);
+
 })(app.utils);

@@ -10,13 +10,15 @@
 
         sections: {},
 
+        images: [],
+
         init: function(){
 
             if (WD.ready) return;
 
             WD.data = {
                 items: this.items,
-                navColor: "#fff",
+                navColor: "#292f33",
                 saleShow: true,
                 saleColor: "#28282a",
                 saleStrong: true,
@@ -50,14 +52,42 @@
             WD.sections.footerContent = WD.sections.footer.find(".WD__products__footer__content");
             WD.sections.desc = WD.elem.find(".WD__products__section__desc");
             WD.sections.descContent = WD.sections.desc.find(".WD__products__desc");
+            WD.buttonBack = WD.sections.image.find(".WD__products__back");
+            WD.itemsCount = WD.items.length;
 
             WD.update(this.items[0]);
 
-            WD.render();
             _.init("products.viewer");
             _.init("products.feedback");
             _.init("products.share");
+            _.init("products.grid");
+
+            var index = 100,
+                i = 0;
+
+            WD.sections.imageWrapper.find(".WD__products__item").each(function() {
+                var $item = $(this),
+                    image = $item.data("image");
+
+                if (i === 0) {
+                    this.style.opacity = "1";
+                    $item.addClass("WD__products__item--active");
+                    WD.utils.setImage(image);
+                }
+                WD.images.push({
+                    elem: $item,
+                    image: image,
+                    show: false
+                });
+
+                this.style.zIndex = index;
+                index--;
+                i++;
+            });
+
             WD.slider();
+            WD.utils.showItems(3);
+            WD.render();
 
             WD.ready = true;
 
@@ -72,6 +102,10 @@
 
                 if ($item.data("zoom")) WD.viewer.open($item.data("zoom"));
                 else WD.viewer.open($item.data("image"));
+            });
+
+            WD.buttonBack.on(EV.click, function() {
+                WD.grid.open();
             });
         },
 
@@ -115,67 +149,17 @@
             _.logger("open", "products");
         },
 
-        setImage: function(image){
-
-            _.is("products.feedback.image", function(){
-                WD.feedback.image.css({
-                    "background-image": "url(" + image + ")"
-                });
-            });
-        },
-
         slider: function(){
+
+            WD.elem.on('touchmove MSPointerMove', function(e){
+        		e.preventDefault();
+        	});
 
             WD.sections.imageWrapper.on('dragstart selectstart', function() {
                 return false;
             });
 
-            var index = 100,
-                i = 0;
-
-            WD.sections.imageWrapper.find(".WD__products__item").each(function() {
-                var $item = $(this),
-                    $img = $item.children(".WD__products__image"),
-                    image = $item.data("image");
-
-                if (i === 0) {
-                    this.style.opacity = "1";
-                    $item.addClass("WD__products__item--active");
-                    WD.setImage(image);
-                }
-                (function($img, image){
-                    $img.addClass("WD__products__image--loading");
-                    _.getSizeImage(image, function(w, h){
-                        $img.removeClass("WD__products__image--loading");
-                        if (w && h) {
-                            var scale = 0.9,
-                                ratio = h / w;
-
-                            if (ratio < 1.2 || w < sizes.width){
-                                if (w < sizes.width * scale) scale = 0.75;
-                                else if (w < sizes.width) scale = 0.8;
-                                var delta = (sizes.width * scale) / w;
-                                $img.css({
-                                    width: (scale * 100) + "%",
-                                    height: (h * delta) + "px"
-                                });
-                                $item.addClass("WD__products__item--center");
-                            }
-                            $img.css("background-image", "url(" + image + ")")
-                            .addClass("WD__products__image--loaded");
-                        }
-                        else {
-                            $img.addClass("WD__products__image--error");
-                        }
-                    });
-                })($img, image);
-
-                this.style.zIndex = index;
-                index--;
-                i++;
-            });
-
-            WD.marqueeVertical = app.plugins.marquee(WD.elem, {
+            WD.sliderDesc = app.plugins.marquee(WD.elem, {
                 vertical: true,
                 screens: '.WD__products__section',
                 effect: 'light',
@@ -187,7 +171,12 @@
                 duration: 425
             });
 
-            WD.marqueeHorizontal = app.plugins.marquee(WD.sections.imageWrapper, {
+            (function animationLoop1(){
+                app.utils.raf(animationLoop1);
+                var scroll = app.utils.getScroll(WD.sliderDesc);
+            })();
+
+            WD.sliderProducts = app.plugins.marquee(WD.sections.imageWrapper, {
                 vertical: false,
                 screens: '.WD__products__item',
                 effect: 'space',
@@ -199,19 +188,38 @@
                 duration: app.device.isPhone ? 375 : 450
             });
 
-            var scroll = WD.marqueeHorizontal.scroll;
+            (function animationLoop2(){
+                app.utils.raf(animationLoop2);
+                var scroll = app.utils.getScroll(WD.sliderProducts);
+            })();
 
-            scroll.on('scrollEnd', function(){
-                var index = WD.marqueeHorizontal.index;
+            var hScroll = WD.sliderProducts.scroll;
+
+            hScroll.on('scrollEnd', function(){
+                var index = WD.sliderProducts.index,
                     item = WD.items[index];
 
-                WD.update(item);
-                WD.setImage(WD.marqueeHorizontal.section);
+                WD.utils.showItemsNear(index, 1);
+                WD.utils.showItemsNear(index, -1);
 
-                if (!item.desc) WD.marqueeVertical.hideScreen(1);
-                else WD.marqueeVertical.showScreen(1);
-                WD.marqueeVertical.resize();
+                WD.update(item);
+                WD.utils.setImage(WD.sliderProducts.section);
+
+                if (!item.desc) WD.sliderDesc.hideScreen(1);
+                else WD.sliderDesc.showScreen(1);
+                WD.sliderDesc.resize();
             });
+        },
+
+        nav: function(index, duration){
+            if (index === undefined) return;
+            WD.sliderProducts.scrollTo(index, duration !== undefined ? duration : undefined);
+            if (!WD.images[index].show){
+                WD.utils.showItemsIndex(index);
+            }
+            WD.utils.showItemsNear(index, 1);
+            WD.utils.showItemsNear(index, -1);
+            WD.utils.setImage(WD.images[index].image);
         },
 
         close: function(){
