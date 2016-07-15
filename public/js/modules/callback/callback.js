@@ -3,6 +3,7 @@
     app.define("callback");
 
     var SCREENS = app.screens,
+        ALERT = app.alert,
         device = app.device;
 
     app.callback = {
@@ -11,16 +12,30 @@
 
         number: [],
 
-        init: function(){
+        init: function(open, callback){
+
+            // if (WD.ready){
+            //     if (open && !WD.active) WD.open(callback);
+            //     return;
+            // }
 
             if (WD.ready) return;
 
             WD.elem = _.template("callback");
             WD.title = WD.elem.find(".WD__callback__title");
+            WD.buttonClose = WD.elem.find(".WD__callback__close");
 
             WD.render();
 
+            if (open) {
+                setTimeout(function(){
+                    WD.open(callback);
+                }, 300);
+            }
+
             WD.ready = true;
+
+            _.logger("init", "callback");
         },
 
         render: function(){
@@ -28,6 +43,10 @@
             WD.elem.on('touchmove MSPointerMove', function(e){
         		e.preventDefault();
         	});
+
+            WD.buttonClose.on(EV.click, function() {
+                WD.close();
+            });
 
             WD.elem.on(EV.click, ".WD__callback__keyboard__item", function(){
                 var $btn = $(this),
@@ -49,11 +68,22 @@
             });
         },
 
+        open: function(callback){
+
+            WD.elem.addClass("WD__section--active");
+
+            if (callback && typeof callback === "function") callback();
+
+            WD.active = true;
+
+            _.logger("open", "callback");
+        },
+
         animNumber: function($btn){
             $btn.addClass("WD__callback__keyboard__item--active");
             setTimeout(function(){
                 $btn.removeClass("WD__callback__keyboard__item--active");
-            }, device.isIOS ? 170 : 120);
+            }, 170);
         },
 
         clickNumber: function(num){
@@ -81,8 +111,32 @@
         },
 
         confirmPhone: function(){
+
             var phone = WD.number.join().replace(/,/g, "").replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, "$1 $2 $3 $4");
-            alert(phone);
+
+            ALERT.open({
+                title: phone,
+                subtitle: "Проверьте введенный номер",
+                successText: "Верно",
+                success: function(){
+
+                },
+                cancelText: "Изменить",
+                cancel: function(){
+
+                }
+            });
+        },
+
+        close: function(){
+
+            WD.elem.removeClass("WD__section--active");
+
+            SCREENS.section.close();
+
+            WD.active = false;
+
+            _.logger("close", "callback");
         }
     };
 

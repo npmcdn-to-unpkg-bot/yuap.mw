@@ -4,6 +4,10 @@
 
     yellApp.alert = {
 
+        active: false,
+
+        ready: false,
+
         callSuccess: function(){},
 
         callCancel: function(){},
@@ -12,15 +16,22 @@
 
         init: function(){
 
+            if (WD.ready) return;
+
             WD.elem = _.template("alert");
             WD.wrapper = WD.elem.find(".WD__alert__wrapper");
             WD.container = WD.wrapper.find(".WD__alert__container");
             WD.title = WD.container.find(".WD__alert__title");
+            WD.subtitle = WD.container.find(".WD__alert__subtitle");
             WD.buttons = WD.wrapper.find(".WD__alert__buttons");
             WD.success = WD.container.find(".WD__alert__button__success");
             WD.cancel = WD.container.find(".WD__alert__button__cancel");
 
             WD.render();
+
+            WD.ready = true;
+
+            _.logger("init", "alert");
         },
 
         render: function(){
@@ -38,12 +49,17 @@
 
         open: function(options){
 
+            if (WD.active) return;
+
             if (options) {
                 if (options.title) WD.title.text(options.title);
+                if (options.subtitle) WD.subtitle.text(options.subtitle);
                 if (options.one) {
                     WD.buttons.addClass("WD__alert__buttons--one");
                     WD.success.text(options.one === true ? "OK" : options.one);
                 }
+                if (options.successText) WD.success.text(options.successText);
+                if (options.cancelText) WD.cancel.text(options.cancelText);
                 WD.options = options;
             }
             else {
@@ -62,6 +78,8 @@
             if (options && typeof options.cancel === "function") {
                 WD.callCancel = options.cancel;
             }
+
+            WD.active = true;
         },
 
         close: function(){
@@ -70,12 +88,17 @@
 
             _.onEndTransition(WD.wrapper[0], function(){
                 if (WD.options.title) WD.title.text("Сообщение");
+                if (WD.options.subtitle) WD.subtitle.text("");
+                if (WD.options.successText) WD.success.text("Ok");
+                if (WD.options.cancelText) WD.cancel.text("Отмена");
                 if (WD.options.one){
                     WD.buttons.removeClass("WD__alert__buttons--one");
                     WD.success.text("Ok");
                 }
                 WD.callSuccess = function(){};
                 WD.callCancel = function(){};
+
+                WD.active = false;
             });
 
         }

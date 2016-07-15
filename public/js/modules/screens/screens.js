@@ -69,6 +69,7 @@
             }
 
             _.init("screens.callback");
+            _.init("screens.messenger");
             _.init("screens.products");
 
             WD.render();
@@ -106,6 +107,31 @@
             if (i !== undefined && WD.state != screen) {
                 WD.state = screen;
                 WD.marquee.scrollTo(i, duration !== undefined ? duration : undefined);
+            }
+        },
+
+        section: {
+
+            open: function(section){
+                if (!app[section]) return;
+
+                if (app[section].ready){
+                    app[section].open();
+                    WD.hide.on();
+                }
+                else {
+                    WD.loading.on();
+                    setTimeout(function(){
+                        app[section].init(true, function(){
+                            WD.loading.off();
+                            WD.hide.on();
+                        });
+                    }, 5);
+                }
+            },
+
+            close: function(){
+                if (WD.hidden) WD.hide.off();
             }
         },
 

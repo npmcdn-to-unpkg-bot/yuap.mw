@@ -1,5 +1,6 @@
 
-yellApp.screens.init("products");
+yellApp.screens.init("callback");
+yellApp.messenger.init();
 yellApp.alert.init();
 
 // yellApp.products.init();

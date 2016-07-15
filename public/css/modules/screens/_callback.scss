@@ -85,6 +85,9 @@
         animation:WD__callbutton__blob4 1.7s linear infinite alternate;
     }
 }
+.WD__screens[data-hidden="true"] .WD__callback__button__blob {
+    animation:none;
+}
 @keyframes WD__callbutton__blob1 {
     0% {
         transform:translate3d(-3px, -4px, 0px);

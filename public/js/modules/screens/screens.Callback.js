@@ -14,8 +14,6 @@
 
             WD.elem = PARENT.elem.find(".WD__screen__callback");
 
-            _.init("callback");
-
             WD.render();
 
             WD.ready = true;
@@ -24,29 +22,10 @@
         render: function(){
 
             WD.elem.find(".WD__callback__button").on(EV.click, function(){
-
+                PARENT.section.open("callback");
             });
-        },
-
-        launchFullScreen: function(element) {
-            if (element.requestFullScreen) {
-                element.requestFullScreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullScreen) {
-                element.webkitRequestFullScreen();
-            }
-        },
-
-        cancelFullscreen: function() {
-            if (document.cancelFullScreen) {
-                document.cancelFullScreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.webkitCancelFullScreen) {
-                document.webkitCancelFullScreen();
-            }
         }
+        
     };
 
     var WD = app.screens.callback;

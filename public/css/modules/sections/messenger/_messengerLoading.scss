@@ -1,0 +1,32 @@
+.WD__messenger {
+    &:after,
+    &:before {
+        content:"";
+        opacity:0;
+        @include abs();
+        will-change:opacity;
+        transform:translate3d(999em, 0, 0);
+        transition:none;
+        z-index:10;
+    }
+    &:after {
+        @include abs_50(58, 58);
+        @include ui-loading(white);
+        will-change:opacity, transform;
+        z-index:10;
+    }
+    &:before {
+        background-color:rgba($bg_color,.87);
+    }
+    &[data-loading="true"] {
+        &:after,
+        &:before {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:opacity 0.3s $cubic34, transform 0s;
+        }
+        &:after {
+            animation:WD__section__spinner 1s infinite linear;
+        }
+    }
+}

@@ -27,6 +27,14 @@
 // callback
 @import 'modules/sections/callback/callback';
 
+// messenger
+@import 'modules/sections/messenger/messenger';
+@import 'modules/sections/messenger/messengerHeader';
+@import 'modules/sections/messenger/messengerContent';
+@import 'modules/sections/messenger/messengerFooter';
+@import 'modules/sections/messenger/messengerLoading';
+@import 'modules/sections/messenger/messengerColor';
+
 // products
 @import 'modules/sections/products/products';
 @import 'modules/sections/products/productsHelp';

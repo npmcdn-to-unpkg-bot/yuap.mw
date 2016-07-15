@@ -1,24 +1,24 @@
 .WD__products {
     &[data-nav-color="#292f33"]{
-        .WD__products__back__color,
+        .WD__products__back__icon__color,
         .WD__products__like__color {
             fill:rgba(#292f33,.3);
         }
     }
     &[data-nav-color="#007aff"]{
-        .WD__products__back__color,
+        .WD__products__back__icon__color,
         .WD__products__like__color {
             fill:rgba(#007aff,.6);
         }
     }
     &[data-nav-color="#ff2d55"]{
-        .WD__products__back__color,
+        .WD__products__back__icon__color,
         .WD__products__like__color {
             fill:rgba(#ff2d55,.6);
         }
     }
     &[data-nav-color="#00ab6b"]{
-        .WD__products__back__color,
+        .WD__products__back__icon__color,
         .WD__products__like__color {
             fill:rgba(#00ab6b,.6);
         }

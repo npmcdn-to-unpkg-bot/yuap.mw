@@ -1,0 +1,31 @@
+.WD__messenger__header__title {
+    color:#1289FE;
+}
+.WD__messenger__item__answer {
+    .WD__messenger__item__text {
+        background:#1289FE;
+
+        &:after {
+            border-left-color:#1289FE;
+        }
+    }
+}
+.WD__messenger__button__send__icon__color {
+    fill:#1289FE;
+}
+
+.WD__messenger__header__title {
+    color:#827dcf;
+}
+.WD__messenger__item__answer {
+    .WD__messenger__item__text {
+        background:#827dcf;
+
+        &:after {
+            border-left-color:#827dcf;
+        }
+    }
+}
+.WD__messenger__button__send__icon__color {
+    fill:#827dcf;
+}

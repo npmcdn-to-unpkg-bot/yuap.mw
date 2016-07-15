@@ -1,0 +1,51 @@
+.WD__messenger__header {
+    @include flex("row", "space-between", "center");
+    text-align:center;
+
+    &__title {
+        font-size:18px;
+        line-height:18px;
+        letter-spacing:0.2px;
+        width:100%;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        text-align:center;
+    }
+    &__close {
+        @include flex("row", "flex-start", "center");
+        width:70px;
+        height:100%;
+        padding:5px 0 0 12px;
+        @include accelerate(true);
+        z-index:1;
+
+        &__icon {
+            display:block;
+            width:30px;
+            height:30px;
+
+            &__color {
+                fill:rgba($black_light,.6);
+            }
+        }
+    }
+    &__options {
+        @include flex("row", "flex-end", "center");
+        width:70px;
+        height:100%;
+        padding:5px 12px 0 0;
+        @include accelerate(true);
+        z-index:1;
+
+        &__icon {
+            display:block;
+            width:34px;
+            height:34px;
+
+            &__color {
+                fill:rgba($black_light,.6);
+            }
+        }
+    }
+}

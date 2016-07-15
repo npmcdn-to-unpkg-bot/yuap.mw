@@ -11,12 +11,14 @@
   left: 0;
   top: 0;
   overflow: hidden;
+  user-select:none;
   -ms-touch-action: none;
   touch-action: none;
   z-index: 200050;
   -webkit-text-size-adjust: 100%;
   /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
   -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color:transparent;
   outline: none; }
   .pswp * {
     -webkit-box-sizing: border-box;

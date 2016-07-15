@@ -15,10 +15,7 @@
 
         init: function(open, callback){
 
-            if (WD.ready){
-                if (open && !WD.active) WD.open(callback);
-                return;
-            }
+            if (WD.ready) return;
 
             WD.data = {
                 items: this.items,
@@ -120,6 +117,17 @@
             });
         },
 
+        open: function(callback){
+
+            WD.elem.addClass("WD__section--active");
+
+            if (callback && typeof callback === "function") callback();
+
+            WD.active = true;
+
+            _.logger("open", "products");
+        },
+
         update: function(data){
 
             WD.sections.footerContent.empty();
@@ -149,17 +157,6 @@
             else {
                 WD.sections.desc.addClass("WD__products__section--hide");
             }
-        },
-
-        open: function(callback){
-
-            WD.elem.addClass("WD__section--active");
-
-            if (callback && typeof callback === "function") callback();
-
-            WD.active = true;
-
-            _.logger("open", "products");
         },
 
         slider: function(){
@@ -239,7 +236,7 @@
 
             WD.elem.removeClass("WD__section--active");
 
-            if (SCREENS.hidden) SCREENS.hide.off();
+            SCREENS.section.close();
 
             WD.active = false;
 
