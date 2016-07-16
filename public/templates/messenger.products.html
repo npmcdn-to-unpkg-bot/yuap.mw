@@ -1,0 +1,32 @@
+<div class="WD__messenger__products">
+    <div class="WD__messenger__products__title">Те, что понравились отметьте<div class="WD__messenger__products__like"></div></div>
+    <div class="WD__messenger__products__wrapper">
+        {{#items}}
+        <div data-id="{{id}}" class="WD__messenger__products__item">
+            <div class="WD__messenger__products__image__container" data-image="{{image}}">
+                <div class="WD__messenger__products__image"></div>
+            </div>
+            {{#title}}
+            <div class="WD__messenger__products__item__string WD__messenger__products__item__string__title">
+                {{#url}}
+                <a href="{{url}}" class="WD__messenger__products__item__string__link">{{title}}</a>
+                {{/url}}
+                {{^url}}
+                    {{title}}
+                {{/url}}
+            </div>
+            {{/title}}
+            {{#price}}
+            <div class="WD__messenger__products__item__string WD__messenger__products__item__string__price">
+                {{#priceOld}}
+                    <span class="WD__messenger__products__item__price__old">{{#price_wrap}}{{priceOld}}{{/price_wrap}}</span>
+                {{/priceOld}}
+                {{#price_wrap}}{{price}}{{/price_wrap}} ₽
+            </div>
+            {{/price}}
+            <div class="WD__messenger__products__item__like WD__messenger__products__like"></div>
+        </div>
+        {{/items}}
+    </div>
+    <div class="WD__messenger__item__metadata">только что</div>
+</div>

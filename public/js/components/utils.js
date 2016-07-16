@@ -75,6 +75,21 @@
 		return result;
 	};
 
+	utils.copyArray = function(arr1, arr2){
+		var length = arr2.length;
+
+		for (var i = 0; i < length; ++i){
+			arr1.push(arr2[i]);
+		}
+		return arr1;
+	};
+
+	utils.isArray = function(arr){
+		if (Object.prototype.toString.call(arr) === '[object Array]'){
+		    return true;
+		}
+	};
+
 	utils.raf = function(callback){
 		var func = window.requestAnimationFrame ||
 			window.webkitRequestAnimationFrame ||

@@ -14,18 +14,141 @@
     fill:#1289FE;
 }
 
-.WD__messenger__header__title {
-    color:#827dcf;
-}
-.WD__messenger__item__answer {
-    .WD__messenger__item__text {
-        background:#827dcf;
+.WD__messenger {
+    &[data-color="#6a76fc"]{
+        .WD__messenger__header__title {
+            color:#6a76fc;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#6a76fc;
 
-        &:after {
-            border-left-color:#827dcf;
+                &:after {
+                    border-left-color:#6a76fc;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#6a76fc;
         }
     }
-}
-.WD__messenger__button__send__icon__color {
-    fill:#827dcf;
+    &[data-color="#00a8ff"]{
+        .WD__messenger__header__title {
+            color:#00a8ff;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#00a8ff;
+
+                &:after {
+                    border-left-color:#00a8ff;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#00a8ff;
+        }
+    }
+    &[data-color="#a570f9"]{
+        .WD__messenger__header__title {
+            color:#a570f9;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#a570f9;
+
+                &:after {
+                    border-left-color:#a570f9;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#a570f9;
+        }
+    }    
+    &[data-color="#00ab6b"]{
+        .WD__messenger__header__title {
+            color:#00ab6b;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#00ab6b;
+
+                &:after {
+                    border-left-color:#00ab6b;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#00ab6b;
+        }
+    }
+    &[data-color="#1abc9c"]{
+        .WD__messenger__header__title {
+            color:#1abc9c;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#1abc9c;
+
+                &:after {
+                    border-left-color:#1abc9c;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#1abc9c;
+        }
+    }
+    &[data-color="#ff2d55"]{
+        .WD__messenger__header__title {
+            color:#ff2d55;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#ff2d55;
+
+                &:after {
+                    border-left-color:#ff2d55;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#ff2d55;
+        }
+    }
+    &[data-color="#ff665a"]{
+        .WD__messenger__header__title {
+            color:#ff665a;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#ff665a;
+
+                &:after {
+                    border-left-color:#ff665a;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#ff665a;
+        }
+    }
+    &[data-color="#ff6000"]{
+        .WD__messenger__header__title {
+            color:#ff6000;
+        }
+        .WD__messenger__item__answer {
+            .WD__messenger__item__text {
+                background:#ff6000;
+
+                &:after {
+                    border-left-color:#ff6000;
+                }
+            }
+        }
+        .WD__messenger__button__send__icon__color {
+            fill:#ff6000;
+        }
+    }
 }

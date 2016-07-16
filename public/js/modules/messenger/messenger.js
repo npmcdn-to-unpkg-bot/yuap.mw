@@ -2,7 +2,8 @@
 
     app.define("messenger");
 
-    var SCREENS = app.screens;
+    var SCREENS = app.screens,
+        Utils = app.products.utils;
 
     app.messenger = {
 
@@ -16,6 +17,7 @@
             WD.content = WD.elem.find(".WD__messenger__content");
 
             _.init("messenger.viewer");
+            _.init("messenger.products");
             WD.render();
 
             if (open) {
@@ -31,6 +33,7 @@
 
         render: function(){
 
+            WD.products.render();
         },
 
         open: function(callback){

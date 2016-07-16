@@ -102,26 +102,28 @@
             _.getSizeImage(options.image, function(w, h){
                 if (options.imgLoading) options.$item.removeClass(options.imgLoading);
                 if (w && h) {
-                    var scale = options.scaleX,
-                        ratio = h / w;
+                    options.scaleX = options.scaleX ? options.scaleX : 1;
+                    options.scaleY = options.scaleY ? options.scaleY : 1;
+                    var ratio = h / w;
 
-                    if (options.autoResize && (ratio < 1.2 || w < options.width && ratio < 1.7) || ratio < 1.7){
-                        if (w < options.width * scale) scale = scale * 0.8333;
-                        else if (w < options.width) scale = scale * 0.8888;
-                        var delta = (options.width * scale) / w;
-                        options.$img.css({
-                            width: (scale * 100) + "%",
-                            height: (h * delta) + "px"
-                        });
-                        if (options.imgCenter) options.$item.addClass(options.imgCenter);
-                    }
-                    else if (ratio >= 1.7){
-                        var scale = options.scaleY,
+                    if (options.autoResize){
+                        var delta = (options.width * options.scaleX) / w;
+                        if (ratio < 1.7 && (h * delta) <= (options.height * options.scaleY)){
+                            var scale = options.scaleX;
+                            delta = (options.width * scale) / w;
+                            options.$img.css({
+                                width: (scale * 100) + "%",
+                                height: (h * delta) + "px"
+                            });
+                        }
+                        else {
+                            var scale = options.scaleY;
                             delta = (options.height * scale) / h;
-                        options.$img.css({
-                            width: (w * delta) + "px",
-                            height: (scale * 100) + "%"
-                        });
+                            options.$img.css({
+                                width: (w * delta) + "px",
+                                height: (scale * 100) + "%"
+                            });
+                        }
                         if (options.imgCenter) options.$item.addClass(options.imgCenter);
                     }
                     options.$img.css("background-image", "url(" + options.image + ")");

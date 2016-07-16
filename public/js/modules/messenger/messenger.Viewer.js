@@ -23,32 +23,50 @@
             WD.ready = true;
         },
 
-        open: function(img){
+        open: function(images){
+
+            if (!images) return;
 
             PARENT.elem.attr("data-loading", "true");
 
-            _.getSizeImage(img, function(w, h){
-                if (w && h) {
-                    WD.photoSwipe({
-                        image: img,
-                        width: w,
-                        height: h
-                    });
-                }
+            if (_.isArray(images)){
+                Promise.all(images.map(WD.getImage)).then(function(data){
+                    WD.photoSwipe(data);
+                });
+            }
+            else {
+                _.getSizeImage(images, function(w, h){
+                    if (w && h) {
+                        WD.photoSwipe([{
+                            src: images,
+                            w: w,
+                            h: h
+                        }]);
+                    }
+                });
+            }
+        },
+
+        getImage: function(img){
+            return new Promise(function(resolve, reject){
+                _.getSizeImage(img, function(w, h){
+                    if (w && h) {
+                        resolve({
+                            src: img,
+                            w: w,
+                            h: h
+                        });
+                    }
+                    else {
+                        reject("Not receive the picture size");
+                    }
+                });
             });
         },
 
-        photoSwipe: function(data){
+        photoSwipe: function(items){
 
             if (WD.active) return;
-
-            var items = [
-                {
-                    src: data.image,
-                    w: data.width,
-                    h: data.height
-                }
-            ];
 
             var options = {
                 mainClass: 'pswp--minimal--dark',
@@ -62,9 +80,9 @@
                 showAnimationDuration: 30
             };
 
-            var delta = data.width / sizes.width,
+            var delta = items[0].w / sizes.width,
                 zoom = delta > 1.7 ? 1.7 : (delta < 1 ? 1 : delta),
-                zoomScale = (sizes.width / data.width) * zoom,
+                zoomScale = (sizes.width / items[0].w) * zoom,
                 zoomX = sizes.width / 2;
 
             var gallery = new PhotoSwipe(WD.photoSwipeContainer, PhotoSwipeUI_Default, items, options);
