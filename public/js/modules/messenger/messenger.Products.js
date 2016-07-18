@@ -12,6 +12,8 @@
 
         ready: false,
 
+        items: [],
+
         addCount: 0,
 
         addItems: [],
@@ -29,6 +31,13 @@
             WD.badgeImage = WD.badge.find(".WD__messenger__products__badge__image");
             WD.badgeWidth = WD.badge.width();
             WD.badgeHeight = WD.badge.height();
+
+            WD.events();
+
+            WD.ready = true;
+        },
+
+        events: function(){
 
             // open offers
             WD.badge.on(EV.click, function(){
@@ -67,8 +76,6 @@
 
                 $item.toggleClass("WD__messenger__products__item--liked");
             });
-
-            WD.ready = true;
         },
 
         changeCount: function(count){
@@ -86,25 +93,27 @@
         clickPhoto: function($container){
 
             $container.on(EV.click, ".WD__messenger__products__image__container", function(){
-                var id = $(this).closest(".WD__messenger__products__item").data("id"),
-                    images = WD.getImages(id);
-
-                if (images) VIEWER.open(images);
+                var $item = $(this),
+                    images = $item.data("images");
+                if (images) {
+                    images = images.split(',');
+                    images.unshift($item.data("image"));
+                    VIEWER.open(images);
+                }
             });
         },
 
-        render: function(options){
+        render: function(data, getResult){
 
-            WD.elem = _.template("messenger.products", {
-                title: options.title,
-                items: options.items,
-                date: options.date,
-                price_wrap: function(){
-                    return function(text, render){
-                        return render(text).replace(/(\d)(?=((\d{3})+)(\D|$))/, "$1 ");
-                    }
+            if (!data) return;
+
+            data.price_wrap = function(){
+                return function(text, render){
+                    return render(text).replace(/(\d)(?=((\d{3})+)(\D|$))/, "$1 ");
                 }
-            }, options.container ? options.container : PARENT.content);
+            };
+
+            WD.elem = _.template("messenger.products", data, data.container ? data.container : PARENT.content);
 
             WD.images = WD.elem.find(".WD__messenger__products__image__container");
             var boxWidth = parseInt(WD.images[0].clientWidth),
@@ -126,7 +135,7 @@
                 });
             });
 
-            if (!options.container){
+            if (!data.container){
                 Utils.adaptiveImage({
                     $img: WD.badgeImage,
                     image: WD.images[0].getAttribute("data-image"),
@@ -136,24 +145,47 @@
                     scaleX: 0.7,
                     scaleY: 0.85,
                     callback: function(){
-                        WD.badge.addClass("WD__messenger__products__badge--active");
+                        if (!WD.badge[0].getAttribute("class").match(/active/)){
+                            WD.badge.addClass("WD__messenger__products__badge--active");
+                        }
                     }
                 });
             }
 
-            if (_.isFunction(options.callback)) options.callback();
+            if (_.isFunction(data.callback)) data.callback();
+            if (getResult) return WD.elem;
         },
 
-        getImages: function(id){
+        getImages: function(id, imgId){
             var arr = [];
-                length = WD.items.length;
+                data = id && imgId ? PARENT.data.items : WD.items,
+                size = data.length;
 
-            for (var i = 0; i < length; ++i){
-                if (id == WD.items[i].id){
-                    _.copyArray(arr, WD.items[i].images);
-                    arr.unshift(WD.items[i].image);
-                    return arr;
-                    break;
+            if (id && imgId){
+                for (var i = 0; i < size; ++i){
+                    if (data[i].type === "products" && data[i].data.id == id){
+                        var items = data[i].data.items,
+                            length = items.length;
+                        for (var j = 0; j < length; ++j){
+                            if (imgId == items[j].id){
+                                _.copyArray(arr, items[j].images);
+                                arr.unshift(items[j].image);
+                                return arr;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            }
+            else {
+                for (var j = 0; j < size; ++j){
+                    if (imgId == WD.items[j].id){
+                        _.copyArray(arr, WD.items[j].images);
+                        arr.unshift(WD.items[j].image);
+                        return arr;
+                        break;
+                    }
                 }
             }
         },
@@ -162,10 +194,12 @@
 
             if (WD.active) return;
 
+            WD.items = PARENT.api.getProducts();
+
             WD.window.addClass("WD__messenger__products__window--active");
             _.onEndTransition(WD.window[0], function(){
                 WD.render({
-                    title: "Отметьте, чтобы добавить в чат",
+                    text: "Отметьте, чтобы добавить в чат",
                     items: WD.items,
                     container: WD.wrapper,
                     callback: function(){

@@ -1,32 +1,39 @@
-<div class="WD__messenger__products">
-    {{#title}}<div class="WD__messenger__products__title">{{title}}<div class="WD__messenger__products__like"></div></div>{{/title}}
-    <div class="WD__messenger__products__wrapper">
-        {{#items}}
-        <div data-id="{{id}}" class="WD__messenger__products__item">
-            <div class="WD__messenger__products__image__container" data-image="{{image}}">
-                <div class="WD__messenger__products__image"></div>
+{{#date}}
+<div data-id="{{id}}" data-type="products" data-who="{{who}}" class="WD__messenger__item WD__messenger__item__{{who}}">
+    {{#avatar}}
+        <div class="WD__messenger__item__avatar" style="background-image:url({{avatar}})"></div>
+    {{/avatar}}
+{{/date}}
+    <div class="WD__messenger__products">
+        {{#text}}<div class="WD__messenger__products__title">{{text}}<div class="WD__messenger__products__like"></div></div>{{/text}}
+        <div class="WD__messenger__products__wrapper">
+            {{#items}}
+            <div data-id="{{id}}" class="WD__messenger__products__item">
+                <div class="WD__messenger__products__image__container" data-image="{{image}}" data-images="{{images}}">
+                    <div class="WD__messenger__products__image"></div>
+                </div>
+                {{#title}}
+                <div class="WD__messenger__products__item__string WD__messenger__products__item__string__title">
+                    {{#url}}
+                    <a href="{{url}}" target="_blank" class="WD__messenger__products__item__string__link">{{title}}</a>
+                    {{/url}}
+                    {{^url}}
+                        {{title}}
+                    {{/url}}
+                </div>
+                {{/title}}
+                {{#price}}
+                <div class="WD__messenger__products__item__string WD__messenger__products__item__string__price">
+                    {{#priceOld}}
+                        <span class="WD__messenger__products__item__price__old">{{#price_wrap}}{{priceOld}}{{/price_wrap}} ₽</span>
+                    {{/priceOld}}
+                    {{#price_wrap}}{{price}}{{/price_wrap}} ₽
+                </div>
+                {{/price}}
+                <div class="WD__messenger__products__item__like WD__messenger__products__like"></div>
             </div>
-            {{#title}}
-            <div class="WD__messenger__products__item__string WD__messenger__products__item__string__title">
-                {{#url}}
-                <a href="{{url}}" class="WD__messenger__products__item__string__link">{{title}}</a>
-                {{/url}}
-                {{^url}}
-                    {{title}}
-                {{/url}}
-            </div>
-            {{/title}}
-            {{#price}}
-            <div class="WD__messenger__products__item__string WD__messenger__products__item__string__price">
-                {{#priceOld}}
-                    <span class="WD__messenger__products__item__price__old">{{#price_wrap}}{{priceOld}}{{/price_wrap}} ₽</span>
-                {{/priceOld}}
-                {{#price_wrap}}{{price}}{{/price_wrap}} ₽
-            </div>
-            {{/price}}
-            <div class="WD__messenger__products__item__like WD__messenger__products__like"></div>
+            {{/items}}
         </div>
-        {{/items}}
+        {{#date}}<div class="WD__messenger__item__metadata">{{#dateFormat}}{{date}}{{/dateFormat}}</div>{{/date}}
     </div>
-    {{#date}}<div class="WD__messenger__item__metadata">{{date}}</div>{{/date}}
-</div>
+{{#date}}</div>{{/date}}

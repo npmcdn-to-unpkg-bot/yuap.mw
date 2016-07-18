@@ -1,0 +1,13 @@
+<div data-id="{{id}}" data-type="text" data-who="{{who}}" class="WD__messenger__item WD__messenger__item__{{who}}{{#label}} WD__messenger__item__{{who}}--{{label}}{{/label}}">
+    {{#avatar}}
+        <div class="WD__messenger__item__avatar" style="background-image:url({{avatar}})"></div>
+    {{/avatar}}
+    <div class="WD__messenger__item__text" {{#emoji}}data-emoji="{{emoji}}"{{/emoji}}>{{text}}
+        {{#emoji}}
+            <div class="WD__messenger__item__emoji">
+                <div class="WD__messenger__item__emoji__icon WD__messenger__item__emoji__icon--{{emoji}}"></div>
+            </div>
+        {{/emoji}}
+    </div>
+    {{#date}}<div class="WD__messenger__item__metadata">{{#dateFormat}}{{date}}{{/dateFormat}}</div>{{/date}}
+</div>

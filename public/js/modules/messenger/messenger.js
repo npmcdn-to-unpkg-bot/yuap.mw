@@ -3,13 +3,12 @@
     app.define("messenger");
 
     var SCREENS = app.screens,
+        ADD = null,
         Utils = app.products.utils;
 
     app.messenger = {
 
         ready: false,
-
-        data: {},
 
         init: function(open, callback){
 
@@ -18,10 +17,30 @@
             WD.elem = _.template("messenger");
             WD.body = WD.elem.find(".WD__messenger__body");
             WD.content = WD.body.find(".WD__messenger__content");
+            WD.footer = WD.elem.find(".WD__messenger__footer");
+
+            ADD = WD.api.add;
+
+            WD.data = {
+                build: "1001",
+                operator: {
+                    name: "Ирина",
+                    post: "Онлайн-консултант",
+                    avatar: "/public/images/avatar/avatar7.png"
+                },
+                user: {
+                    name: null,
+                    phone: null,
+                    email: null,
+                    avatar: null
+                },
+                items: WD.items
+            };
 
             _.init("messenger.viewer");
             _.init("messenger.emoji");
             _.init("messenger.products");
+            _.init("messenger.api");
             WD.render();
 
             if (open) {
@@ -39,10 +58,19 @@
 
             _.fixTouchScroll(WD.elem, WD.body);
 
-            WD.products.render({
-                title: "Те, что понравились отметьте",
-                items: WD.products.items,
-                date: "только что"
+            WD.content.empty();
+
+            WD.api.render(WD.data.items);
+
+            // ADD("products", {
+            //     who: "operator",
+            //     text: "Те, что понравились отметьте",
+            //     items: WD.products.items
+            // });
+            //
+            ADD("text", {
+                who: "operator",
+                text: "Добрый день, я рада приветствовать Вас, ожидаю ваших вопросов."
             });
         },
 

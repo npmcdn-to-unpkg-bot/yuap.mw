@@ -27,7 +27,7 @@
         render: function(){
 
             // open emoji
-            PARENT.content.on(EV.click, ".WD__messenger__item__que > .WD__messenger__item__text", function(){
+            PARENT.content.on(EV.click, ".WD__messenger__item__operator > .WD__messenger__item__text", function(){
                 WD.open($(this));
             });
 
