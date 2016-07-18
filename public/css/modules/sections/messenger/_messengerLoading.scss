@@ -2,7 +2,7 @@
     &:after,
     &:before {
         content:"";
-        opacity:0;
+        opacity:0.001;
         @include abs();
         will-change:opacity;
         transform:translate3d(999em, 0, 0);

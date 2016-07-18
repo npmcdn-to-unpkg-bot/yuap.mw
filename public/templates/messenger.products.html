@@ -1,5 +1,5 @@
 <div class="WD__messenger__products">
-    <div class="WD__messenger__products__title">Те, что понравились отметьте<div class="WD__messenger__products__like"></div></div>
+    {{#title}}<div class="WD__messenger__products__title">{{title}}<div class="WD__messenger__products__like"></div></div>{{/title}}
     <div class="WD__messenger__products__wrapper">
         {{#items}}
         <div data-id="{{id}}" class="WD__messenger__products__item">
@@ -19,7 +19,7 @@
             {{#price}}
             <div class="WD__messenger__products__item__string WD__messenger__products__item__string__price">
                 {{#priceOld}}
-                    <span class="WD__messenger__products__item__price__old">{{#price_wrap}}{{priceOld}}{{/price_wrap}}</span>
+                    <span class="WD__messenger__products__item__price__old">{{#price_wrap}}{{priceOld}}{{/price_wrap}} ₽</span>
                 {{/priceOld}}
                 {{#price_wrap}}{{price}}{{/price_wrap}} ₽
             </div>
@@ -28,5 +28,5 @@
         </div>
         {{/items}}
     </div>
-    <div class="WD__messenger__item__metadata">только что</div>
+    {{#date}}<div class="WD__messenger__item__metadata">{{date}}</div>{{/date}}
 </div>

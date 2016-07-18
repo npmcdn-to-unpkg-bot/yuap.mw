@@ -7,14 +7,14 @@
 
     &:before {
         @include abs();
-        opacity:0;
+        opacity:0.001;
         content:"";
         background:rgba($bg_color,.8);
         transition:opacity 0.25s $cubic34 0.12s;
     }
 }
 .WD__messenger__options__wrapper {
-    opacity:0;
+    opacity:0.001;
     position:relative;
     width:88.8%;
     background:#f4f4f4;

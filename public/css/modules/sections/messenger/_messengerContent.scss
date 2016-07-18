@@ -1,5 +1,20 @@
 .WD__messenger__item {
     position:relative;
+
+    &--absolute {
+        position:absolute;
+        width:100%;
+        max-width:91%;
+        @include accelerate(true);
+
+        .WD__messenger__item__text {
+            box-shadow:none !important;
+        }
+        .WD__messenger__item__emoji,
+        .WD__messenger__item__metadata {
+            display:none;
+        }
+    }
 }
 .WD__messenger__item__que {
     padding-left:38px;
@@ -89,6 +104,78 @@
     line-height:20px;
     color:#b0bec5;
     padding-bottom:16px;
+}
+.WD__messenger__item__emoji {
+    position:absolute;
+    top:-14px;
+    right:-19px;
+    width:40px;
+    height:40px;
+    border:2px solid #fff;
+    border-radius:50%;
+    @include accelerate();
+
+    &:before,
+    &:after {
+        content:'';
+        position:absolute;
+        bottom:-2px;
+        right:-3px;
+        height:14px;
+        width:14px;
+        border-radius:50%;
+    }
+    &:after {
+        height:7px;
+        width:7px;
+        right:-9px;
+        bottom:-7px;
+    }
+    &__icon {
+        @include abs_50(68, 68, "%");
+        @include accelerate();
+
+        &--love {
+            background:url(/public/images/emoji/emoji_love.svg) no-repeat 0 0 / cover;
+            transform:translate3d(0, 2px, 0);
+        }
+        &--like {
+            background:url(/public/images/emoji/emoji_like.svg) no-repeat 0 0 / cover;
+            transform:translate3d(0, -1px, 0);
+        }
+        &--dislike {
+            background:url(/public/images/emoji/emoji_like.svg) no-repeat 0 0 / cover;
+            transform:translate3d(0, 2px, 0) scale3d(-1, -1, 1);
+        }
+        &--haha {
+            background:url(/public/images/emoji/emoji_haha.svg) no-repeat 0 0 / cover;
+            transform:translate3d(0, 0, 0);
+        }
+        &--warning {
+            @include abs_50(75, 75, "%");
+            background:url(/public/images/emoji/emoji_warning.svg) no-repeat 0 0 / cover;
+            transform:translate3d(0, 0, 0);
+        }
+        &--question {
+            @include abs_50(75, 75, "%");
+            background:url(/public/images/emoji/emoji_question.svg) no-repeat 0 0 / cover;
+            transform:translate3d(0, 0, 0);
+        }
+    }
+    &--animate {
+        opacity:0;
+        animation:WD__messenger__item__emoji 0.333s cubic-bezier(.42,0,.05,1.5) forwards 0.1s;
+    }
+}
+@keyframes WD__messenger__item__emoji {
+    from {
+        opacity:0;
+        transform:translate3d(0, 0, 0) scale(0);
+    }
+    to {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale(1);
+    }
 }
 .WD__messenger__item__text:before,
 .WD__messenger__item__text:after {

@@ -15,12 +15,17 @@
 
             WD.photoSwipeContainer = document.querySelectorAll('.pswp')[0];
 
+            WD.render();
+
+            WD.ready = true;
+        },
+
+        render: function(){
+
             PARENT.content.on(EV.click, ".WD__messenger__item__image__file", function(){
                 var img = this.getAttribute("src");
                 if (img) WD.open(img);
             });
-
-            WD.ready = true;
         },
 
         open: function(images){
@@ -81,7 +86,7 @@
             };
 
             var delta = items[0].w / sizes.width,
-                zoom = delta > 1.7 ? 1.7 : (delta < 1 ? 1 : delta),
+                zoom = delta > 1 ? 1 : delta,
                 zoomScale = (sizes.width / items[0].w) * zoom,
                 zoomX = sizes.width / 2;
 
@@ -91,7 +96,7 @@
 
             gallery.zoomTo(zoomScale, {
                 x: zoomX,
-                y: -(sizes.height * 0.4)
+                y: 0
             }, 450);
 
             gallery.listen('close', function() {

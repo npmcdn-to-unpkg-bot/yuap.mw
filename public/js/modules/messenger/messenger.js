@@ -9,14 +9,18 @@
 
         ready: false,
 
+        data: {},
+
         init: function(open, callback){
 
             if (WD.ready) return;
 
             WD.elem = _.template("messenger");
-            WD.content = WD.elem.find(".WD__messenger__content");
+            WD.body = WD.elem.find(".WD__messenger__body");
+            WD.content = WD.body.find(".WD__messenger__content");
 
             _.init("messenger.viewer");
+            _.init("messenger.emoji");
             _.init("messenger.products");
             WD.render();
 
@@ -33,14 +37,22 @@
 
         render: function(){
 
-            WD.products.render();
+            _.fixTouchScroll(WD.elem, WD.body);
+
+            WD.products.render({
+                title: "Те, что понравились отметьте",
+                items: WD.products.items,
+                date: "только что"
+            });
         },
 
         open: function(callback){
 
+            if (WD.active) return;
+
             WD.elem.addClass("WD__section--active");
 
-            if (callback && typeof callback === "function") callback();
+            if (_.isFunction(callback)) callback();
 
             WD.active = true;
 

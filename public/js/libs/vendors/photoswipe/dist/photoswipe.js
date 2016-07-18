@@ -2528,9 +2528,9 @@ var _showOrHideTimeout,
 				_applyBgOpacity(1);
 				if(img) {
 					img.style.display = 'block';
-					setTimeout(function(){
-						img.style.opacity = '1';
-					}, 30);
+					// setTimeout(function(){
+					// 	img.style.opacity = '1';
+					// }, 30);
 				}
 				framework.addClass(template, 'pswp--animated-in');
 				_shout('initialZoom' + (out ? 'OutEnd' : 'InEnd'));
@@ -2882,6 +2882,12 @@ var _getItemAt,
 
 		img.style.width = w + 'px';
 		img.style.height = h + 'px';
+
+		if (img.style.opacity != 1) {
+			setTimeout(function(){
+				img.style.opacity = '1';
+			}, 30);
+		}
 	},
 	_appendImagesPool = function() {
 

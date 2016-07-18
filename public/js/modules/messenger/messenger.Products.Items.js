@@ -1,5 +1,19 @@
-yellApp.messenger.products.items = [{
+yellApp.messenger.products.items = [
+{
     id: 1,
+    title: "Ultra HD (4K) LED телевизор LG 43UH610V",
+    url: "#",
+    price: "39990",
+    priceOld: "46480",
+    image: "http://static.eldorado.ru/photos/71/new_71173033_l_1461276896.jpeg/resize/700x525/",
+    images: [
+        "http://static.eldorado.ru/photos/71/new_71173033_l_1461276913.jpeg/resize/700x525/",
+        "http://static.eldorado.ru/photos/71/new_71173033_l_1461276925.jpeg/resize/700x525/",
+        "http://static.eldorado.ru/photos/71/new_71173033_l_1461276953.jpeg/resize/700x525/"
+    ]
+},
+{
+    id: 2,
     title: "Ночная сорочка силуэта ампир",
     url: "#",
     price: "8560",
@@ -12,7 +26,7 @@ yellApp.messenger.products.items = [{
     ]
 },
 {
-    id: 2,
+    id: 3,
     title: "Ночная сорочка силуэта2",
     url: false,
     price: "4560",

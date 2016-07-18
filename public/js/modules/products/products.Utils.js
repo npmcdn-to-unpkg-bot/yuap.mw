@@ -128,6 +128,9 @@
                     }
                     options.$img.css("background-image", "url(" + options.image + ")");
                     if (options.imgLoaded) options.$item.addClass(options.imgLoaded);
+                    if (_.isFunction(options.callback)){
+                        options.callback();
+                    }
                 }
                 else {
                     if (options.imgError) options.$item.addClass(options.imgError);

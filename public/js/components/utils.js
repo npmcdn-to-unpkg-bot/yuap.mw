@@ -85,9 +85,44 @@
 	};
 
 	utils.isArray = function(arr){
-		if (Object.prototype.toString.call(arr) === '[object Array]'){
+		if (arr && Object.prototype.toString.call(arr) === '[object Array]'){
 		    return true;
 		}
+	};
+
+	utils.isFunction = function(fn){
+		if (fn && typeof fn === 'function'){
+		    return true;
+		}
+	};
+
+	utils.fixTouchScroll = function($container, $scroll){
+		var touchY = null,
+			scrollY = null;
+
+		$container.on('touchmove MSPointerMove', function(e){
+			if (scrollY === 0){
+				var lastTouchY = e.changedTouches[0].clientY;
+				if (lastTouchY < touchY){
+					touchY = 0;
+					e.preventDefault();
+				}
+				else {
+					if (app.device && app.device.isIOS){
+						setTimeout(function(){
+							touchY = lastTouchY;
+						}, 1000);
+					}
+					else {
+						touchY = lastTouchY;
+					}
+				}
+			}
+		});
+
+		$scroll.on('scroll', function(){
+			scrollY = this.scrollTop;
+		});
 	};
 
 	utils.raf = function(callback){

@@ -34,6 +34,7 @@
         font-size:18px;
         line-height:18px;
         padding-bottom:11px;
+        white-space:nowrap;
         z-index:2;
 
         .WD__messenger__products__like {
@@ -81,7 +82,6 @@
     width:44px;
     height:44px;
     border-radius:50%;
-    background:$blue;
     box-shadow:0 2px 2px rgba($black_gray,.15);
     z-index:1;
 
@@ -104,6 +104,7 @@
     background-image:url(/public/images/ui-check_it_white.svg)
 }
 .WD__messenger__products__image__container {
+    @include accelerate(true);
     position:relative;
     width:100%;
     height:170px;
@@ -114,6 +115,7 @@
     @include flex("row", "center", "center");
 
     .WD__messenger__products__image {
+        @include accelerate(true);
         position:static;
         margin-top:10px;
     }
@@ -129,7 +131,6 @@
     margin:0 10px;
 
     &__title {
-        color:$blue;
         height:48px;
         line-height:48px;
         font-size:18px;
@@ -138,9 +139,6 @@
         white-space:nowrap;
         text-overflow:ellipsis;
         overflow:hidden;
-    }
-    &__link {
-        color:$blue;
     }
     &__price {
         font-size:19px;
@@ -165,5 +163,167 @@
         height: 1px;
         background:$red_bright;
         transform: rotateZ(-6deg);
+    }
+}
+.WD__messenger__products__badge {
+    position:absolute;
+    bottom:60px;
+    right:-5px;
+    width:70px;
+    height:70px;
+    @include accelerate();
+    transform:translate3d(101%, 0, 0);
+    transition:transform 0s 0.5s;
+    z-index:2;
+
+    &__image {
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:top center;
+
+        &__container {
+            @include abs();
+            @include accelerate();
+            @include flex("row", "center", "center");
+            border-radius:40px 0 42px 38px;
+            box-shadow:0 1px 2px 0 rgba(234,236,238,.8);
+            background-color:#fff;
+            border:1px solid #dadee2;
+            transform:translate3d(0, 0, 0) scale(0);
+            transition:transform 0.5s cubic-bezier(0.42, 0, 0.05, 1.25);
+        }
+    }
+    &--active {
+        transform:translate3d(0, 0, 0);
+        transition:transform 0s;
+
+        .WD__messenger__products__badge__image__container {
+            transform:translate3d(0, 0, 0) scale(1);
+        }
+    }
+}
+.WD__messenger__products__window {
+    @include abs();
+    @include accelerate();
+    transform:translate3d(101%, 0, 0);
+    opacity:0.001;
+    will-change:opacity;
+    transition:opacity 0.25s $cubic34, transform 0s 0.25s;
+    z-index:5;
+
+    &:before {
+        content:"";
+        @include abs();
+        background:rgba($bg_color,.87);
+    }
+    &:after {
+        content:"";
+        @include abs_50(58, 58);
+        @include ui-loading(white);
+        will-change:opacity, transform;
+        z-index:0;
+    }
+    &__wrapper {
+        opacity:0.001;
+        @include abs();
+        @include accelerate();
+        @include flex("row", "center", "center");
+        will-change:opacity;
+        transition:opacity 0.3s $cubic34;
+        z-index:1;
+    }
+    .WD__messenger__products {
+        width:100%;
+        margin:0;
+
+        &:before,
+        &:after {
+            display:none;
+        }
+        &__title {
+            position:absolute;
+            top:-18%;
+            left:52px;
+            color:rgba(234,236,238,.5);
+            font-size:17px;
+            font-weight:300;
+        }
+        &__like {
+            &:before {
+                width:38px;
+                height:38px;
+                transform:translate3d(0, 0, 0);
+                background:url(/public/images/ui-import_white.svg) no-repeat 0 0 / cover;
+            }
+        }
+        &__item__like {
+            &:before {
+                transform:translate3d(1px, 0, 0);
+            }
+        }
+        &__item--liked:before {
+            width:29px;
+            height:29px;
+            transform:translate3d(0, 0, 0);
+            background-image:url(/public/images/ui-check_it_white.svg);
+        }
+    }
+    &__close {
+        position:absolute;
+        bottom:15px;
+        left:50%;
+        @include ui-close(white, 42px, 42px);
+        margin-left:-21px;
+        opacity:0.25;
+        z-index:2;
+    }
+    &--active {
+        opacity:1;
+        transition:opacity 0.3s $cubic34, transform 0s;
+        transform:translate3d(0, 0, 0);
+
+        &:after {
+            animation:WD__section__spinner 1s infinite linear;
+        }
+    }
+    &--ready {
+        &:after {
+            opacity:0;
+            transition:opacity 0.3s $cubic34;
+        }
+        .WD__messenger__products__window__wrapper {
+            opacity:1;
+        }
+    }
+    &__button {
+        display:none;
+        position:absolute;
+        top:25px;
+        left:50%;
+        width:160px;
+        height:48px;
+        color:rgba(234,236,238,.56);
+        font-weight:300;
+        font-size:19px;
+        line-height:48px;
+        padding:0 15px;
+        border-radius:4px;
+        border:1px solid rgba(#fff,.3);
+        margin-left:-80px;
+        text-align:center;
+
+        &__count {
+            font-weight:500;
+            font-size:20px;
+            padding-left:9px;
+        }
+    }
+    &--button {
+        .WD__messenger__products__window__button {
+            display:block;
+        }
+        .WD__messenger__products__title {
+            display:none;
+        }
     }
 }

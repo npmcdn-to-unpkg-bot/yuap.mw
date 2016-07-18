@@ -10,8 +10,19 @@
         }
     }
 }
-.WD__messenger__button__send__icon__color {
+.WD__messenger__button__send__icon__color,
+.WD__messenger__emoji__item--active .WD__messenger__emoji__item__color {
     fill:#1289FE;
+}
+.WD__messenger__products__item__string__title,
+.WD__messenger__products__item__string__link {
+    color:#158ffe;
+}
+.WD__messenger__products__like,
+.WD__messenger__item__emoji,
+.WD__messenger__item__emoji:before,
+.WD__messenger__item__emoji:after {
+    background-color:#158ffe;
 }
 
 .WD__messenger {
@@ -65,7 +76,7 @@
         .WD__messenger__button__send__icon__color {
             fill:#a570f9;
         }
-    }    
+    }
     &[data-color="#00ab6b"]{
         .WD__messenger__header__title {
             color:#00ab6b;
