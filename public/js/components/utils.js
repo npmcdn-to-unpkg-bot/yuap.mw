@@ -69,6 +69,11 @@
 
 	utils.template = function(name, data, node){
 
+		if (!app.templates[name]) {
+			utils.log("NOT found: <" + name + "> template");
+			return;
+		}
+
 		var tpl = Mustache.render(app.templates[name](), data ? data : {}),
 			result = $(tpl).appendTo(node ? node : app.$dom.root);
 

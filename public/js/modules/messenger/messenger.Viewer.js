@@ -1,5 +1,7 @@
 (function(app, $, $dom, EV, _){
 
+    app.define("messenger.viewer");
+
     var PARENT = app.messenger,
         sizes = app.sizes;
 

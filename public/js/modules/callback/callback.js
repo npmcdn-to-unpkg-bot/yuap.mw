@@ -119,7 +119,12 @@
                 subtitle: "Проверьте введенный номер",
                 successText: "Верно",
                 success: function(){
+                    if (_.isFunction(WD.getPhone)){
+                        WD.getPhone(WD.number.join().replace(/,/g, ""));
+                    }
+                    else {
 
+                    }
                 },
                 cancelText: "Изменить",
                 cancel: function(){
@@ -128,13 +133,21 @@
             });
         },
 
-        close: function(){
+        close: function(callback){
 
             WD.elem.removeClass("WD__section--active");
 
             SCREENS.section.close();
 
+            WD.getPhone = null;
+
             WD.active = false;
+
+            if (_.isFunction(callback)){
+                _.onEndTransition(WD.elem[0], function(){
+                    callback();
+                });
+            }
 
             _.logger("close", "callback");
         }

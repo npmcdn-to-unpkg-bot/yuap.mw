@@ -37,13 +37,11 @@
         render: function(){
 
             WD.success.on(EV.click, function(){
-                WD.close();
-                WD.callSuccess();
+                WD.close(WD.callSuccess);
             });
 
             WD.cancel.on(EV.click, function(){
-                WD.close();
-                WD.callCancel();
+                WD.close(WD.callCancel);
             });
         },
 
@@ -72,17 +70,17 @@
                 WD.elem.removeClass("WD__alert--anim");
             });
 
-            if (options && typeof options.success === "function") {
+            if (options && _.isFunction(options.success)) {
                 WD.callSuccess = options.success;
             }
-            if (options && typeof options.cancel === "function") {
+            if (options && _.isFunction(options.cancel)) {
                 WD.callCancel = options.cancel;
             }
 
             WD.active = true;
         },
 
-        close: function(){
+        close: function(callback){
 
             WD.elem.removeClass("WD__alert--active");
 
@@ -95,6 +93,8 @@
                     WD.buttons.removeClass("WD__alert__buttons--one");
                     WD.success.text("Ok");
                 }
+                if (_.isFunction(callback)) callback();
+
                 WD.callSuccess = function(){};
                 WD.callCancel = function(){};
 

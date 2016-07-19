@@ -156,40 +156,6 @@
             if (getResult) return WD.elem;
         },
 
-        getImages: function(id, imgId){
-            var arr = [];
-                data = id && imgId ? PARENT.data.items : WD.items,
-                size = data.length;
-
-            if (id && imgId){
-                for (var i = 0; i < size; ++i){
-                    if (data[i].type === "products" && data[i].data.id == id){
-                        var items = data[i].data.items,
-                            length = items.length;
-                        for (var j = 0; j < length; ++j){
-                            if (imgId == items[j].id){
-                                _.copyArray(arr, items[j].images);
-                                arr.unshift(items[j].image);
-                                return arr;
-                                break;
-                            }
-                        }
-                    }
-                }
-
-            }
-            else {
-                for (var j = 0; j < size; ++j){
-                    if (imgId == WD.items[j].id){
-                        _.copyArray(arr, WD.items[j].images);
-                        arr.unshift(WD.items[j].image);
-                        return arr;
-                        break;
-                    }
-                }
-            }
-        },
-
         open: function(){
 
             if (WD.active) return;

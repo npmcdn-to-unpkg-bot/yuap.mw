@@ -1,0 +1,62 @@
+.WD__messenger__form {
+    @include abs();
+    @include accelerate();
+    opacity:0.001;
+    will-change:opacity;
+    transform:translate3d(101%, 0, 0);
+    transition:opacity 0.25s $cubic34, transform 0s 0.25s;
+    overflow:hidden;
+    z-index:2;
+
+    &[data-active="true"]{
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+        transition:opacity 0.25s $cubic34, transform 0s;
+    }
+    &:before {
+        content:"";
+        @include abs();
+        background:rgba($bg_color,.6);
+    }
+    &__close {
+        position:absolute;
+        top:10px;
+        right:10px;
+        @include ui-close(black, 32px, 32px);
+        opacity:0.6;
+        z-index:2;
+    }
+    &__wrapper {
+        position:relative;
+        background:#fff;
+        text-align:left;
+        box-shadow:0 1px 2px rgba(#000,.12);
+        z-index:1;
+    }
+    &__title {
+        font-size:19px;
+        line-height:50px;
+        height:54px;
+        padding-left:30px;
+    }
+    &__item {
+        height:58px;
+        background-color:#fff;
+        border-top:1px solid #ebebeb;
+        padding:0 20px;
+    }
+    &__textarea,
+    &__input {
+        @include accelerate(true);
+        height:48px;
+        color:$black_gray;
+        padding:10px 10px 0;
+        font-size:19px;
+        line-height:32px;
+        width:100%;
+        overflow:hidden;
+        white-space:nowrap;
+        user-select:auto;
+        border-bottom:1px solid rgba($black_gray,.2);
+    }
+}

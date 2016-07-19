@@ -1,0 +1,13 @@
+<div data-id="{{id}}" data-type="phone" data-who="operator" class="WD__messenger__item WD__messenger__item__operator">
+    {{#avatar}}
+        <div class="WD__messenger__item__avatar" style="background-image:url({{avatar}})"></div>
+    {{/avatar}}
+    <div class="WD__messenger__item__text">
+        <div class="WD__messenger__item__title">Я могу Вам перезвонить, пожалуйста оставьте свой телефон</div>
+        <div class="WD__messenger__item__button WD__messenger__openForm" data-type="phone">
+            <span class="WD__messenger__item__button__text">Ввести номер</span>
+            <svg class="WD__messenger__item__button__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="-489 491 100 125" enable-background="new -489 491 100 100" xml:space="preserve"><path class="WD__messenger__item__button__icon__color" d="M-417.8,588.4c4.3,0,7.7-3.4,7.7-7.7s-3.4-7.7-7.7-7.7c-4.3,0-7.7,3.4-7.7,7.7S-422.2,588.4-417.8,588.4z M-439,588.4  c4.3,0,7.7-3.4,7.7-7.7s-3.4-7.7-7.7-7.7s-7.7,3.4-7.7,7.7S-443.3,588.4-439,588.4z M-460.2,588.4c4.3,0,7.7-3.4,7.7-7.7  s-3.4-7.7-7.7-7.7c-4.3,0-7.7,3.4-7.7,7.7S-464.5,588.4-460.2,588.4z M-417.8,567.2c4.3,0,7.7-3.4,7.7-7.7c0-4.3-3.4-7.7-7.7-7.7  c-4.3,0-7.7,3.4-7.7,7.7C-425.5,563.8-422.2,567.2-417.8,567.2z M-439,567.2c4.3,0,7.7-3.4,7.7-7.7c0-4.3-3.4-7.7-7.7-7.7  s-7.7,3.4-7.7,7.7C-446.7,563.8-443.3,567.2-439,567.2z M-460.2,567.2c4.3,0,7.7-3.4,7.7-7.7c0-4.3-3.4-7.7-7.7-7.7  c-4.3,0-7.7,3.4-7.7,7.7C-467.8,563.8-464.5,567.2-460.2,567.2z M-417.8,546c4.3,0,7.7-3.4,7.7-7.7s-3.4-7.7-7.7-7.7  c-4.3,0-7.7,3.4-7.7,7.7S-422.2,546-417.8,546z M-439,546c4.3,0,7.7-3.4,7.7-7.7s-3.4-7.7-7.7-7.7s-7.7,3.4-7.7,7.7  S-443.3,546-439,546z M-460.2,546c4.3,0,7.7-3.4,7.7-7.7s-3.4-7.7-7.7-7.7c-4.3,0-7.7,3.4-7.7,7.7S-464.5,546-460.2,546z   M-389,515.3c-25-28.8-75-28.8-100,0l9.6,13.5l17.3-9.6c3.8-1.9,3.8-9.6,3.8-9.6c9.6-5.8,28.8-5.8,38.5,0c0,0,0,7.7,3.8,9.6  l17.3,9.6L-389,515.3z"/></svg>
+        </div>
+    </div>
+    {{#date}}<div class="WD__messenger__item__metadata">{{#dateFormat}}{{date}}{{/dateFormat}}</div>{{/date}}
+</div>

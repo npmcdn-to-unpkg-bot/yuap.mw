@@ -40,6 +40,7 @@
             _.init("messenger.viewer");
             _.init("messenger.emoji");
             _.init("messenger.products");
+            _.init("messenger.form");
             _.init("messenger.api");
             WD.render();
 

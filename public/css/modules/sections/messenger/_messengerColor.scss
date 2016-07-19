@@ -1,4 +1,6 @@
-.WD__messenger__header__title {
+.WD__messenger__header__title,
+.WD__messenger__form__title,
+.WD__messenger__item__button {
     color:#1289FE;
 }
 .WD__messenger__item__user {
@@ -11,7 +13,8 @@
     }
 }
 .WD__messenger__button__send__icon__color,
-.WD__messenger__emoji__item--active .WD__messenger__emoji__item__color {
+.WD__messenger__emoji__item--active .WD__messenger__emoji__item__color,
+.WD__messenger__item__button__cursor__color {
     fill:#1289FE;
 }
 .WD__messenger__products__item__string__title,
@@ -23,6 +26,13 @@ a.WD__messenger__products__item__string__link {
 .WD__messenger__item__emoji:before,
 .WD__messenger__item__emoji:after {
     background-color:#158ffe;
+}
+.WD__messenger__item__button {
+    border-color:rgba(#1289FE,.6);
+}
+.WD__messenger__form__textarea:focus,
+.WD__messenger__form__input:focus {
+    border-bottom-color:rgba(#158ffe,.5);    
 }
 
 .WD__messenger {

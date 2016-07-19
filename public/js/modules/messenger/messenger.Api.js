@@ -4,7 +4,8 @@
 
     var PARENT = null,
         CONTENT = null,
-        PRODUCTS = null;
+        PRODUCTS = null,
+        tempus = app.tempus;
 
     app.messenger.api = {
 
@@ -25,6 +26,7 @@
                 if (data[i].data.who === "operator") data[i].data.avatar = PARENT.data.operator.avatar;
 
                 data[i].data.dateFormat = WD.dateFormat;
+                data[i].data.priceFormat = WD.priceFormat;
 
                 if (data[i].type === "text"){
                     if (data[i + 1] && data[i + 1].type === "text" && data[i + 1].data.who === data[i].data.who){
@@ -33,15 +35,11 @@
                     }
                     result = _.template("messenger.text", data[i].data, CONTENT);
                 }
-                else if (data[i].type === "image"){
-                    result = _.template("messenger.image", data[i].data, CONTENT);
-                }
                 else if (data[i].type === "products"){
                     result = PRODUCTS.render(data[i].data, true);
                 }
-                else if (data[i].type === "pay"){
-                    data[i].data.priceFormat = WD.priceFormat;
-                    result = _.template("messenger.pay", data[i].data, CONTENT);
+                else {
+                    result = _.template("messenger." + data[i].type, data[i].data, CONTENT);
                 }
             }
 
@@ -56,7 +54,7 @@
                 type: type,
                 data: data
             }], function($item){
-                if ($item) WD.update($item.find(".WD__messenger__item__metadata"));
+                if ($item) WD.updateTime($item.find(".WD__messenger__item__metadata"));
             });
         },
 
@@ -98,11 +96,7 @@
             }
         },
 
-        storage: function(){
-
-        },
-
-        update: function($date){
+        updateTime: function($date){
 
             setTimeout(function(){
 

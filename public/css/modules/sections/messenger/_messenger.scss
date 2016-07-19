@@ -1,12 +1,10 @@
 .WD__messenger {
-    background:#f8f8f8;
     // background:#F8F9FC;
     // background:#EBEDF1;
 
     &__wrapper {
-        @include abs();
         @include flex("column", "flex-start", "center");
-        @include accelerate(true);
+        background:#f8f8f8;
         overflow:hidden;
     }
     &__header {

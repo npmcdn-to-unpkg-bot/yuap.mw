@@ -1,5 +1,7 @@
 (function(app, $, $dom, EV, _){
 
+    app.define("messenger.emoji");
+
     var PARENT = app.messenger,
         sizes = app.sizes;
 
@@ -27,7 +29,7 @@
         render: function(){
 
             // open emoji
-            PARENT.content.on(EV.click, ".WD__messenger__item__operator > .WD__messenger__item__text", function(){
+            PARENT.content.on(EV.click, ".WD__messenger__item__operator[data-type='text'] > .WD__messenger__item__text", function(){
                 WD.open($(this));
             });
 

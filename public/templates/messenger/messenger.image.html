@@ -1,4 +1,7 @@
 <div data-id="{{id}}" data-type="image" data-who="{{who}}" class="WD__messenger__item WD__messenger__item__{{who}}">
+    {{#avatar}}
+        <div class="WD__messenger__item__avatar" style="background-image:url({{avatar}})"></div>
+    {{/avatar}}    
     <div class="WD__messenger__item__image">
         <img class="WD__messenger__item__image__file" src="{{image}}">
     </div>

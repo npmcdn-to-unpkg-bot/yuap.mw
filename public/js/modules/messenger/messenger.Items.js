@@ -18,6 +18,30 @@ yellApp.messenger.items = [
     }
 },
 {
+    type: "name",
+    data: {
+        id: "3",
+        who: "operator",
+        date: "2016-07-30 10:17:00"
+    }
+},
+{
+    type: "email",
+    data: {
+        id: "3",
+        who: "operator",
+        date: "2016-07-30 10:17:00"
+    }
+},
+{
+    type: "phone",
+    data: {
+        id: "3",
+        who: "operator",
+        date: "2016-07-30 10:17:00"
+    }
+},
+{
     type: "pay",
     data: {
         id: "3",

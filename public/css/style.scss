@@ -30,11 +30,14 @@
 // messenger
 @import 'modules/sections/messenger/messenger';
 @import 'modules/sections/messenger/messengerHeader';
-@import 'modules/sections/messenger/messengerContent';
+@import 'modules/sections/messenger/content/messengerContent';
+@import 'modules/sections/messenger/content/messengerSocial';
+@import 'modules/sections/messenger/content/messengerProducts';
+@import 'modules/sections/messenger/content/messengerPay';
 @import 'modules/sections/messenger/messengerFooter';
 @import 'modules/sections/messenger/messengerLoading';
 @import 'modules/sections/messenger/messengerOptions';
-@import 'modules/sections/messenger/messengerProducts';
+@import 'modules/sections/messenger/messengerForm';
 @import 'modules/sections/messenger/messengerEmoji';
 @import 'modules/sections/messenger/messengerColor';
 

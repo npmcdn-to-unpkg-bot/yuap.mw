@@ -1,0 +1,16 @@
+<div data-id="{{id}}" data-type="name" data-who="operator" class="WD__messenger__item WD__messenger__item__operator">
+    {{#avatar}}
+        <div class="WD__messenger__item__avatar" style="background-image:url({{avatar}})"></div>
+    {{/avatar}}
+    <div class="WD__messenger__item__text">
+        <div class="WD__messenger__item__title">Как к Вам обращаться?</div>
+        <a href="#" class="WD__messenger__openForm" data-type="name" data-title="Пожалуйста, введите имя" data-placeholder="Ваше имя">ввести свое имя</a> или выбрать профиль
+        <div class="WD__messenger__item__social__buttons">
+            <span data-social="fb" class="WD__messenger__item__social__button WD__messenger__item__social__button__fb"></span>
+            <span data-social="vk" class="WD__messenger__item__social__button WD__messenger__item__social__button__vk"></span>
+            <span data-social="dk" class="WD__messenger__item__social__button WD__messenger__item__social__button__dk"></span>
+            <span data-social="tw" class="WD__messenger__item__social__button WD__messenger__item__social__button__tw"></span>
+        </div>
+    </div>
+    {{#date}}<div class="WD__messenger__item__metadata">{{#dateFormat}}{{date}}{{/dateFormat}}</div>{{/date}}
+</div>

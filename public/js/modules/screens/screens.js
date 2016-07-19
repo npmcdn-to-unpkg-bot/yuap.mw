@@ -112,26 +112,67 @@
 
         section: {
 
-            open: function(section){
-                if (!app[section]) return;
+            open: function(sectionShow, sectionHide, callback){
+                if (!app[sectionShow]) return;
 
-                if (app[section].ready){
-                    app[section].open();
-                    WD.hide.on();
+                WD.sectionShow = app[sectionShow];
+
+                if (sectionHide) WD.sectionHide = app[sectionHide];
+                if (callback) callback(WD.sectionShow);
+
+                if (WD.sectionShow.ready){
+                    WD.sectionShow.open();
+                    if (sectionHide) WD.section.hide.on(WD.sectionHide);
+                    else WD.hide.on();
                 }
                 else {
-                    WD.loading.on();
+                    if (sectionHide) WD.section.loading.on(WD.sectionHide);
+                    else WD.loading.on();
                     setTimeout(function(){
-                        app[section].init(true, function(){
-                            WD.loading.off();
-                            WD.hide.on();
+                        WD.sectionShow.init(true, function(){
+                            if (sectionHide){
+                                WD.section.loading.off(WD.sectionHide);
+                                WD.section.hide.on(WD.sectionHide);
+                            }
+                            else {
+                                WD.loading.off();
+                                WD.hide.on();
+                            }
                         });
                     }, 5);
                 }
             },
 
             close: function(){
+                if (WD.sectionHide){
+                    WD.section.hide.off(WD.sectionHide);
+                    WD.sectionHide = null;
+                }
                 if (WD.hidden) WD.hide.off();
+            },
+
+            loading: {
+
+                on: function($section){
+                    $section.elem.attr("data-loading", "true");
+                },
+
+                off: function($section){
+                    $section.elem.attr("data-loading", "false");
+                }
+            },
+
+            hide: {
+
+                on: function($section){
+                    $section.elem.attr("data-hidden", "true");
+                    $section.hidden = true;
+                },
+
+                off: function($section){
+                    $section.elem.attr("data-hidden", "false");
+                    $section.hidden = false;
+                }
             }
         },
 

@@ -45,11 +45,12 @@ gulp.task('css', function() {
 });
 
 gulp.task('templates', function() {
-	gulp.src('templates/*.html')
+	gulp.src(['templates/*.html',
+		'templates/**/*.html'])
 		.pipe(template({
 			namespace: "yellApp.templates",
 			name: function (file) {
-				return file.relative.replace(/\.html/, "");
+				return file.relative.replace(/.+\//, "").replace(/\.html/, "");
 			}
 		}))
 		.pipe(concat('templates.js'))
@@ -62,11 +63,10 @@ gulp.task('watch', function() {
 		'css/**/*.scss'
 	], ['css']);
 
-	gulp.watch('templates/*.html', ['templates']);
+	gulp.watch(['templates/*.html',
+		'templates/**/*.html'], ['templates']);
 
     gulp.watch([
-		'../index.html',
-		'../sections.html',
 		'js/*.js',
 		'js/**/*.js'
 	]).on('change', reload);
