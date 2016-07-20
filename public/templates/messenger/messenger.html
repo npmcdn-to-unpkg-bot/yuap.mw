@@ -1,12 +1,12 @@
-<div class="WD__messenger WD__section WD__section--active">
+<div class="WD__messenger WD__section">
     <div class="WD__messenger__wrapper WD__section__wrapper">
         <div class="WD__messenger__header">
             <div class="WD__messenger__header__close">
                 <svg class="WD__messenger__header__close__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g display="none" enable-background="new    "><g display="inline"><g><polygon fill-rule="evenodd" clip-rule="evenodd" points="77.899,14.645 68,4.745 32.645,40.101 22.745,50 32.645,59.899      68,95.255 77.899,85.355 42.544,50    "/></g></g></g><g enable-background="new    "><g><g><path class="WD__messenger__header__close__icon__color" fill-rule="evenodd" clip-rule="evenodd" d="M42.544,50l30.405-30.405c2.734-2.734,2.734-7.166,0-9.899     c-2.732-2.734-7.166-2.734-9.898,0L27.695,45.05c-2.733,2.734-2.733,7.166,0,9.9l35.356,35.354c2.732,2.734,7.166,2.734,9.898,0     c2.734-2.733,2.734-7.165,0-9.899L42.544,50z"/></g></g></g><g display="none" enable-background="new    "><g display="inline"><g><polygon fill-rule="evenodd" clip-rule="evenodd" points="74.535,8.28 71,4.745 25.745,50 71,95.255 74.535,91.72 32.816,50         "/></g></g></g><g display="none" enable-background="new    "><g display="inline"><g><path class="WD__messenger__header__close__icon__color" fill-rule="evenodd" clip-rule="evenodd" d="M32.816,50l39.952-39.951c0.977-0.977,0.977-2.56,0-3.536     c-0.977-0.976-2.559-0.976-3.535,0l-41.72,41.72c-0.976,0.977-0.976,2.559,0,3.535l41.72,41.72c0.977,0.976,2.559,0.976,3.535,0     c0.977-0.977,0.977-2.56,0-3.536L32.816,50z"/></g></g></g></svg>
             </div>
             <div class="WD__messenger__header__title">Онлайн-консультант</div>
-            <div class="WD__messenger__header__options">
-                <svg class="WD__messenger__header__options__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" enable-background="new 0 0 16 16" x="0px" y="0px"><g><circle  class="WD__messenger__header__options__icon__color" cx="2" cy="8" r="2"/><circle class="WD__messenger__header__options__icon__color" cx="14" cy="8" r="2"/><circle class="WD__messenger__header__options__icon__color" cx="8" cy="8" r="2"/></g></svg>
+            <div class="WD__messenger__header__menu__opener">
+                <svg class="WD__messenger__header__menu__opener__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" enable-background="new 0 0 16 16" x="0px" y="0px"><g><circle  class="WD__messenger__header__menu__opener__icon__color" cx="2" cy="8" r="2"/><circle class="WD__messenger__header__menu__opener__icon__color" cx="14" cy="8" r="2"/><circle class="WD__messenger__header__menu__opener__icon__color" cx="8" cy="8" r="2"/></g></svg>
             </div>
         </div>
         <div class="WD__messenger__body">
@@ -104,18 +104,37 @@
         </div>
         <div class="WD__messenger__form__close"></div>
     </div>
-    <div class="WD__messenger__options">
-        <div class="WD__messenger__options__wrapper">
-            <div class="WD__messenger__options__item">
-                <span class="WD__messenger__options__item__title">Отправить переписку</span>
+    <div class="WD__messenger__menu">
+        <div class="WD__messenger__menu__wrapper">
+            <div class="WD__messenger__menu__item" data-item="callback">
+                <span class="WD__messenger__menu__item__title">Перезвоните мне, оставить</span>
+                <svg class="WD__messenger__menu__item__icon__callback" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path class="WD__messenger__menu__item__icon__color" d="M31.126,42.766c-1.342-5.693,11.38-11.721,9.041-19.423c-1.87-6.145-13.118-19.352-21.441-12.065  c-8.327,7.286-15.348,28.88,12.23,57.242c27.579,28.355,48.39,18.991,53.075,15.09s8.629-10.645,5.983-14.574  c-2.803-4.167-10.336-11.204-15.359-10.699c-5.001,0.501-6.768,3.856-10.395,7.576c-3.636,3.724-7.029,5.729-13.009,0  C45.263,60.189,32.143,47.086,31.126,42.766z"/></svg>
+                <!-- <svg class="WD__messenger__menu__item__icon__callback" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.625 25.625">
+                        <path class="WD__messenger__menu__item__icon__color" d="M22.079,17.835c-1.548-1.324-3.119-2.126-4.648-0.804l-0.913,0.799   c-0.668,0.58-1.91,3.29-6.712-2.234C5.005,10.079,7.862,9.22,8.531,8.645l0.918-0.8c1.521-1.325,0.947-2.993-0.15-4.71l-0.662-1.04   C7.535,0.382,6.335-0.743,4.81,0.58L3.986,1.3C3.312,1.791,1.428,3.387,0.971,6.419c-0.55,3.638,1.185,7.804,5.16,12.375   c3.97,4.573,7.857,6.87,11.539,6.83c3.06-0.033,4.908-1.675,5.486-2.272l0.827-0.721c1.521-1.322,0.576-2.668-0.973-3.995   L22.079,17.835z"/>
+                </svg> -->
             </div>
-            <div class="WD__messenger__options__item">
-                <span class="WD__messenger__options__item__title">Получить визитку</span>
+            <div class="WD__messenger__menu__item" data-item="sendEmail">
+                <span class="WD__messenger__menu__item__title">Отправить переписку</span>
+                <svg class="WD__messenger__menu__item__icon__sendEmail" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><path class="WD__messenger__menu__item__icon__color" d="M94,31.8c-0.9-1.2-2.3-1.8-3.9-1.8H37.9H5v3.1h27.2c-0.5,0.7-0.9,1.5-1.2,2.4l-1.1,3.9H12v3.1h17.1L26.8,51h-8v3h7.1  l-2.7,9.7c-0.4,1.6-0.2,3.3,0.7,4.4c0.9,1.2,2.3,1.8,3.9,1.8h52.8c3.1,0,6.1-2.4,6.9-5.5l7.2-28.3C95.2,34.6,94.9,33,94,31.8z   M84.6,63.7c-0.4,1.7-2.2,3.2-3.9,3.2H27.8c-0.6,0-1.1-0.2-1.4-0.6s-0.4-1.1-0.2-1.8l5.9-21.4l20.4,9.6c1.8,0.8,3.9,1.3,6,1.3  s4.4-0.4,6.6-1.3l24.8-9.3L84.6,63.7z M91.8,35.5l-1.1,4.3L63.9,49.9c-3.6,1.4-7.4,1.4-10.2,0.1l-20.8-9.9l1.1-3.8  c0.5-1.7,2.3-3.2,4-3.2h52.2c0.6,0,1.1,0.2,1.4,0.6C91.9,34.1,92,34.8,91.8,35.5z"/></svg>
             </div>
-            <div class="WD__messenger__options__item">
-                <span class="WD__messenger__options__item__title">Выключить оповещения</span>
+            <div class="WD__messenger__menu__item" data-item="eCard">
+                <span class="WD__messenger__menu__item__title">Получить визитку</span>
+                <svg class="WD__messenger__menu__item__icon__eCard" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 55" version="1.1" x="0px" y="0px"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path class="WD__messenger__menu__item__icon__color" d="M55,42 L5,42 C3.346,42 2,40.654 2,39 L2,16 L58,16 L58,39 C58,40.654 56.654,42 55,42 L55,42 Z M2,14 L58,14 L58,8 L2,8 L2,14 Z M5,2 L55,2 C56.654,2 58,3.346 58,5 L58,6 L2,6 L2,5 C2,3.346 3.346,2 5,2 L5,2 Z M55,0 L5,0 C2.243,0 0,2.243 0,5 L0,7 L0,15 L0,39 C0,41.757 2.243,44 5,44 L55,44 C57.757,44 60,41.757 60,39 L60,15 L60,7 L60,5 C60,2.243 57.757,0 55,0 L55,0 Z"/><path class="WD__messenger__menu__item__icon__color" d="M36,36 L52,36 L52,28 L36,28 L36,36 Z M53,26 L35,26 C34.447,26 34,26.447 34,27 L34,37 C34,37.553 34.447,38 35,38 L53,38 C53.553,38 54,37.553 54,37 L54,27 C54,26.447 53.553,26 53,26 L53,26 Z"/><path class="WD__messenger__menu__item__icon__color" d="M6,23 L14.988,23 C15.541,23 15.988,22.553 15.988,22 C15.988,21.447 15.541,21 14.988,21 L6,21 C5.447,21 5,21.447 5,22 C5,22.553 5.447,23 6,23"/><path class="WD__messenger__menu__item__icon__color" d="M28,21 L19.012,21 C18.459,21 18.012,21.447 18.012,22 C18.012,22.553 18.459,23 19.012,23 L28,23 C28.553,23 29,22.553 29,22 C29,21.447 28.553,21 28,21"/><path class="WD__messenger__menu__item__icon__color" d="M21,25 L6,25 C5.447,25 5,25.447 5,26 C5,26.553 5.447,27 6,27 L21,27 C21.553,27 22,26.553 22,26 C22,25.447 21.553,25 21,25"/><path class="WD__messenger__menu__item__icon__color" d="M28,25 L25,25 C24.447,25 24,25.447 24,26 C24,26.553 24.447,27 25,27 L28,27 C28.553,27 29,26.553 29,26 C29,25.447 28.553,25 28,25"/></g></svg>
+                <!-- <svg class="WD__messenger__menu__item__icon__eCard" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><path class="WD__messenger__menu__item__icon__color" d="M82.8,78.6H17.6c-5,0-9-4.1-9-9v-37c0-5,4.1-9,9-9h65.2c5,0,9,4.1,9,9v37C91.9,74.5,87.8,78.6,82.8,78.6z   M17.6,27.9c-2.6,0-4.8,2.1-4.8,4.8v37c0,2.6,2.1,4.8,4.8,4.8h65.2c2.6,0,4.8-2.1,4.8-4.8v-37c0-2.6-2.1-4.8-4.8-4.8H17.6z M53.7,53  l27-16.9c1-0.6,1.3-1.9,0.7-2.9v0c-0.6-1-1.9-1.3-2.9-0.7L50.8,49.8L22,32.6c-1-0.6-2.3-0.3-2.9,0.7l0,0c-0.6,1-0.3,2.3,0.7,2.9  L48,53.1C49.8,54.1,52,54.1,53.7,53z"/></svg> -->
             </div>
+            <div class="WD__messenger__menu__item" data-item="contacts">
+                <span class="WD__messenger__menu__item__title">Посмотреть контакты</span>
+                <svg class="WD__messenger__menu__item__icon__contacts" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><g><g><path class="WD__messenger__menu__item__icon__color" d="M42.5,83.8c1.8,2.6,4.6,3.9,7.4,3.9c2.8,0,5.6-1.3,7.4-3.9c6.6-9.6,15.8-23,19.3-28.3c3.9-5.8,6-13,5.4-20.7    C80.8,19.2,68,6.5,52.3,5.4c-0.8-0.1-1.5-0.1-2.3-0.1c-17.8,0-32.2,14.4-32.2,32.2c0,6.7,2,12.9,5.5,18    C26.8,60.8,35.9,74.2,42.5,83.8z M50,9.3c0.7,0,1.4,0,2,0.1c13.8,1,25,12.1,26.1,25.8c0.5,6.5-1.1,12.8-4.7,18.1    C69.9,58.5,61,71.5,54.1,81.6c-0.9,1.4-2.4,2.2-4.1,2.2c-1.7,0-3.2-0.8-4.1-2.2C39,71.5,30,58.5,26.6,53.3    c-3.2-4.7-4.8-10.1-4.8-15.8C21.7,22,34.4,9.3,50,9.3z"/></g><g><path class="WD__messenger__menu__item__icon__color" d="M50,56c10.2,0,18.5-8.3,18.5-18.5S60.2,19,50,19c-10.2,0-18.5,8.3-18.5,18.5S39.8,56,50,56z M50,23    c8,0,14.5,6.5,14.5,14.5C64.5,45.5,58,52,50,52c-8,0-14.5-6.5-14.5-14.5C35.5,29.5,42,23,50,23z"/></g></g></svg>
+            </div>
+            <div class="WD__messenger__menu__item" data-item="email">
+                <span class="WD__messenger__menu__item__title">Email: <a class="WD__messenger__menu__item__link" href="mailto:support@company.ru">support@company.ru</a></span>
+            </div>
+            <a href="http://vk.com/topic-81794689_31204542" target="_blank" class="WD__messenger__menu__item" data-item="vk">
+                <span class="WD__messenger__menu__item__title">Продолжить общение...</span>
+                <span class="WD__messenger__menu__item__icon__vk"></span>
+            </a>
         </div>
+        <div class="WD__messenger__menu__close"></div>
     </div>
 </div>
 

@@ -5,7 +5,11 @@
     <div class="WD__messenger__item__pay">
         <div class="WD__messenger__item__pay__title">к оплате</div>
         <div class="WD__messenger__item__pay__price">{{#priceFormat}}{{price}}{{/priceFormat}} ₽</div>
-        <div class="WD__messenger__item__pay__text">{{count}} x {{text}}</div>
+        <div class="WD__messenger__item__pay__items">
+        {{#items}}
+            <div class="WD__messenger__item__pay__text">{{count}} x {{text}}</div>
+        {{/items}}    
+        </div>
         <a href="{{url}}" target="_blank" class="WD__messenger__item__pay__button">оплатить</a>
     </div>
     {{#date}}<div class="WD__messenger__item__metadata">{{#dateFormat}}{{date}}{{/dateFormat}}</div>{{/date}}

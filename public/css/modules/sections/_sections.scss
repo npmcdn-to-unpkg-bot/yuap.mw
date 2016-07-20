@@ -17,7 +17,7 @@
 
     &__wrapper {
         @include abs();
-        @include accelerate(true);       
+        @include accelerate(true);
         will-change:transform, opacity;
         transition:transform 0.5s $cubic40, opacity 0.5s $cubic40;
     }

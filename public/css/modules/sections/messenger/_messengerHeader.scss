@@ -30,7 +30,7 @@
             }
         }
     }
-    &__options {
+    &__menu__opener {
         @include flex("row", "flex-end", "center");
         width:70px;
         height:100%;

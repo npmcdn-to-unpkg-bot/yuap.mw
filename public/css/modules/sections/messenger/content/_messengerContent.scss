@@ -36,11 +36,8 @@
         min-width:40%;
         max-width:95%;
     }
-    a {
-        color:#0074b0;
-    }
     strong {
-        color:darken(#74a3c7,20%);
+        font-family:sans-serif;
     }
 }
 .WD__messenger__item__user {
@@ -333,10 +330,6 @@
         display:block;
         width:27px;
         height:27px;
-
-        &__color {
-            fill:$blue;
-        }
     }
 }
 

@@ -47,10 +47,14 @@ yellApp.messenger.items = [
         id: "3",
         who: "operator",
         price: "32990",
-        count: "1",
-        url: "http://yandex.ru",
-        text: "Ultra HD (4K) LED телевизор LG 43UH610V",
-        date: "2016-07-30 10:17:00"
+        url: "http://vk.com/topic-81794689_31204542",
+        date: "2016-07-30 10:17:00",
+        items: [
+        {
+            count: "1",
+            text: "Ultra HD (4K) LED телевизор LG 43UH610V"
+        }
+        ]
     }
 },
 {

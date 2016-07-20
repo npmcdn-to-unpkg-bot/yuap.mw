@@ -47,18 +47,20 @@
         font-size:23.5px;
         line-height:24px;
         font-weight:500;
-        margin:17px 0 14px;
+        margin:17px 0 7px;
     }
     &__text {
-        color:rgba(#fff,.7);
+        color:rgba(#fff,.95);
         font-size:17px;
         line-height:20px;
-        font-weight:500;
+        font-weight:400;
         overflow:hidden;
         max-width:100%;
         white-space:nowrap;
         text-overflow:ellipsis;
         text-align:left;
+        padding:7px 0;
+        border-bottom:1px dashed rgba(#fff,.8);
     }
     &__button {
         position:absolute;

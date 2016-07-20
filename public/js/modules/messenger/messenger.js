@@ -15,9 +15,11 @@
             if (WD.ready) return;
 
             WD.elem = _.template("messenger");
+            WD.header = WD.elem.find(".WD__messenger__header");
             WD.body = WD.elem.find(".WD__messenger__body");
             WD.content = WD.body.find(".WD__messenger__content");
             WD.footer = WD.elem.find(".WD__messenger__footer");
+            WD.buttonClose = WD.header.find(".WD__messenger__header__close");
 
             ADD = WD.api.add;
 
@@ -37,6 +39,7 @@
                 items: WD.items
             };
 
+            _.init("messenger.menu");
             _.init("messenger.viewer");
             _.init("messenger.emoji");
             _.init("messenger.products");
@@ -69,9 +72,13 @@
             //     items: WD.products.items
             // });
             //
-            ADD("text", {
-                who: "operator",
-                text: "Добрый день, я рада приветствовать Вас, ожидаю ваших вопросов."
+            // ADD("text", {
+            //     who: "operator",
+            //     text: "Добрый день, я рада приветствовать Вас, ожидаю ваших вопросов."
+            // });
+
+            WD.buttonClose.on(EV.click, function(){
+                WD.close();
             });
         },
 

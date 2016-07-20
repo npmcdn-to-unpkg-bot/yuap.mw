@@ -2,7 +2,8 @@
 
     app.define("messenger.api");
 
-    var PARENT = null,
+    var SCREENS = app.screens,
+        PARENT = null,
         CONTENT = null,
         PRODUCTS = null,
         tempus = app.tempus;
@@ -116,6 +117,11 @@
             var d = new Date();
 
             return d.getHours() + ":" + d.getMinutes();
+        },
+
+        openSection: function(){
+
+            SCREENS.section.open("callback", "messenger");
         }
     };
 

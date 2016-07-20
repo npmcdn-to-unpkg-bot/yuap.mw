@@ -1,0 +1,133 @@
+.WD__messenger__menu {
+    @include abs();
+    @include accelerate();
+    @include flex("row", "center", "center");
+    transform:translate3d(101%, 0, 0);
+    transition:transform 0s 0.35s;
+    z-index:5;
+
+    &:before {
+        @include abs();
+        @include accelerate(true);
+        opacity:0.001;
+        content:"";
+        background:rgba($bg_color,.8);
+        will-change:opacity;
+        transition:opacity 0.25s $cubic34 0.1s;
+    }
+    &__wrapper {
+        @include accelerate();
+        opacity:0.001;
+        position:relative;
+        width:88.8%;
+        background:#f4f4f4;
+        box-shadow:inset 0 0 96px #fff;
+        //background-image:linear-gradient(165deg, lighten(#5d73bc, 2%), lighten(#576cb2, 1.5%));
+        border-radius:13px;
+        padding:3px 0;
+        transform:translate3d(0, 5vh, 0);
+        will-change:opacity, transform;
+        transition:opacity 0.2s $cubic34, transform 0.2s $cubic34;
+        z-index:1;
+    }
+    &[data-active="true"] {
+        transition:transform 0s;
+        transform:translate3d(0, 0, 0);
+
+        &:before {
+            opacity:1;
+            transition:opacity 0.3s $cubic34;
+        }
+        .WD__messenger__menu__wrapper {
+            opacity:1;
+            transform:translate3d(0, 0, 0);
+            transition:opacity 0.35s $cubic40, transform 0.35s $cubic40;
+        }
+    }
+    &__item {
+        display:block;
+        position:relative;
+        height:60px;
+        line-height:60px;
+        padding:0 15px 0 20px;
+        border-top:1px solid #fff;
+        border-bottom:1px solid #ededed;
+
+        &:first-child {
+            border-top:none;
+        }
+        &:last-child {
+            height:65px;
+            border-bottom:none;
+        }
+        &__title {
+            position:relative;
+            display:inline-block;
+            font-size:20px;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            max-width:88%;
+            overflow:hidden;
+            vertical-align:top;
+        }
+        &__link {
+            display:inline-block;
+            vertical-align:text-bottom;
+            border-bottom:1px solid transparent;
+            line-height:26px;
+            transform:translate3d(0, 1px, 0);
+        }
+        &__icon {
+            position:absolute;
+            top:0;
+            right:0;
+
+            &__callback {
+                @extend .WD__messenger__menu__item__icon;
+                width:48px;
+                height:48px;
+                transform:translate3d(-6px, 7px, 0);
+            }
+            &__sendEmail {
+                @extend .WD__messenger__menu__item__icon;
+                width:64px;
+                height:64px;
+                transform:translate3d(-5px, 3px, 0) scale3d(1, 1.1, 1);
+            }
+            &__eCard {
+                @extend .WD__messenger__menu__item__icon;
+                width:38px;
+                height:38px;
+                transform:translate3d(-14px, 12px, 0);
+            }
+            &__contacts {
+                @extend .WD__messenger__menu__item__icon;
+                width:56px;
+                height:56px;
+                transform:translate3d(-4px, 7px, 0);
+            }
+            &__vk {
+                position:absolute;
+                top:0;
+                right:0;
+                @extend .WD__messenger__item__social__button;
+                transform:translate3d(-13px, 11px, 0);
+                opacity:1;
+
+                &:before {
+                    @extend .WD__messenger__item__social__button__vk:before;
+                }
+                &:after {
+                    @extend .WD__messenger__item__social__button__vk:after;
+                }
+            }
+        }
+    }
+    &__close {
+        position:absolute;
+        top:10px;
+        right:6px;
+        @include ui-close(white, 42px, 42px);
+        opacity:0.4;
+    }
+}

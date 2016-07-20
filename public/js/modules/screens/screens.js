@@ -148,7 +148,7 @@
                     WD.section.hide.off(WD.sectionHide);
                     WD.sectionHide = null;
                 }
-                if (WD.hidden) WD.hide.off();
+                else if (WD.hidden) WD.hide.off();
             },
 
             loading: {
