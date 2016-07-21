@@ -1,11 +1,11 @@
 .WD__messenger {
+    z-index:3;
     // background:#F8F9FC;
     // background:#EBEDF1;
 
     &__wrapper {
         @include flex("column", "flex-start", "center");
         background:#f8f8f8;
-        overflow:hidden;
     }
     &__header {
         position:relative;

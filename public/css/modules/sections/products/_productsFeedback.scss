@@ -139,6 +139,12 @@
             filter:blur(10px);
         }
     }
+    &[data-hidden="true"] {
+        .WD__products__item--active {
+            transition:none !important;
+            filter:none !important;
+        }
+    }
 }
 @media screen and (max-height:480px){
     .WD__products__feedback__container {

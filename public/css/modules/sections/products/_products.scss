@@ -13,7 +13,7 @@
     @include abs();
     @include accelerate();
 }
-.WD__products__wrapper {
+.WD__products__items {
     @include abs();
     @include accelerate(true);
     overflow:hidden;

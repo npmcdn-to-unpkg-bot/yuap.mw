@@ -1,6 +1,7 @@
 (function(app, $, $dom, EV, _){
 
-    var PARENT = app.products;
+    var SCREENS = app.screens,
+        PARENT = app.products;
 
     app.products.feedback = {
 
@@ -30,6 +31,15 @@
 
             WD.buttonOpen.on(EV.click, function(){
                 WD.open();
+            });
+
+            WD.elem.on(EV.click, ".WD__products__feedback__container", function(){
+                var item = $(this).data("item");
+
+                if (item == "callback") SCREENS.section.open("callback", "products");
+                else if (item == "messenger") SCREENS.section.open("messenger", "products");
+                
+                WD.close();
             });
 
             WD.buttonClose.on(EV.click, function(){

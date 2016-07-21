@@ -1,11 +1,11 @@
 yellApp.products.items = [{
     id: 1,
-    title: "Ночная сорочка силуэта ампир",
-    price: "8560",
-    priceOld: "12140",
+    title: "Apple iPhone 6S Plus 128Gb",
+    price: "66990",
+    priceOld: "86990",
     image: {
-        normal: "http://static.eldorado.ru/photos/71/new_71130962_l_796.png/resize/700x525/",
-        zoom: "http://static.eldorado.ru/photos/71/new_71130962_l_796.png/resize/700x525/"
+        normal: "https://mdata.yandex.net/i?path=b0912194256_img_id2962638793101999607.jpeg",
+        zoom: "https://mdata.yandex.net/i?path=b0912194256_img_id2962638793101999607.jpeg"
     },
     images: [
         {

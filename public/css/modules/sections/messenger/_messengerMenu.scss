@@ -3,7 +3,7 @@
     @include accelerate();
     @include flex("row", "center", "center");
     transform:translate3d(101%, 0, 0);
-    transition:transform 0s 0.35s;
+    transition:transform 0s 0.3s;
     z-index:5;
 
     &:before {
@@ -13,7 +13,7 @@
         content:"";
         background:rgba($bg_color,.8);
         will-change:opacity;
-        transition:opacity 0.25s $cubic34 0.1s;
+        transition:opacity 0.25s $cubic34 0.05s;
     }
     &__wrapper {
         @include accelerate();
@@ -27,7 +27,7 @@
         padding:3px 0;
         transform:translate3d(0, 5vh, 0);
         will-change:opacity, transform;
-        transition:opacity 0.2s $cubic34, transform 0.2s $cubic34;
+        transition:opacity 0.25s $cubic345, transform 0.25s $cubic345;
         z-index:1;
     }
     &[data-active="true"] {
@@ -41,7 +41,7 @@
         .WD__messenger__menu__wrapper {
             opacity:1;
             transform:translate3d(0, 0, 0);
-            transition:opacity 0.35s $cubic40, transform 0.35s $cubic40;
+            transition:opacity 0.35s $cubic345, transform 0.3s $cubic345;
         }
     }
     &__item {

@@ -15,6 +15,7 @@
             if (WD.ready) return;
 
             WD.elem = _.template("messenger");
+            WD.effect = WD.elem.data("effect");
             WD.header = WD.elem.find(".WD__messenger__header");
             WD.body = WD.elem.find(".WD__messenger__body");
             WD.content = WD.body.find(".WD__messenger__content");
@@ -39,6 +40,8 @@
                 items: WD.items
             };
 
+            WD.elem[0].style.display = "block";
+
             _.init("messenger.menu");
             _.init("messenger.viewer");
             _.init("messenger.emoji");
@@ -49,6 +52,7 @@
 
             if (open) {
                 setTimeout(function(){
+                    WD.elem[0].style.display = "";
                     WD.open(callback);
                 }, 300);
             }
@@ -84,26 +88,12 @@
 
         open: function(callback){
 
-            if (WD.active) return;
-
-            WD.elem.addClass("WD__section--active");
-
-            if (_.isFunction(callback)) callback();
-
-            WD.active = true;
-
-            _.logger("open", "messenger");
+            SCREENS.section.openOnly(WD, "messenger", callback);
         },
 
-        close: function(){
+        close: function(callback){
 
-            WD.elem.removeClass("WD__section--active");
-
-            SCREENS.section.close();
-
-            WD.active = false;
-
-            _.logger("close", "messenger");
+            SCREENS.section.close(WD, "messenger", callback);
         }
     };
 

@@ -15,6 +15,7 @@
             if (WD.ready) return;
 
             WD.elem = PARENT.elem.find(".WD__messenger__menu");
+            WD.wrapper = WD.elem.find(".WD__messenger__menu__wrapper");
             WD.buttonClose = WD.elem.find(".WD__messenger__menu__close");
 
             WD.render();
@@ -30,14 +31,17 @@
             });
 
             // select option menu
-            WD.elem.on(EV.click, ".WD__messenger__menu__item", function(){
+            WD.wrapper.on(EV.click, ".WD__messenger__menu__item", function(){
                 var item = $(this).data("item");
 
-                PARENT.api.openSection("callback");
+                WD.close();
+                setTimeout(function(){
+                    PARENT.api.openSection("callback");
+                }, app.callback.ready ? 50 : 0);
             });
 
             // close menu
-            WD.elem.on(EV.click, function(){
+            WD.buttonClose.on(EV.click, function(){
                 WD.close();
             });
         },

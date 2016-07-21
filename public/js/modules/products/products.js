@@ -46,15 +46,17 @@
             };
 
             WD.elem = _.template("products", WD.data);
-
+            WD.effect = WD.elem.data("effect");
             WD.sections.image = WD.elem.find(".WD__products__section__image");
-            WD.sections.imageWrapper = WD.sections.image.find(".WD__products__wrapper");
+            WD.sections.imageWrapper = WD.sections.image.find(".WD__products__items");
             WD.sections.footer = WD.sections.image.find(".WD__products__footer");
             WD.sections.footerContent = WD.sections.footer.find(".WD__products__footer__content");
             WD.sections.desc = WD.elem.find(".WD__products__section__desc");
             WD.sections.descContent = WD.sections.desc.find(".WD__products__desc");
             WD.buttonBack = WD.sections.image.find(".WD__products__back");
             WD.itemsCount = WD.items.length;
+
+            WD.elem[0].style.display = "block";
 
             WD.update(this.items[0]);
 
@@ -92,6 +94,7 @@
 
             if (open) {
                 setTimeout(function(){
+                    WD.elem[0].style.display = "";
                     WD.open(callback);
                 }, 300);
             }
@@ -115,17 +118,6 @@
                 //WD.grid.open();
                 WD.close();
             });
-        },
-
-        open: function(callback){
-
-            WD.elem.addClass("WD__section--active");
-
-            if (callback && typeof callback === "function") callback();
-
-            WD.active = true;
-
-            _.logger("open", "products");
         },
 
         update: function(data){
@@ -232,15 +224,14 @@
             WD.utils.setImage(WD.images[index].image);
         },
 
-        close: function(){
+        open: function(callback){
 
-            WD.elem.removeClass("WD__section--active");
+            SCREENS.section.openOnly(WD, "products", callback);
+        },
 
-            SCREENS.section.close();
+        close: function(callback){
 
-            WD.active = false;
-
-            _.logger("close", "products");
+            SCREENS.section.close(WD, "products", callback);
         }
 
     };

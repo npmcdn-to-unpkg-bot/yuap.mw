@@ -119,9 +119,9 @@
             return d.getHours() + ":" + d.getMinutes();
         },
 
-        openSection: function(){
+        openSection: function(section){
 
-            SCREENS.section.open("callback", "messenger");
+            SCREENS.section.open(section, "messenger");
         }
     };
 

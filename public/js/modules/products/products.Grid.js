@@ -118,9 +118,9 @@
                             image: image,
                             width: sizes.width / 2,
                             height: sizes.height / 2,
-                            autoResize: false,
-                            scaleX: 0.85,
-                            scaleY: 0.8,
+                            autoResize: true,
+                            scaleX: 0.7,
+                            scaleY: 0.85,
                             imgCenter: "WD__products__grid__item--center",
                             imgLoaded: "WD__products__grid__item--loaded"
                         });

@@ -57,12 +57,12 @@
     @include accelerate();
     transform:translateZ(0);
 }
-.d-no-firefox.d-no-safari {
-    .WD__callback__button__blobs {
-        outline:90px solid transparent;
-        filter:url("#WD__callbutton__filter");
-    }
-}
+// .d-no-firefox.d-no-safari {
+//     .WD__callback__button__blobs {
+//         outline:90px solid transparent;
+//         filter:url("#WD__callbutton__filter");
+//     }
+// }
 .WD__callback__button__blob {
     @include abs();
     border-radius:50%;

@@ -14,21 +14,20 @@
 
         init: function(open, callback){
 
-            // if (WD.ready){
-            //     if (open && !WD.active) WD.open(callback);
-            //     return;
-            // }
-
             if (WD.ready) return;
 
             WD.elem = _.template("callback");
+            WD.effect = WD.elem.data("effect");
             WD.title = WD.elem.find(".WD__callback__title");
             WD.buttonClose = WD.elem.find(".WD__callback__close");
+
+            WD.elem[0].style.display = "block";
 
             WD.render();
 
             if (open) {
                 setTimeout(function(){
+                    WD.elem[0].style.display = "";
                     WD.open(callback);
                 }, 300);
             }
@@ -66,17 +65,6 @@
                 var $btn = $(this);
                 WD.animNumber($btn);
             });
-        },
-
-        open: function(callback){
-
-            WD.elem.addClass("WD__section--active");
-
-            if (callback && typeof callback === "function") callback();
-
-            WD.active = true;
-
-            _.logger("open", "callback");
         },
 
         animNumber: function($btn){
@@ -133,23 +121,16 @@
             });
         },
 
+        open: function(callback){
+
+            SCREENS.section.openOnly(WD, "callback", callback);
+        },
+
         close: function(callback){
 
-            WD.elem.removeClass("WD__section--active");
-
-            SCREENS.section.close();
+            SCREENS.section.close(WD, "callback", callback);
 
             WD.getPhone = null;
-
-            WD.active = false;
-
-            if (_.isFunction(callback)){
-                _.onEndTransition(WD.elem[0], function(){
-                    callback();
-                });
-            }
-
-            _.logger("close", "callback");
         }
     };
 

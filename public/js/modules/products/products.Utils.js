@@ -16,9 +16,9 @@
                     image: image,
                     width: 70,
                     height: 70,
-                    autoResize: false,
-                    scaleX: 0.67,
-                    scaleY: 0.67
+                    autoResize: true,
+                    scaleX: 0.75,
+                    scaleY: 0.75
                 });
             });
         },
@@ -49,9 +49,9 @@
                 image: image,
                 width: sizes.width,
                 height: sizes.height - 100,
-                autoResize: false,
+                autoResize: true,
                 scaleX: 0.7,
-                scaleY: 0.6,
+                scaleY: 0.85,
                 imgCenter: "WD__products__image--center",
                 imgError: "WD__products__image--error",
                 imgLoaded: "WD__products__image--loaded"
@@ -65,7 +65,7 @@
                         image: $item.data("image"),
                         width: 64,
                         height: 64,
-                        autoResize: false,
+                        autoResize: true,
                         scaleX: 0.75,
                         scaleY: 0.75,
                         imgLoaded: "WD__products__images__item--loaded"
@@ -121,7 +121,7 @@
                             delta = (options.height * scale) / h;
                             options.$img.css({
                                 width: (w * delta) + "px",
-                                height: (scale * 100) + "%"
+                                height: (options.height * scale) + "px"
                             });
                         }
                         if (options.imgCenter) options.$item.addClass(options.imgCenter);

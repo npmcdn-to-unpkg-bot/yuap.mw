@@ -12,6 +12,8 @@
 
         items: {},
 
+        sectionsHidden: {},
+
         state: null,
 
         init: function(screen){
@@ -117,22 +119,25 @@
 
                 WD.sectionShow = app[sectionShow];
 
-                if (sectionHide) WD.sectionHide = app[sectionHide];
+                if (sectionHide) {
+                    WD.sectionsHidden[sectionHide] = app[sectionHide];
+                    WD.sectionShow.sectionHide = sectionHide;
+                }
                 if (callback) callback(WD.sectionShow);
 
                 if (WD.sectionShow.ready){
                     WD.sectionShow.open();
-                    if (sectionHide) WD.section.hide.on(WD.sectionHide);
+                    if (sectionHide) WD.section.hide.on(WD.sectionsHidden[sectionHide]);
                     else WD.hide.on();
                 }
                 else {
-                    if (sectionHide) WD.section.loading.on(WD.sectionHide);
+                    if (sectionHide) WD.section.loading.on(WD.sectionsHidden[sectionHide]);
                     else WD.loading.on();
                     setTimeout(function(){
                         WD.sectionShow.init(true, function(){
                             if (sectionHide){
-                                WD.section.loading.off(WD.sectionHide);
-                                WD.section.hide.on(WD.sectionHide);
+                                WD.section.loading.off(WD.sectionsHidden[sectionHide]);
+                                WD.section.hide.on(WD.sectionsHidden[sectionHide]);
                             }
                             else {
                                 WD.loading.off();
@@ -143,10 +148,49 @@
                 }
             },
 
-            close: function(){
-                if (WD.sectionHide){
-                    WD.section.hide.off(WD.sectionHide);
-                    WD.sectionHide = null;
+            openOnly: function(section, name, callback){
+
+                if (section.active) return;
+
+                section.elem.addClass("WD__section--active");
+
+                if (_.isFunction(callback)) callback();
+
+                section.active = true;
+
+                _.logger("open", name);
+            },
+
+            close: function(section, name, callback){
+
+                if (!section.active) return;
+
+                if (section.effect == "animation"){
+                    section.elem.addClass("WD__section--hide");
+                    _.onEndAnimation(section.elem[0], function(){
+                        section.elem.removeClass("WD__section--active WD__section--hide");
+                        if (_.isFunction(callback)) callback();
+                    });
+                }
+                else {
+                    section.elem.removeClass("WD__section--active");
+                    _.onEndTransition(section.elem[0], function(){
+                        if (_.isFunction(callback)) callback();
+                    });
+                }
+
+                WD.section.return(section.sectionHide ? section.sectionHide : null);
+
+                section.active = false;
+
+                _.logger("close", name);
+            },
+
+            return: function(section){
+                if (section && WD.sectionsHidden[section]){
+                    WD.section.hide.off(WD.sectionsHidden[section]);
+                    delete WD.sectionShow.sectionHide;
+                    delete WD.sectionsHidden[section];
                 }
                 else if (WD.hidden) WD.hide.off();
             },
