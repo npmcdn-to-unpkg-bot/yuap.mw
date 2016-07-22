@@ -26,7 +26,7 @@
 
         &.WD__section--active {
             display:block;
-            animation:WD__section__active 0.5s $cubic645 0.2s forwards;
+            animation:WD__section__active 0.5s $cubic645 0.1s forwards;
         }
         &.WD__section--hide {
             animation:WD__section__hide 0.45s $cubic40 forwards;
@@ -36,7 +36,7 @@
         transition:transform 0.45s $cubic40;
 
         &.WD__section--active {
-            transition:transform 0.5s $cubic645 0.2s;
+            transition:transform 0.5s $cubic645 0.1s;
             transform:translate3d(0, 0, 0);
         }
     }
@@ -44,7 +44,7 @@
         .WD__section__wrapper {
             opacity:0.4;
             transform:translate3d(10%, 0, 0) scale(.83);
-            transition:transform 0.6s $cubic645 0.2s, opacity 0.6s $cubic645 0.2s;
+            transition:transform 0.6s $cubic645 0.1s, opacity 0.6s $cubic645 0.1s;
         }
     }
 }

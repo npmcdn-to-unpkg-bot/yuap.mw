@@ -139,7 +139,8 @@
             filter:blur(10px);
         }
     }
-    &[data-hidden="true"] {
+    &[data-hidden="true"],
+    &[data-loading="true"] {
         .WD__products__item--active {
             transition:none !important;
             filter:none !important;

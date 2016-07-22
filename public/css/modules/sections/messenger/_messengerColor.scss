@@ -49,8 +49,10 @@ a.WD__messenger__products__item__string__link,
     border-bottom-color:rgba(#158ffe,.5);
 }
 
+// @each $color in (#6a76fc, #00a8ff, #a570f9, #00ab6b, #1abc9c, #ff2d55, #ff665a, #ff6000, #4f81b6, #517da2, #148de0, #895caf, #6739b6, #eb8227, #a1408f, #0088b2, #f0545f, #3897F0, #1c9ff1, #009688){
+
 .WD__messenger {
-    @each $color in (#6a76fc, #00a8ff, #a570f9, #00ab6b, #1abc9c, #ff2d55, #ff665a, #ff6000, #4f81b6, #517da2, #148de0, #895caf, #6739b6, #eb8227, #a1408f, #0088b2, #f0545f, #3897F0, #1c9ff1){
+    @each $color in (#6a76fc){
         &[data-color="#{$color}"]{
             .WD__messenger__header__title,
             .WD__messenger__form__title,

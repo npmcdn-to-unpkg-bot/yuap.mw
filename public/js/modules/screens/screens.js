@@ -115,8 +115,9 @@
         section: {
 
             open: function(sectionShow, sectionHide, callback){
-                if (!app[sectionShow]) return;
+                if (!app[sectionShow] || WD.sectionOpener) return;
 
+                WD.sectionOpener = true;
                 WD.sectionShow = app[sectionShow];
 
                 if (sectionHide) {
@@ -129,6 +130,7 @@
                     WD.sectionShow.open();
                     if (sectionHide) WD.section.hide.on(WD.sectionsHidden[sectionHide]);
                     else WD.hide.on();
+                    WD.sectionOpener = false;
                 }
                 else {
                     if (sectionHide) WD.section.loading.on(WD.sectionsHidden[sectionHide]);
@@ -143,6 +145,7 @@
                                 WD.loading.off();
                                 WD.hide.on();
                             }
+                            WD.sectionOpener = false;
                         });
                     }, 5);
                 }

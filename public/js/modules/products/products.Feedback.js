@@ -36,9 +36,12 @@
             WD.elem.on(EV.click, ".WD__products__feedback__container", function(){
                 var item = $(this).data("item");
 
-                if (item == "callback") SCREENS.section.open("callback", "products");
-                else if (item == "messenger") SCREENS.section.open("messenger", "products");
-                
+                if (item == "callback" || item == "messenger"){
+                    setTimeout(function(){
+                        SCREENS.section.open(item, "products");
+                    }, app[item].ready ? 50 : 0);
+                }
+
                 WD.close();
             });
 

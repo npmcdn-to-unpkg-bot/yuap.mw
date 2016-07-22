@@ -1,0 +1,21 @@
+// .WD__menu {
+//     background:$black_light;
+//     border:none;
+// }
+.WD__screen {
+    // &__cover {
+    //     color:#fff;
+    // 
+    //     &__container {
+    //         color:rgba(#fff,.9);
+    //     }
+    //     &__strong {
+    //         color:#fff;
+    //     }
+    // }
+    @each $color in (#ee5050, #ff3f63, #0088b2, #e67615, #6739b6, #7a4e9f, #1387d7, #4f81b6, #18aa8d, #00ab6b, #8944f7, #008fd9, #6a76fc, #736ce8, #32a9c1, #fa5d5b, #06ae7f, #fb8d35, #2ca7c8, #404e97, #f3773d){
+        &[data-color="#{$color}"]{
+            background:$color;
+        }
+    }
+}
